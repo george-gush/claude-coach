@@ -20,7 +20,7 @@ adaptive-endurance-coach/
 
 This is a coaching **skill** for swimming, cycling, running, and triathlon. It manages long-term training via TrainingPeaks (required, source of truth) and optionally Strava (supplementary). It includes a full nutrition engine that writes daily calorie/macro targets to the TrainingPeaks calendar automatically.
 
-**This repo does NOT include the TrainingPeaks MCP server** — that's a separate open-source project by a different author, cloned fresh in Step 2 below rather than vendored here. Give credit where it's due; don't claim that code as part of this project.
+**This repo does NOT include the TrainingPeaks MCP server** — that's a separate open-source project, cloned fresh in Step 2 below rather than vendored here. Step 2 clones a maintained fork rather than the upstream original, so it stays consistent with what's been reviewed for this setup. Give credit where it's due; don't claim that code as part of this project.
 
 **Note on Strava:** there is no bundled Strava MCP server either. On the machine this skill was originally built on, Strava was available as a hosted/remote connector, not a local git repo. The skill works fully on TrainingPeaks alone — Strava is optional supplementary data. If the user wants Strava integration, search for a current "Strava MCP server" and set it up separately, or connect it as a remote connector if their Claude client supports one. Do not fabricate a Strava setup process — verify against whatever you find before instructing the user.
 
@@ -39,10 +39,10 @@ Ask or check for:
 
 ## Step 2 — Clone and install the TrainingPeaks MCP server
 
-This is a separate open-source project — **clone it fresh**, don't skip this step assuming it's already present:
+This is a separate open-source project — **clone it fresh**, don't skip this step assuming it's already present. Clone from this fork (a tracked fork of the original [JamsusMaximus/trainingpeaks-mcp](https://github.com/JamsusMaximus/trainingpeaks-mcp), kept here so the setup source is known and reviewed):
 
 ```bash
-git clone https://github.com/JamsusMaximus/trainingpeaks-mcp.git
+git clone https://github.com/freezin-tm/trainingpeaks-mcp.git
 cd trainingpeaks-mcp
 uv tool install --editable .
 ```

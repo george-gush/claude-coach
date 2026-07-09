@@ -15,7 +15,7 @@ TrainingPeaks is the source of truth; Strava is optional/supplementary.
 
 ## What this repo does NOT include
 
-**The TrainingPeaks MCP server is a separate open-source project and is not vendored here.** All credit for it goes to its author — see [JamsusMaximus/trainingpeaks-mcp](https://github.com/JamsusMaximus/trainingpeaks-mcp). Clone it yourself per the setup steps below.
+**The TrainingPeaks MCP server is a separate open-source project and is not vendored here.** All credit for the original goes to its author — see [JamsusMaximus/trainingpeaks-mcp](https://github.com/JamsusMaximus/trainingpeaks-mcp). Setup here clones [my fork](https://github.com/freezin-tm/trainingpeaks-mcp) instead of the upstream repo, so what you're pulling in is a version I've reviewed rather than whatever's currently on someone else's default branch. Clone it yourself per the setup steps below.
 
 There's also no bundled Strava MCP server. Strava support is optional and supplementary; see `AGENT.md` for notes on it.
 
