@@ -1,6 +1,7 @@
 # Injuries
 
-> ⚠️ Personal health data. Repository is currently public. Do not commit until private.
+> Personal health data. The repository is public and the athlete accepted that on
+> 2026-09-19. Do not re-raise it.
 
 ## Active — degenerated meniscus
 
@@ -9,7 +10,7 @@
 | Field | Value |
 |---|---|
 | Diagnosis | Degenerated meniscus |
-| Side | **(ask)** — left or right not yet recorded |
+| Side | **Left** |
 | Physiotherapy | ~1 × per week. Reduced from 2 × because pain settled. |
 | Provider | HSMC (appointments on the Personal calendar) |
 | Imaging / clinical notes | **(ask)** |

@@ -3,8 +3,8 @@
 Last updated: 2026-09-19. All figures pulled live from intervals.icu unless marked
 **(ask)**.
 
-> ⚠️ This file holds personal health data. The repository is currently **public**.
-> Do not commit this file until the repository is private.
+> Note: this file holds personal health data and the repository is **public**.
+> The athlete was told and chose to proceed on 2026-09-19. Do not re-raise it.
 
 ---
 
@@ -15,7 +15,9 @@ Last updated: 2026-09-19. All figures pulled live from intervals.icu unless mark
 | intervals.icu athlete ID | `i119853` (display name `Gjar93`) |
 | Location | Abu Dhabi, United Arab Emirates |
 | Time zone | `Asia/Dubai` (UTC+4) |
-| Age / height / weight | **(ask)** — no weight recorded in intervals.icu |
+| Age | **32** |
+| Height | **174 cm** |
+| Weight | **~73–75 kg** (self-reported, not logged). BMI ≈ 24.4 |
 
 ## Connected systems — all verified live on 2026-09-19
 
@@ -25,16 +27,29 @@ Last updated: 2026-09-19. All figures pulled live from intervals.icu unless mark
 | **Garmin** | ✅ `icu_garmin_training: true`, `icu_garmin_upload_workouts: true` | Records workouts **and receives planned workouts from intervals.icu.** Last upload 2026-09-15. |
 | **Whoop** | ✅ scopes: recovery, sleep, cycles, body, workout | Sleep, HRV, resting HR, readiness → intervals.icu |
 | **Strava** | ✅ authorised (`strava_id 93726324`) | Redundant capture. Not used for analysis. |
-| **Hevy** | Pro subscription, API key pending | Strength logging |
+| Hevy | Pro subscription | **Fallback only.** He does not want his phone in the gym. |
 | **Google Calendar** | ✅ connected | The plan. Calendar `Fitness`. |
 
 ---
 
 ## The goal
 
-**A-race:** Olympic distance triathlon — 1.5 km swim / 40 km bike / 10 km run.
+**A-race: T100 Dubai** — Olympic distance, 1.5 km swim / 40 km bike / 10 km run.
 **Date:** Saturday 14 November 2026. Exactly 8 weeks from 19 September.
-**Event name, start time, venue, water temperature, wetsuit rules:** **(ask)**
+**Start: 06:00.** Swim is **open water**. He will race in a **trisuit, no wetsuit**.
+
+Three consequences that change the plan:
+
+1. **Open water, non-wetsuit, is a real gap.** He swims in a resort pool. No
+   wetsuit means less buoyancy and a harder swim, especially for a developing
+   swimmer. He needs open-water practice and at least one non-wetsuit 1.5 km
+   before race day. Sighting and a group start also need rehearsing.
+2. **A 06:00 start means warming up at about 05:00, in the dark.** His knee hurts
+   on cold starts. The race-morning warm-up is a written, timed item, not an
+   afterthought.
+3. **He trains in Abu Dhabi and races in Dubai.** Roughly 1.5 hours' drive. A
+   06:00 start means either a very early departure or a night in Dubai. Settle
+   this well before race week.
 
 There are no B or C races on the calendar. **(ask)** whether to add a tune-up
 event in mid-October.
@@ -45,7 +60,7 @@ event in mid-October.
 
 | Sport | Value | Confidence |
 |---|---|---|
-| **Bike FTP** | **250 W** | Set. Verify the test date — **(ask)** |
+| **Bike FTP** | **250 W** | ⚠️ **Do not trust.** Origin unknown, probably a Garmin estimate. He has no power meter. |
 | Bike LTHR | 163 bpm | |
 | Max HR | 180 bpm | |
 | Bike HR zones | 131 / 145 / 152 / 162 / 166 / 171 / 180 | |
@@ -55,6 +70,11 @@ event in mid-October.
 
 **Action:** set a run threshold. Do not field-test at maximum effort with this
 knee. Derive it from a controlled effort or from HR-anchored work instead.
+
+**Bike: prescribe by heart rate, not power.** There is no power meter, so a power
+target on the watch gives him nothing to follow. This is what broke his previous
+coach's bike workouts — see `garmin-workouts.md` §4. A power meter is on the way;
+retest FTP properly when it arrives, then switch to power.
 
 ---
 
@@ -86,15 +106,19 @@ It is also the entire job of this block.
 | 3 Sep | 45 min | 16.69 km | 21.7 kph | 137 |
 
 54 km already covered at an easy heart rate, well below LTHR 163. 40 km at race
-effort is not in doubt. FTP 250 W is a genuinely useful number.
+effort is not in doubt. Note the speed is from GPS, not power — the FTP figure
+above is not evidence of anything until the power meter arrives.
 
 ### Swim — a distance gap, not a speed gap
 
 Longest logged: 1.12 km (6 Sep). Lesson sessions log 0.2–0.78 km over 50–60 min,
 which is normal for technique work with rests. Threshold pace of 2:00/100 m puts
 1.5 km around 30 minutes. **The gap is continuous distance, not speed.**
-Needs one continuous 1.5 km time trial to confirm. **(ask)** pool or open water,
-and whether the race allows a wetsuit.
+
+**The race swim is open water, non-wetsuit.** That makes the gap wider than the
+pool numbers suggest. No wetsuit means less buoyancy, a lower body position and
+a harder swim. Needs: one continuous 1.5 km time trial, then the same distance in
+open water without a wetsuit, well before race day.
 
 ---
 
@@ -141,12 +165,22 @@ do not push through it. Revisit at every weekly check-in.
 
 ---
 
-## Open questions
+## Settled on 2026-09-19
 
-1. Which knee — left or right?
-2. "Kettlebell knee raises" — knee-over-toe work, or hanging core raises?
-3. Race name, start time, venue, wetsuit rules?
-4. Height, weight, age?
-5. When was FTP 250 W last tested?
-6. Any travel before 14 November?
-7. Does 08:15–09:45 on Tuesday and Thursday work for gym, straight after the swim?
+- **Left knee.**
+- **"Kettlebell knee raise"** = standing, kettlebell hooked over the foot, lift the
+  knee. A loaded hip-flexor raise. Low load on the knee joint itself, so it needs
+  no staging. Goes in Session B accessory work.
+- **Race:** T100 Dubai, 06:00, open water, trisuit, no wetsuit.
+- **Gym: 09:00–10:30 Tuesday and Thursday**, after the swim lesson.
+- 174 cm, ~74 kg, 32 years old.
+- FTP 250 W is not trustworthy. Power meter coming.
+- Repository stays public. He was told what it contains and accepted it.
+
+## Still open
+
+1. Any travel between now and 14 November?
+2. Longest **continuous** run without walking, and did the knee complain?
+3. Has he swum in open water before? Ever swum 1.5 km without a wetsuit?
+4. What is the swim coach working on in the Tuesday and Thursday lessons?
+5. Race-day logistics — drive up at 04:00, or stay in Dubai the night before?

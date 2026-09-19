@@ -106,10 +106,11 @@ Auth is HTTP Basic: username is the literal string `API_KEY`, password is the ke
 
 - Set `category` to the planned-workout type and `start_date_local` to the
   session date in `Asia/Dubai`.
-- Write the steps in intervals.icu workout syntax — duration plus target, by
-  zone, pace or power.
-- Garmin-specific fields exist in the schema (`garmin_power_target`,
-  `garmin_pace_range`) if a step needs to behave a particular way on the watch.
+- Write the steps in intervals.icu workout syntax in the `description`. The
+  server compiles them into `workout_doc` for you.
+- **Read `garmin-workouts.md` before writing one.** The compiler fails silently.
+  `400m` means 400 *minutes*; a bare `Z2` is a *power* zone and he has no power
+  meter; `bpm` targets are dropped without an error.
 - `POST /events/bulk` writes a full week in one call. Prefer it.
 - After the session, `GET /events/{id}` shows whether it was completed and what
   was actually done against it.
@@ -185,16 +186,17 @@ Total: 3 swims, 3 runs, 2 rides, 2 gym.
 | Day | AM | PM |
 |---|---|---|
 | Mon | — | Bike — Intervals |
-| Tue | **Swim — Lesson** 07:00 | Gym A *(stacked after swim — see note)* |
+| Tue | **Swim — Lesson** 07:00 | Gym A **09:00–10:30** |
 | Wed | Run — Intervals | — |
-| Thu | **Swim — Lesson** 07:00 | Gym B *(stacked after swim)* |
+| Thu | **Swim — Lesson** 07:00 | Gym B **09:00–10:30** |
 | Fri | Run — Easy | — |
 | Sat | Bike — Endurance | Swim — Solo (technique) |
 | Sun | Run — Long | — |
 
 Notes on this shape:
-- **Gym stacks onto swim days.** The swim warms the knee, and it saves two trips.
-  Proposed as 08:15–09:45 Tue and Thu. Needs a check against his work calendar.
+- **Gym stacks onto swim days, 09:00–10:30 Tue and Thu.** Confirmed by him. The
+  swim warms the knee for free and it saves two trips to the gym. There is a
+  one-hour gap after the lesson — that is fine, it is not a problem to solve.
 - **Wednesday run is the hard run.** It sits 24 h after Gym A, not before it.
 - **Sunday long run** is the session the whole build is pointed at. Protect it.
 - **Friday is the easiest day.** It is the UAE weekend and the natural place to

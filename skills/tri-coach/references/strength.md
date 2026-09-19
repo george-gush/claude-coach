@@ -140,6 +140,7 @@ only thing left that the knee should do.
 | 4 | Single-leg RDL | 3 × 8 / side | |
 | 4 | Copenhagen plank | 3 × 20–30 s / side | **Short lever first.** See §6. |
 | 4 | Seated calf raise | 3 × 15 | Targets soleus. Relevant to run tolerance. |
+| 4 | Kettlebell knee raise | 3 × 10 / side | Standing, kettlebell hooked over the foot, lift the knee. Loads the hip flexor, not the knee joint. Athlete request. |
 | 5 | Lat pulldown | 3 × 12 | |
 | 5 | Face pull | 3 × 15 | |
 | 5 | Dumbbell curl | 3 × 12 | |
@@ -200,15 +201,13 @@ machine fixes the path and the depth is easy to cap. Set a physical depth stop.
 Use Heavy Slow Resistance tempo (3 s down, 3 s up) for the first 3 weeks, then
 move to normal tempo with more load.
 
-### Open question — resolve before the first session
+### Resolved — kettlebell knee raise
 
-**"Kettlebell knee raises"** is ambiguous. It could mean:
-- ATG-style knee-over-toe work with a kettlebell as counterbalance (a lower-body
-  knee exercise), or
-- Hanging or captain's-chair knee raises (a core exercise)
-
-Ask the athlete which he meant. Do not guess — the first is a knee-loading
-movement that needs staging, the second is not.
+Confirmed 2026-09-19: standing, kettlebell hooked over the foot, lift the knee.
+This is a loaded hip-flexor raise. The knee joint itself takes almost no load, so
+**it needs no staging** — start it at full range in week 1. It sits in Session B,
+Block 4. A strong hip flexor also helps run mechanics, so it earns its place
+beyond being a request.
 
 ---
 
@@ -260,12 +259,28 @@ Rules, in order of priority:
 
 ## 10. How sessions are delivered
 
-The athlete chose **calendar plus Hevy**.
+**He does not want his phone in the gym.** So the target is his watch, not Hevy.
 
-- **Google Calendar** — the schedule and the reason. Event body carries the block
-  summary and the "why" for that session. See `scheduling.md`.
-- **Hevy** — the exercises, sets, reps and loads. Push a routine via the Hevy API.
-  Routine folder: `Tri Coach — Block 1`. Two routines: `A — Quad + Push` and
-  `B — Hinge + Pull`. Update them at the weekly check-in.
-- **Read back from Hevy** after each session: actual loads, reps and RPE. This is
-  the data for progression. Never guess what he lifted — read it.
+**Verified:** intervals.icu cannot structure a strength session. A
+`WeightTraining` event compiles to `workout_doc: []`. There is no API route from
+here to an exercise list on his watch. See `garmin-workouts.md` §6.
+
+So:
+
+- **Garmin Connect** — Sessions A and B are built by hand, once, in the Garmin
+  Connect web workout builder. They stay stable for about four weeks, so this is
+  a one-time cost. Supply him the exact exercise, set, rep and tempo list to
+  enter.
+- **Substitutions.** Garmin's exercise library may not contain Cossack squat,
+  Copenhagen plank, Spanish squat or tibialis raise. This is unverified — he will
+  find out when he builds it. Have a substitute ready for each, or use a generic
+  exercise slot with the real name in the step note.
+- **Google Calendar** — the time block, the warm-up, and why the session exists.
+- **intervals.icu** — write the `WeightTraining` event anyway. It is empty, but it
+  keeps the calendar and the load model complete and gives somewhere to read the
+  completed session back from.
+- **Reading progression back.** Garmin logs sets, reps and weights on the watch
+  and syncs them. Read those, do not guess what he lifted.
+
+**Fallback:** Hevy Pro is set up and has a clean API. If Garmin's library or its
+on-watch experience proves too limited, switch. Do not switch without him asking.
