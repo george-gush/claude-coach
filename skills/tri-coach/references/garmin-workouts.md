@@ -182,46 +182,62 @@ sets and reps returns `200 OK` and compiles to:
 placeholder, but it has no concept of an exercise, a set or a rep. Nothing
 useful reaches the watch. Do not tell him otherwise.
 
-### The route that works — verified 2026-09-19
+### The route: the `garmin` MCP server — configured 2026-09-19
 
-`garminconnect` **0.3.16+** (needs **Python 3.12+**) creates strength workouts in
-Garmin Connect directly:
+`.mcp.json` at the repo root runs **`taxuspt/garmin_mcp`**, pinned to commit
+`655efb8f`, via `uvx` with Python 3.12. Verified in this container: it builds,
+installs 37 packages and launches. It loads in any Claude Code session opened on
+this repo, so there are **110+ Garmin tools available natively** — no scripts.
 
-```python
-from garminconnect.workout import StrengthWorkout, WorkoutSegment, create_strength_set
-create_strength_set(category, step_order, sets, reps, rest_seconds,
-                    exercise_name="", weight_kg=None)
+Credentials come from the environment, never from the repo:
+`GARMIN_EMAIL`, `GARMIN_PASSWORD`, and `GARMINTOKENS` for the token upgrade.
+
+#### Building a strength workout
+
+```
+create_strength_workout(name, exercises)
+  exercises = [{name, sets, reps, rest_seconds, category?}, ...]
+schedule_week(week)          # several workouts across dates in one call
+schedule_workout(id, date)   # one workout onto one day
 ```
 
-**Do not trust pip's default index here** — it served 0.3.2, which has no
-strength support at all. Install 0.3.16 explicitly and check that
+Two rules, straight from the tool's own docstring:
+
+1. **`category` must be a real Garmin category** — `SQUAT`, `DEADLIFT`,
+   `PUSH_UP`, `CARRY`, `SLED` and so on. Anything else, **including
+   `UNASSIGNED` and `OTHER`, is rejected with `400 Invalid category`.**
+2. **`name` is only retained as a real exercise if it matches a Garmin exercise
+   key** (e.g. `FARMERS_CARRY`). Otherwise it survives only as the step
+   description.
+
+So both fields must come from `garmin-exercise-map.md`, which already holds the
+validated category and exercise key for all 27 movements in Sessions A and B.
+Canonical source if the map ever needs rebuilding:
+`https://connect.garmin.com/web-data/exercises/Exercises.json`.
+
+Note the server pins `garminconnect==0.3.2`, which has **no** typed strength
+support — it builds the workout JSON itself. That is fine, and it is why the
+version trap below does not apply to this route.
+
+#### If building workouts directly instead
+
+`garminconnect` **0.3.16+** (Python 3.12+) exposes `StrengthWorkout` and
+`create_strength_set`. **Do not trust pip's default index** — it served 0.3.2
+here, which has no strength support at all. Pin 0.3.16 and check
 `StrengthWorkout` exists before building anything.
 
-**Exercise keys are already resolved.** All 27 movements in Sessions A and B map
-to real catalogue entries — 21 exact, 6 substituted, from a catalogue of 1,527
-exercises across 47 categories. The table is in `garmin-exercise-map.md`. Read
-it; do not re-derive it.
+#### What it costs
 
-`exercises.resolve(name)` needs the exact display name. `exercises.find(term)`
-does substring search but returns first match, not best — always check the
-category is sensible. It matched a hip-raise variant for "leg curl" on the first
-attempt.
-
-**He builds nothing by hand.** He said so on 2026-09-19. Handing him a spec to
-type in is not an acceptable answer.
-
-### What it costs
-
-- **Free.** The library is open source, there are no API fees.
-- **Needs his Garmin Connect login.** Prefer saved OAuth tokens over storing his
-  password — tokens are revocable and survive a password he would rather not
-  share. Never in the repo, never in chat; environment variables only.
+- **Free.** Open source, no API fees.
 - **Unofficial API.** Garmin's official Training API needs partner approval that
   individuals cannot get. This uses Garmin Connect's own web endpoints, so it can
-  break when Garmin changes them. Get his explicit agreement to that before
-  setting it up.
-- **Fallback if it breaks:** Hevy, whose API is official and documented. Endurance
-  training is unaffected either way — see §6a.
+  break when Garmin changes them. The athlete agreed to this on 2026-09-19.
+- **No 2FA on his account** (confirmed 2026-09-19), so a stored email and
+  password complete the login without an interactive code.
+- **Upgrade to tokens after the first login.** Tokens land in `GARMINTOKENS` and
+  the refresh token lasts about a year, so the password can then be removed.
+- **Fallback if it breaks:** Hevy, whose API is official. Endurance training is
+  unaffected either way — see §6a.
 
 ## 6a. Why intervals.icu stays primary — do not "simplify" this away
 
