@@ -91,60 +91,142 @@ problem, not a damage problem. So:
 | 5 | Terminal knee extension, band | 2 × 15 / side | Quad work in the last 30° of extension. This is the "VMO" work, correctly named. |
 | 6 | Spanish squat isometric | 2 × 30 s | Loads the quad with almost no shear at the joint. Also dulls pain before loading. |
 | 7 | Bodyweight split squat, shallow | 1 × 8 / side | Rehearses the pattern before load. |
+| 8 | Cossack squat | 3 × 6 / side | Athlete request. Mobility at the depth he starts from. **Stage the depth — see §6.** |
 
-Before a **run**, use items 1, 5, 6 and 7 only — about 6 minutes. Note this in
-the calendar event body for every run.
+Before a **run**, use items 1, 5, 6 and 7 only — about 6 minutes. Write these as
+real steps in the Garmin workout, not as a note in the description. A step on the
+watch gets done; a note gets skipped.
 
 ---
 
 ## 4. Session structure
 
-Two sessions per week, 75–90 minutes each. Six blocks, in this order. Power goes
-early, when the athlete is fresh. Isometrics go last, when a long hold is the
-only thing left that the knee should do.
+Two sessions per week, 75–90 minutes each. Power goes early, when he is fresh.
+Isometrics and core go last.
+
+**The athlete's exercise list was a set of preferences, not a prescription.** He
+asked explicitly for a balanced programme. His list was quad- and adductor-heavy
+and had four real gaps. §4a explains what was added and why. Do not quietly drop
+those additions to save time — cut sets instead.
 
 | # | Block | Time |
 |---|---|---|
 | 0 | Knee and foot prep | 12 min |
-| 1 | Power — non-impact | 10 min |
-| 2 | Lower primary | 15 min |
-| 3 | Upper primary | 15 min |
-| 4 | Lower accessory | 12 min |
-| 5 | Upper accessory — the aesthetics block | 15 min |
-| 6 | Isometric finisher | 5 min |
+| 1 | Power — non-impact | 8–10 min |
+| 2 | Lower primary | 14 min |
+| 3 | Upper primary | 13 min |
+| 4 | Lower accessory — supersetted | 15–16 min |
+| 5 | Upper accessory — supersetted | 14–18 min |
+| 6 | Isometric + core | 6 min |
 
-### Session A — Quad and Push
+Letters mark supersets: `A1`/`A2` alternate with minimal rest. This is what keeps
+a 30-set session inside 90 minutes. Straight sets for Blocks 2 and 3 only — those
+need full recovery.
+
+### Session A — Quad and Push (~85 min)
 
 | Block | Exercise | Sets × Reps | Notes |
 |---|---|---|---|
 | 1 | Med-ball chest throw | 4 × 3 | Maximum intent. Full rest. |
 | 1 | Kettlebell swing | 3 × 8 | Hip power. No landing load. |
-| 2 | Hack squat | 4 × 6–8 | Cap the depth where the knee is comfortable. Tempo 3-0-3 for weeks 1–3. |
-| 3 | Incline dumbbell press | 4 × 6–10 | |
-| 4 | Bulgarian split squat | 3 × 8–10 / side | |
-| 4 | Cossack squat | 3 × 6 / side | **Start shallow.** See §6. |
-| 4 | Standing calf raise | 3 × 12 | |
-| 5 | Cable fly | 3 × 12–15 | |
-| 5 | Lateral raise | 3 × 15 | |
-| 5 | Overhead triceps extension | 3 × 12 | |
+| 2 | Hack squat | 4 × 6–8 | Cap the depth. Tempo 3-0-3 for weeks 1–3. Straight sets. |
+| 3 | Incline dumbbell press | 4 × 6–10 | Straight sets. |
+| 4 | **A1** Bulgarian split squat | 3 × 8–10 / side | |
+| 4 | **A2** Lying leg curl | 3 × 10–12 | **Added.** See §4a. |
+| 4 | **B1** Standing calf raise | 3 × 12 | Gastrocnemius. |
+| 5 | **A1** Seated dumbbell shoulder press | 3 × 8–12 | **Added.** See §4a. |
+| 5 | **A2** Cable fly | 3 × 12–15 | |
+| 5 | **B1** Lateral raise | 3 × 15 | |
+| 5 | **B2** Overhead triceps extension | 3 × 12 | |
 | 6 | Spanish squat hold | 3 × 45 s | |
+| 6 | Pallof press | 2 × 10 / side | **Added.** Anti-rotation. |
 
-### Session B — Hinge and Pull
+### Session B — Hinge and Pull (~85 min)
 
 | Block | Exercise | Sets × Reps | Notes |
 |---|---|---|---|
 | 1 | Kettlebell swing, heavy | 4 × 8 | |
-| 1 | Sled push | 4 × 20 m | Real leg power, zero landing load. Use it if the gym has a sled. |
-| 2 | Hip thrust | 4 × 8 | The athlete's strongest lever for knee-sparing posterior chain load. |
-| 3 | Chest-supported row *or* weighted pull-up | 4 × 6–10 | |
-| 4 | Single-leg RDL | 3 × 8 / side | |
-| 4 | Copenhagen plank | 3 × 20–30 s / side | **Short lever first.** See §6. |
-| 4 | Seated calf raise | 3 × 15 | Targets soleus. Relevant to run tolerance. |
-| 4 | Kettlebell knee raise | 3 × 10 / side | Standing, kettlebell hooked over the foot, lift the knee. Loads the hip flexor, not the knee joint. Athlete request. |
-| 5 | Lat pulldown | 3 × 12 | |
-| 5 | Face pull | 3 × 15 | |
-| 5 | Dumbbell curl | 3 × 12 | |
+| 1 | Sled push | 4 × 20 m | Real leg power, zero landing load. Skip if no sled. |
+| 2 | Hip thrust | 4 × 8 | Best knee-sparing posterior chain load. Straight sets. |
+| 3 | Chest-supported row *or* weighted pull-up | 4 × 6–10 | Straight sets. |
+| 4 | **A1** Single-leg RDL | 3 × 8 / side | |
+| 4 | **A2** Hip abduction — cable, machine or banded lateral walk | 3 × 15 / side | **Added. Highest-priority gap.** See §4a. |
+| 4 | **B1** Copenhagen plank | 3 × 20–30 s / side | Short lever first. See §6. |
+| 4 | **B2** Kettlebell knee raise | 3 × 10 / side | Athlete request. Hip flexor, not knee joint. |
+| 4 | **C1** Seated calf raise | 3 × 15 | Soleus. Relevant to run tolerance. |
+| 5 | **A1** Lat pulldown | 3 × 12 | |
+| 5 | **A2** Face pull | 3 × 15 | Rear delt and upper back. |
+| 5 | **B1** Dumbbell curl | 3 × 12 | |
 | 6 | Leg extension isometric hold @ 60° | 3 × 30 s / side | |
+| 6 | Dead bug | 2 × 8 / side | **Added.** Anti-extension. |
+
+**Cossack squat has moved into Block 0** as mobility work. At the shallow depth
+he starts at, that is what it actually is. It also guarantees it happens.
+
+---
+
+## 4a. The balance audit — what was added, and why
+
+Four things were missing from his list. Each one is here for a reason, not for
+symmetry.
+
+**1. Hip abduction — the biggest gap.**
+His list had Copenhagen planks, which train the *adductors*, and nothing at all
+for the *abductors*. Hip abductor weakness lets the knee collapse inward under
+load. That valgus position is one of the best-evidenced mechanical risk factors
+for knee pain, and it is exactly what happens late in a run when he fatigues.
+For a left meniscus, this matters more than most of the quad work. **Tier A.**
+
+**2. Hamstring knee-flexion work.**
+His list trained the hamstring only at the hip, through single-leg RDLs. The
+hamstrings also cross the knee, and their contraction pulls the shin backwards,
+which offloads the joint. A quad-dominant programme with no knee-flexion work
+makes the imbalance worse. A **lying leg curl** is used rather than the Nordic
+curl named in §2, because the Nordic's kneeling position puts direct pressure on
+the kneecap. Progress to Nordics later if he wants, with padding, and only on a
+green knee.
+
+**3. Trunk — anti-rotation and anti-extension.**
+There was no core work at all. Copenhagen planks are a hip exercise, not a trunk
+exercise. Pallof press and dead bug cover the two patterns that matter for
+holding a bike position and for run posture when tired. Cheap, two minutes.
+
+**4. Vertical pressing.**
+Upper-body work was all horizontal press plus isolation. For the aesthetics goal
+a vertical press is a basic requirement — it builds the front and side delt in a
+way lateral raises alone do not.
+
+### Weekly coverage check
+
+Run this whenever the programme changes. Every row must have a real entry.
+
+| Muscle / pattern | Weekly sets | Where |
+|---|---|---|
+| Quadriceps | 10 | Hack squat, Bulgarian, leg ext isometric |
+| Hamstrings — hip | 3 | Single-leg RDL |
+| Hamstrings — knee | 3 | Lying leg curl |
+| Glute max | 4 | Hip thrust |
+| Glute med / abductors | 3 | Hip abduction |
+| Adductors | 3 | Copenhagen |
+| Calf — gastroc | 3 | Standing calf raise |
+| Calf — soleus | 3 | Seated calf raise |
+| Hip flexor | 3 | KB knee raise |
+| Horizontal push | 7 | Incline press, cable fly |
+| Vertical push | 3 | DB shoulder press |
+| Horizontal pull | 4 | Row / pull-up |
+| Vertical pull | 3 | Lat pulldown |
+| Rear delt | 3 | Face pull |
+| Side delt | 3 | Lateral raise |
+| Biceps | 3 | DB curl |
+| Triceps | 3 | Overhead extension |
+| Trunk | 4 | Pallof, dead bug |
+
+Push-to-pull across the week is 13:10. That is acceptable — slightly push-biased
+suits the aesthetics goal, and the face pulls protect the shoulder.
+
+If a session has to be cut short, drop Block 5 sets first. **Never drop Block 0,
+and never drop hip abduction or the leg curl** — those are the two protecting his
+knee.
 
 ---
 
