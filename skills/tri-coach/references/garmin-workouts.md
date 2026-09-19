@@ -197,6 +197,31 @@ read the session back from once Garmin syncs the completed activity.
 
 ---
 
+## 6a. Why intervals.icu stays primary — do not "simplify" this away
+
+He asked on 2026-09-19 whether Garmin access lets us drop intervals.icu. **No.**
+Garmin Connect is used for exactly one thing: strength workouts. Everything else
+stays on intervals.icu. The reasons, in order of how much they would hurt:
+
+1. **Whoop does not talk to Garmin Connect.** His sleep, HRV, resting HR and
+   readiness reach us *only* through Whoop -> intervals.icu. Dropping
+   intervals.icu means losing every recovery signal — and recovery is currently
+   his binding constraint, not training. This alone settles it.
+2. **intervals.icu's API is official, documented and stable.** A permanent API
+   key, a published OpenAPI spec, no terms-of-service grey area. The Garmin route
+   is reverse-engineered and breaks whenever Garmin changes its web endpoints.
+   Never move working traffic from the stable API onto the fragile one.
+3. **The load model lives there.** Fitness, fatigue, form, power and pace curves,
+   wellness history, activity and interval search. Garmin Connect does not expose
+   equivalents to us.
+4. **Planned workouts already reach the watch from intervals.icu** — proven by
+   test. Writing endurance sessions through Garmin instead would buy nothing and
+   cost reliability.
+
+So: **intervals.icu is the backbone. Garmin Connect is a narrow add-on for the
+one thing intervals.icu cannot do.** If the Garmin route breaks, endurance
+training carries on untouched and only the gym falls back to Hevy.
+
 ## 7. Changing and removing
 
 - **Change:** `PUT /events/{id}` with the new `description`. It recompiles and

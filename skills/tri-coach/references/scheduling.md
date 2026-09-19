@@ -132,6 +132,24 @@ is exactly what hurts his knee.
 
 ---
 
+## 4a. The daily loop
+
+He asked on 2026-09-19 to **discuss plans daily**, not only at a weekly check-in.
+The weekly loop still sets the shape of the week. The daily loop adjusts it.
+
+Keep it short — a few lines, not a report. Each day:
+
+1. **Read before speaking.** Yesterday's activity from intervals.icu, last night's
+   sleep and HRV from the wellness endpoint, and the knee status colour.
+2. **Say what today is** and whether it still stands.
+3. **Adjust if the data says so**, using the green/amber/red rules in
+   `load-and-recovery.md`. Name the change and the reason in one sentence.
+4. **Ask the one thing you cannot read** — usually how the knee feels, or whether
+   something has landed in his day.
+
+Do not re-plan the whole week every day. Do not repeat numbers he saw yesterday.
+If nothing has changed, say so in one line and stop.
+
 ## 5. The weekly planning loop
 
 Run this once a week. Saturday is the natural slot — it is the start of the UAE
