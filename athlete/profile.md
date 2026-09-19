@@ -162,7 +162,15 @@ do not push through it. Revisit at every weekly check-in.
   check-in; the weekly loop still sets the week's shape.
 - **One full rest day per week**, Monday by default. Stated 2026-09-19. Not
   negotiable, and not to be quietly filled when a session slips.
-- Short, simple, clear English. Answer first.
+- Short, simple, clear English. Answer first. **Be brief.** He said 2026-09-19
+  that the replies are too long. Say the thing, stop. No recaps of what was just
+  done, no restating his own words back to him.
+- **Run warm-up: 6 min @ 12:00/km, then 6 min @ 10:30/km.** By pace, not heart
+  rate. Set 2026-09-19.
+- **Label every walk step `WALK` with `recovery: true`.** An unlabelled recovery
+  step reads as "run" on the watch.
+- **When something gets fixed, write it into the repo.** He asked for this on
+  2026-09-19. A fix that only lives in a chat message will be made again.
 - Fuels deliberately before gym sessions.
 - Upper body training is for aesthetics. Lower body is for the knee.
 - Does not want nutrition coaching.

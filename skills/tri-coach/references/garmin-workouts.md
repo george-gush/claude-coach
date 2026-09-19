@@ -108,6 +108,31 @@ Main Set 4x
 ```
 → `{reps: 4, steps: [...]}`. The `Nx` goes on the block heading line.
 
+### Step labels and recovery steps — build `workout_doc` by hand
+
+**The text compiler cannot label a step or mark it as recovery.** Verified: the
+words `recovery`, `recover` and `Walk` in a description line are silently
+ignored. Every step then shows on the watch as a run, including the walk
+recoveries — which is wrong and confusing mid-session.
+
+Build `workout_doc` explicitly instead. These two fields survive a POST or PUT:
+
+```json
+{"duration": 90, "pace": {"units":"secs","value":720},
+ "recovery": true, "text": "WALK recover"}
+```
+
+- `recovery: true` → the watch shows it as a recovery step, not a work step
+- `text` → the label the athlete reads on the watch
+
+**Set `workout_doc.duration` yourself** to the total in seconds when you hand-build.
+The server does not compute it, and a missing duration leaves the session at
+0 minutes for load tracking. Set `moving_time` on the event to match.
+
+**Rule for this athlete: every run-walk interval gets `recovery: true` and a
+`WALK` label on the walk step.** He runs walk recoveries, and an unlabelled step
+tells him to run them.
+
 ### Warm-up and cool-down
 A block named `Warmup` sets `warmup: true`; `Cooldown` sets `cooldown: true`.
 The watch treats these as lap-advance-on-press steps.
@@ -166,6 +191,9 @@ Never skip step 6. It is the only thing that proves the watch got it.
   heat inflates pace, so an HR cap is the honest target.
 - **Every run workout starts with the knee warm-up as real steps.** A step on the
   watch gets done. A note gets skipped, and a cold start is what hurts his knee.
+- **Run warm-up is 6 min @ 12:00/km then 6 min @ 10:30/km**, by pace, labelled
+  `WALK` and `POWER WALK`. Set 2026-09-19 at his request. Do not shorten it and
+  do not use a heart-rate target for it — he wants the pace.
 
 ---
 
