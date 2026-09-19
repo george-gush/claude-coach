@@ -182,20 +182,46 @@ sets and reps returns `200 OK` and compiles to:
 placeholder, but it has no concept of an exercise, a set or a rep. Nothing
 useful reaches the watch. Do not tell him otherwise.
 
-### The options, honestly
+### The route that works — verified 2026-09-19
 
-| Option | Gets it on the watch | Cost |
-|---|---|---|
-| **Build the 2 routines in Garmin Connect once** | ✅ Yes | He types them in once on the web, reuses for ~4 weeks. Garmin's exercise library may not contain Cossack squat, Copenhagen plank, Spanish squat or tibialis raise — substitute or use a generic slot. **I cannot verify Garmin's library from here.** |
-| **Freestyle strength on the watch** | Partly | Start a Strength activity, the watch counts sets and reps, he adds weights after. No prescription shown, so he needs the plan from somewhere. |
-| **Unofficial Garmin Connect API** | ✅ Yes | A community library can create workouts programmatically. It needs his Garmin account password, it is not an official API, and it breaks when Garmin changes things. Only if he asks for it knowingly. |
-| **Hevy** | ❌ Phone | Clean official API, best logging. Rejected — he does not want his phone in the gym. |
+`garminconnect` **0.3.16+** (needs **Python 3.12+**) creates strength workouts in
+Garmin Connect directly:
 
-**Still write the `WeightTraining` event to intervals.icu** even though it is
-empty. It keeps the calendar and the load model complete, and it gives a place to
-read the session back from once Garmin syncs the completed activity.
+```python
+from garminconnect.workout import StrengthWorkout, WorkoutSegment, create_strength_set
+create_strength_set(category, step_order, sets, reps, rest_seconds,
+                    exercise_name="", weight_kg=None)
+```
 
----
+**Do not trust pip's default index here** — it served 0.3.2, which has no
+strength support at all. Install 0.3.16 explicitly and check that
+`StrengthWorkout` exists before building anything.
+
+**Exercise keys are already resolved.** All 27 movements in Sessions A and B map
+to real catalogue entries — 21 exact, 6 substituted, from a catalogue of 1,527
+exercises across 47 categories. The table is in `garmin-exercise-map.md`. Read
+it; do not re-derive it.
+
+`exercises.resolve(name)` needs the exact display name. `exercises.find(term)`
+does substring search but returns first match, not best — always check the
+category is sensible. It matched a hip-raise variant for "leg curl" on the first
+attempt.
+
+**He builds nothing by hand.** He said so on 2026-09-19. Handing him a spec to
+type in is not an acceptable answer.
+
+### What it costs
+
+- **Free.** The library is open source, there are no API fees.
+- **Needs his Garmin Connect login.** Prefer saved OAuth tokens over storing his
+  password — tokens are revocable and survive a password he would rather not
+  share. Never in the repo, never in chat; environment variables only.
+- **Unofficial API.** Garmin's official Training API needs partner approval that
+  individuals cannot get. This uses Garmin Connect's own web endpoints, so it can
+  break when Garmin changes them. Get his explicit agreement to that before
+  setting it up.
+- **Fallback if it breaks:** Hevy, whose API is official and documented. Endurance
+  training is unaffected either way — see §6a.
 
 ## 6a. Why intervals.icu stays primary — do not "simplify" this away
 
