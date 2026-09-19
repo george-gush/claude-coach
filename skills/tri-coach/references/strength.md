@@ -1,0 +1,271 @@
+# Strength Training
+
+Read this before you write, change, or review any gym session.
+
+The athlete has a **degenerated meniscus**. That fact drives every decision in this
+file. Strength is not an accessory to the triathlon training here — for the lower
+body it *is* the rehab, and it is what makes run volume possible. Treat it as a
+key session, not as a filler.
+
+---
+
+## 1. The two goals, and why they do not conflict
+
+The athlete wants two different things from one session:
+
+| Half | Goal | Method |
+|---|---|---|
+| **Lower body** | A knee that carries him through runs, rides and swims without pain. Strength and non-impact power. Rehab and prehab together. | Heavy slow resistance, isometrics, single-leg work, controlled range |
+| **Upper body** | Aesthetics. Muscle size. | Hypertrophy — moderate load, higher volume, close to failure |
+
+These do not compete. The lower body work is joint-friendly and low in systemic
+fatigue. The upper body work does not touch the knee. **Every session contains
+both.** Never write a session that is only one half.
+
+---
+
+## 2. What the evidence actually says
+
+Label every method with its tier when you explain it. Do not oversell.
+
+### Tier A — proven, prescribe by default
+
+- **Exercise therapy matches surgery for a degenerative meniscal tear.** Multiple
+  randomised trials (Kise et al., BMJ 2016; ESCAPE; METEOR) found supervised
+  exercise therapy produced knee function outcomes equal to arthroscopic partial
+  meniscectomy at 12–24 months. Quadriceps strength was *better* in the exercise
+  group. **Tell the athlete this.** It reframes the gym from damage control to
+  the actual treatment.
+- **Quadriceps strength is the main modifiable factor** for knee pain and
+  function in degenerative knee conditions.
+- **Joint effusion inhibits the quadriceps** (arthrogenic muscle inhibition).
+  Even a small amount of swelling switches the quad off. This is why swelling —
+  not pain — is the primary stop signal in this programme.
+- **Heavy slow resistance** (3-second lift, 3-second lower, heavy load) builds
+  tendon and muscle capacity with low joint irritation.
+- **Copenhagen adduction** for adductor strength and groin injury prevention.
+- **Nordic hamstring curl** for hamstring injury prevention.
+- **Strength training improves running economy** in endurance athletes.
+
+### Tier B — promising, use deliberately and say so
+
+- **Isometric holds for pain relief.** Strong evidence in patellar tendinopathy;
+  the mechanism is plausible for this knee but not directly proven. Low risk,
+  useful before activity. Keep them.
+- **Foot arch / short-foot exercises.** Evidence supports gains in intrinsic foot
+  muscle size and strength. Evidence that this changes arch height or running
+  outcomes is weak. Low risk, the athlete wants it, keep it — labelled honestly.
+
+### Tier C — do not claim these work
+
+- **VMO isolation.** You cannot selectively recruit the vastus medialis oblique.
+  The quadriceps fires as a unit. The athlete asked for VMO work. Give him what
+  he actually wants — hard quad loading, especially in the last 30° of extension
+  — but do not call it VMO isolation. Correct the label once, then move on.
+- **Tibialis raises for knee health.** No evidence linking them to knee outcomes.
+  They may help ankle and shin tolerance (Tier B). They are harmless and the
+  athlete likes them, so they stay in the warm-up. Do not claim a knee benefit.
+
+---
+
+## 3. The warm-up block is not optional
+
+The athlete's own report: **pain appears when he starts activity without warming
+up the knee. With a warm-up, there is no real pain.**
+
+This is the single most useful fact in his file. It means the pain is a warm-up
+problem, not a damage problem. So:
+
+> **Block 0 runs before every gym session, every run, and every ride.**
+> If the athlete is short of time, cut the last block of the session. Never cut
+> Block 0.
+
+### Block 0 — Knee and Foot Prep (10–12 min)
+
+| # | Movement | Dose | Why |
+|---|---|---|---|
+| 1 | Bike, easy, rising cadence | 5 min | Raises tissue temperature. This is the part that stops the pain. |
+| 2 | Knee-to-wall ankle rock | 10 / side | Ankle range. A stiff ankle sends load to the knee. |
+| 3 | Tibialis raise | 2 × 15 | Athlete request. Shin and ankle tolerance. |
+| 4 | Short foot + toe curl | 2 × 20 / side | The arch work he asked for. Do it here so it never gets skipped. |
+| 5 | Terminal knee extension, band | 2 × 15 / side | Quad work in the last 30° of extension. This is the "VMO" work, correctly named. |
+| 6 | Spanish squat isometric | 2 × 30 s | Loads the quad with almost no shear at the joint. Also dulls pain before loading. |
+| 7 | Bodyweight split squat, shallow | 1 × 8 / side | Rehearses the pattern before load. |
+
+Before a **run**, use items 1, 5, 6 and 7 only — about 6 minutes. Note this in
+the calendar event body for every run.
+
+---
+
+## 4. Session structure
+
+Two sessions per week, 75–90 minutes each. Six blocks, in this order. Power goes
+early, when the athlete is fresh. Isometrics go last, when a long hold is the
+only thing left that the knee should do.
+
+| # | Block | Time |
+|---|---|---|
+| 0 | Knee and foot prep | 12 min |
+| 1 | Power — non-impact | 10 min |
+| 2 | Lower primary | 15 min |
+| 3 | Upper primary | 15 min |
+| 4 | Lower accessory | 12 min |
+| 5 | Upper accessory — the aesthetics block | 15 min |
+| 6 | Isometric finisher | 5 min |
+
+### Session A — Quad and Push
+
+| Block | Exercise | Sets × Reps | Notes |
+|---|---|---|---|
+| 1 | Med-ball chest throw | 4 × 3 | Maximum intent. Full rest. |
+| 1 | Kettlebell swing | 3 × 8 | Hip power. No landing load. |
+| 2 | Hack squat | 4 × 6–8 | Cap the depth where the knee is comfortable. Tempo 3-0-3 for weeks 1–3. |
+| 3 | Incline dumbbell press | 4 × 6–10 | |
+| 4 | Bulgarian split squat | 3 × 8–10 / side | |
+| 4 | Cossack squat | 3 × 6 / side | **Start shallow.** See §6. |
+| 4 | Standing calf raise | 3 × 12 | |
+| 5 | Cable fly | 3 × 12–15 | |
+| 5 | Lateral raise | 3 × 15 | |
+| 5 | Overhead triceps extension | 3 × 12 | |
+| 6 | Spanish squat hold | 3 × 45 s | |
+
+### Session B — Hinge and Pull
+
+| Block | Exercise | Sets × Reps | Notes |
+|---|---|---|---|
+| 1 | Kettlebell swing, heavy | 4 × 8 | |
+| 1 | Sled push | 4 × 20 m | Real leg power, zero landing load. Use it if the gym has a sled. |
+| 2 | Hip thrust | 4 × 8 | The athlete's strongest lever for knee-sparing posterior chain load. |
+| 3 | Chest-supported row *or* weighted pull-up | 4 × 6–10 | |
+| 4 | Single-leg RDL | 3 × 8 / side | |
+| 4 | Copenhagen plank | 3 × 20–30 s / side | **Short lever first.** See §6. |
+| 4 | Seated calf raise | 3 × 15 | Targets soleus. Relevant to run tolerance. |
+| 5 | Lat pulldown | 3 × 12 | |
+| 5 | Face pull | 3 × 15 | |
+| 5 | Dumbbell curl | 3 × 12 | |
+| 6 | Leg extension isometric hold @ 60° | 3 × 30 s / side | |
+
+---
+
+## 5. The knee rules — traffic light
+
+Apply after every session and every run. **Swelling outranks pain.**
+
+**GREEN — progress as planned**
+- No swelling and no feeling of fullness in the joint
+- Discomfort during the session 2/10 or less
+- Everything settles within 2 hours
+- Next morning feels normal
+
+**AMBER — hold, do not progress**
+- Discomfort 3/10 during the session, or
+- Stiffness next morning that clears by midday, or
+- A slight feeling of fullness in the joint
+
+Action: repeat the same loads next session. Do not add weight. Cut lower-body
+volume by 30%. Keep the upper body work unchanged. Re-check next session.
+
+**RED — stop loading the knee**
+- Visible swelling, or clear fullness in the joint
+- Discomfort 4/10 or more
+- Morning pain that lasts past midday
+- Any catching, locking or giving way
+
+Action: replace Blocks 1, 2 and 4 with Block 0 and isometrics only. Keep all
+upper body work. Tell the athlete to raise it at his next physio session. Log it
+in `athlete/injuries.md`. Two red sessions in a row — stop prescribing lower body
+load and say plainly that this needs the physio, not the coach.
+
+**Never** diagnose. Never contradict the physio. If the athlete reports catching,
+locking or giving way, say clearly that this is outside coaching and belongs with
+his physio or a sports physician.
+
+---
+
+## 6. The three exercises that need staging
+
+**Cossack squat.** Deep knee flexion under side load. This is the position a
+degenerated meniscus tolerates least. Do not start at full depth.
+- Weeks 1–2: to a box, roughly 90° knee angle, bodyweight only
+- Weeks 3–4: box removed if green, still shallow
+- Weeks 5+: add depth only while green, and only 1 step at a time
+
+**Copenhagen plank.** High adductor strain if progressed too fast.
+- Weeks 1–2: short lever — top knee on the bench, 3 × 20 s
+- Weeks 3–4: short lever, 3 × 30 s
+- Weeks 5+: long lever — top foot on the bench — starting at 3 × 15 s
+
+**Hack squat.** The athlete's best tool for heavy quad loading, because the
+machine fixes the path and the depth is easy to cap. Set a physical depth stop.
+Use Heavy Slow Resistance tempo (3 s down, 3 s up) for the first 3 weeks, then
+move to normal tempo with more load.
+
+### Open question — resolve before the first session
+
+**"Kettlebell knee raises"** is ambiguous. It could mean:
+- ATG-style knee-over-toe work with a kettlebell as counterbalance (a lower-body
+  knee exercise), or
+- Hanging or captain's-chair knee raises (a core exercise)
+
+Ask the athlete which he meant. Do not guess — the first is a knee-loading
+movement that needs staging, the second is not.
+
+---
+
+## 7. The 8-week progression to 14 November
+
+| Week | Dates | Lower body | Upper body |
+|---|---|---|---|
+| 1–2 | 21 Sep – 4 Oct | Tolerance. RPE 6–7. Tempo 3-0-3. Cossack to box. Copenhagen short lever. | Build volume. RPE 7–8. |
+| 3–4 | 5 – 18 Oct | Load. RPE 7–8. Normal tempo, more weight. | RPE 8. Add a set to the aesthetics block. |
+| 5–6 | 19 Oct – 1 Nov | Peak strength and power. RPE 8. Power block gets the priority. | Hold. Endurance load is rising. |
+| 7 | 2 – 8 Nov | Cut volume ~40%. Keep the load heavy. **Last heavy session ≈ Wed 4 Nov** (10 days out). | Cut volume ~40%. |
+| 8 | 9 – 14 Nov | **One session, Monday 9 Nov.** Block 0 plus isometrics only. No added load. Nothing after Wednesday. | Light. Movement only. |
+
+Do not drop strength entirely in the last weeks. Detraining starts within about
+2–3 weeks, and this athlete's knee depends on the strength being there on race day.
+
+---
+
+## 8. Plyometrics — after the race
+
+The athlete chose **non-impact power now, plyometrics after 14 November.** That
+decision stands until he changes it. Do not sneak jumps, bounds or drop landings
+into a session before the race.
+
+Non-impact power tools that are allowed: kettlebell swings, med-ball throws,
+sled pushes, and fast concentric intent on the hack squat and hip thrust.
+
+After the race, plyometrics become the off-season project, starting with
+low-amplitude ankle work — pogo hops — and progressing only on green knee status.
+
+---
+
+## 9. Fitting strength around the endurance week
+
+Rules, in order of priority:
+
+1. **Never lift heavy the day before a key run.** The run is the limiter in this
+   build; protect it.
+2. **Same day: endurance quality first, strength after, with a 6-hour gap** where
+   possible.
+3. **Put lifting on easy or moderate endurance days.**
+4. **Prefer stacking gym straight after a swim.** The swim lessons are Tuesday
+   and Thursday, 07:00–08:00. A swim is an ideal warm-up for this knee, and it
+   avoids creating an extra trip to the gym. Gym at 08:15–09:45 on those days is
+   the default proposal — confirm work constraints before committing to it.
+5. The athlete fuels these sessions deliberately. Do not schedule them fasted.
+
+---
+
+## 10. How sessions are delivered
+
+The athlete chose **calendar plus Hevy**.
+
+- **Google Calendar** — the schedule and the reason. Event body carries the block
+  summary and the "why" for that session. See `scheduling.md`.
+- **Hevy** — the exercises, sets, reps and loads. Push a routine via the Hevy API.
+  Routine folder: `Tri Coach — Block 1`. Two routines: `A — Quad + Push` and
+  `B — Hinge + Pull`. Update them at the weekly check-in.
+- **Read back from Hevy** after each session: actual loads, reps and RPE. This is
+  the data for progression. Never guess what he lifted — read it.

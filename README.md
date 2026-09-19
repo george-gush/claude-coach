@@ -1,66 +1,95 @@
-# Adaptive Endurance Coach
+# Tri Coach
 
-A world-class endurance coaching **skill** for agentic AI tools (Claude Code, and likely other MCP-capable agents) — swimming, cycling, running, and triathlon. It manages long-term athlete development the way a real coach + sports nutritionist would: periodized training plans, readiness-guided daily adjustments, evidence-tiered methods, written race plans with individualized tapers, and a nutrition engine that writes daily calorie/macro targets straight onto your training calendar.
+A personal triathlon and strength coaching system for one athlete, one race.
 
-TrainingPeaks is the source of truth; Strava is optional/supplementary.
+**Target:** Olympic distance — 1.5 km swim, 40 km bike, 10 km run — on
+**14 November 2026**.
 
-## What it does
+This started as a fork of the **Adaptive Endurance Coach** skill. The method
+content — evidence tiering, readiness decision rules, taper science, the decision
+log, persistent athlete memory — comes from there and the credit is theirs. Almost
+everything else has been rebuilt:
 
-- **Periodized training plans** built backward from your A-race, using evidence-tiered methods (proven vs. promising vs. unsupported — labeled honestly, not sold as all equally solid).
-- **Daily readiness logic** — HRV/sleep/soreness trend rules that decide whether today's session proceeds, gets softened, or becomes a rest day.
-- **Injury-aware programming** — rehab loading, pain-monitor rules, and a strength program that adapts around what's actually healing.
-- **Race execution planning** — written race plans with pacing, fueling, and a taper individualized to your own history, not a generic template.
-- **Nutrition as a core function, on by default** — daily calorie and macro targets computed from your actual training load and written to your TrainingPeaks calendar automatically.
-- **Persistent athlete memory** — the skill maintains a structured history (`~/.training/`) across sessions: profile, race calendar, injuries, nutrition history, decision log, and versioned plans, so every coaching call is grounded in your own data, not a fresh guess each time.
+| Original | Here | Why |
+|---|---|---|
+| TrainingPeaks as source of truth | **intervals.icu** | Garmin and Whoop both already feed it. One API, one truth. |
+| Strava as supplementary | **Garmin + Whoop**, via intervals.icu | Actual devices, already connected |
+| Nutrition engine, on by default | **Removed** | Not wanted |
+| Generic long-course periodization | **Olympic distance, 8-week block** | Different race, different problem |
+| Strength as one section | **`strength.md`, a first-class module** | A degenerated meniscus makes strength the main event, not an accessory |
+| No scheduling layer | **Google Calendar + intervals.icu → Garmin** | Sessions reach the watch, not just a document |
+| Memory in `~/.training/` | **`athlete/` in the repo** | Survives an ephemeral container |
 
-## What this repo does NOT include
+---
 
-**The TrainingPeaks MCP server is a separate open-source project and is not vendored here.** All credit for the original goes to its author — see [JamsusMaximus/trainingpeaks-mcp](https://github.com/JamsusMaximus/trainingpeaks-mcp). Setup here clones [my fork](https://github.com/freezin-tm/trainingpeaks-mcp) instead of the upstream repo, so what you're pulling in is a version I've reviewed rather than whatever's currently on someone else's default branch. Clone it yourself per the setup steps below.
+## How it works
 
-There's also no bundled Strava MCP server. Strava support is optional and supplementary; see `AGENT.md` for notes on it.
+```
+        you agree the week                    auto push
+  ───────────────────────────▶ intervals.icu ───────────▶ Garmin watch
+     swim / bike / run                                    press start, follow
+                                     ▲                          │
+                                     │    completed activity    │
+                                     └──────────────────────────┘
+                                     ▲
+                         Whoop ──────┘   sleep, HRV, resting HR, readiness
+
+  strength ─────────────────▶ Hevy        loads and reps, read back for progression
+  every session ────────────▶ Google Calendar   the time block and the reason
+```
+
+Nothing needed building for Garmin. intervals.icu already has
+`icu_garmin_upload_workouts` switched on, so a planned workout written through the
+API appears on the watch.
+
+## The weekly loop
+
+Once a week, usually Saturday:
+
+1. **Gather** — completed work, recovery, strength loads, the next 14 days of calendar
+2. **Report** — what happened against what was planned, in a few lines
+3. **Propose** — next week as a table, with the trade-off named
+4. **Agree** — it is a conversation, not a broadcast
+5. **Write** — intervals.icu, then Hevy, then Calendar
+6. **Log** — the decision and the prediction, so it can be checked next week
+
+Step 6 is the one that matters. A prediction that never gets checked is a guess.
+
+## Repo layout
+
+```
+skills/tri-coach/
+  SKILL.md                    loaded every session
+  references/
+    strength.md               the gym — knee rehab, power, hypertrophy
+    scheduling.md             calendar, intervals.icu writes, the weekly loop
+    load-and-recovery.md      readiness rules, HRV, sleep, illness, heat
+    training-methods.md       swim, bike, run — evidence-tiered
+    race-execution.md         taper, pacing, race week
+    review.md                 planned against actual
+
+athlete/                      persistent memory
+  profile.md                  thresholds, connected systems, open questions
+  injuries.md                 the knee
+  decisions.md                the decision log
+  metrics/  plans/  reviews/
+```
 
 ## Setup
 
-The fastest path: point an agentic coding assistant (Claude Code or similar) at **[`AGENT.md`](./AGENT.md)** and ask it to read the file and set everything up. It will:
+See [`AGENT.md`](./AGENT.md).
 
-1. Clone and install the TrainingPeaks MCP server
-2. Walk you through authenticating with TrainingPeaks (cookie-based — no API approval needed, no credentials ever typed into chat)
-3. Register the MCP server with your agent
-4. Install this skill into your agent's skills directory
-5. Hand off to the skill's own onboarding flow
+## ⚠️ Privacy
 
-`AGENT.md` has full step-by-step instructions (with explicit commands for macOS, Linux, and Windows) if you'd rather do it by hand.
+`athlete/` contains personal health data — injury history, HRV, sleep, weight.
+**Make this repository private before committing any of it.** Git history is
+permanent, and a public repo may be cached or forked before you can undo it.
 
-### Prerequisites
-
-- An agentic AI coding tool with MCP support (Claude Code, etc.) — a $20/mo tier subscription is generally sufficient.
-- A [TrainingPeaks](https://www.trainingpeaks.com/) account. The free tier works, but only lets you schedule 1–2 days out — a paid membership is needed if you want the coach planning a full week or more at a time.
-- Python 3.10+ and [`uv`](https://docs.astral.sh/uv/) (installed automatically if missing — see `AGENT.md`).
-
-## A note on data privacy
-
-Setting this up means giving an AI assistant a lot of personal health and fitness information — training history, injury history, age, weight, goals, and optionally things like sweat-test results or bloodwork. That data goes to whichever AI provider you're using (e.g. Anthropic, if using Claude), subject to their data policies at the time. You're never obligated to provide everything the skill asks for; you can decline or substitute adjacent-but-inexact information (e.g., stating an approximate age) for anything you're not comfortable sharing. Go in with that tradeoff in mind.
-
-## Repo structure
-
-```
-adaptive-endurance-coach/
-  README.md
-  AGENT.md                          <- give this to your agent for automated setup
-  skills/adaptive-endurance-coach/
-    SKILL.md                        <- core skill definition, loaded every session
-    references/                     <- loaded on demand, by topic
-      onboarding.md                 <- first-run setup, intake, tone selection
-      load-and-recovery.md          <- readiness rules, HRV/illness/injury logic
-      training-methods.md           <- evidence-tiered periodization, key sessions
-      race-execution.md             <- race plans, taper design, pacing
-      nutrition.md                  <- daily targets, fueling, supplements, safety floors
-```
-
-## Feedback
-
-This is a work in progress — if you try it, feedback on what's missing or what could be sharper is welcome via issues/PRs.
+Secrets live in `.env`, which is gitignored. Never commit an API key, and never
+paste one into a chat transcript.
 
 ## Disclaimer
 
-Not a replacement for a human coach. If you can afford one, a good coach brings dynamic adjustment, deep sport-specific experience, and accountability that this can't fully replicate. This exists as an option for when that isn't accessible — not as a claim that it's better.
+This is not a physiotherapist and not a physician. The athlete's physio is the
+authority on his knee. Catching, locking, giving way, or swelling that will not
+settle are referrals, not coaching problems.
