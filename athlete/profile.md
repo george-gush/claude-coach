@@ -201,6 +201,8 @@ do not push through it. Revisit at every weekly check-in.
 ## Still open
 
 1. Any travel between now and 14 November?
+0. ~~T100 Dubai cut-off times~~ — **closed 2026-09-19.** He said not to worry
+   about them and that he will make the cut-off. Do not raise it again.
 2. Longest **continuous** run without walking, and did the knee complain?
 4. What is the swim coach working on in the Tuesday and Thursday lessons?
 5. Race-day logistics — drive up at 04:00, or stay in Dubai the night before?

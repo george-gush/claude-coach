@@ -165,4 +165,4 @@ directory when working inside it.
 2. After the first login, save the OAuth tokens and drop the password
 3. Set a run threshold pace in intervals.icu — derived, not max-effort tested
 4. Confirm the FTP 250 W test date; retest properly when the power meter arrives
-5. Confirm T100 Dubai cut-off times (athlete is checking)
+5. Tell him when the power meter arrives, then retest FTP and move the bike off HR
