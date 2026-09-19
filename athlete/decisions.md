@@ -64,3 +64,39 @@ asked for certainty because a previous AI coach's Garmin workouts "didn't work".
 
 **Review on:** first week where workouts are pushed — confirm he could actually
 follow them on the watch.
+
+---
+
+## 2026-09-19c — Week 1 written and verified
+
+**Trigger:** athlete confirmed Garmin credentials on the environment and said go.
+
+**Data observed:**
+- Longest CONTINUOUS run is 2.5 km, not the 6.3 km I inferred from run-walk logs.
+  I corrected an earlier statement that 10 km continuous was achievable.
+- Open water: never done it. Race is open water, non-wetsuit, mass start, 06:00.
+- Rest day requested: Monday, standing.
+
+**Decisions:**
+1. Race the run as run-walk. Training builds run-walk volume, not continuous
+   distance. Stated plainly to him rather than left to race day.
+2. Open water reclassified as the single biggest risk, above the run. Saturday
+   is the open-water day. First session is comfort and safety only, no distance.
+3. Week 1 written: 8 events to intervals.icu, 9 to the Fitness calendar.
+4. All endurance targets are HR or pace. Zero power targets — verified by reading
+   back every compiled step.
+
+**Verification performed (not assumed):**
+- Every workout read back; all steps carry a real target; no absurd durations.
+- `icu_garmin_last_upload` moved to the second of writing, so the watch has them.
+- Calendar re-listed and all 11 events confirmed on the right days.
+- Caught and fixed: the all-day REST event landed on 20 Sep because a `+04:00`
+  offset shifts an all-day event back a day in UTC. Pass a UTC-midday time for
+  all-day events.
+
+**Blocked:** Garmin strength workouts. The env vars were set after this container
+started, so they are not visible here. Needs a new session.
+
+**Expected:** see the prediction block in `plans/2026-09-21_week1.md`.
+
+**Review on:** Saturday 26 September.
