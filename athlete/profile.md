@@ -164,6 +164,12 @@ do not push through it. Revisit at every weekly check-in.
 - Fuels deliberately before gym sessions.
 - Upper body training is for aesthetics. Lower body is for the knee.
 - Does not want nutrition coaching.
+- **Do not predict finish times.** Stated 2026-09-19. He will check the cut-offs
+  himself. Give pacing targets and effort caps, not a projected total. Drop the
+  estimate from any race plan until he asks for one.
+- **Expects the coach to build things, not hand him setup work.** If a route
+  needs manual data entry by him, that is a last resort, and say so plainly
+  rather than presenting it as the plan.
 
 ---
 
@@ -174,6 +180,9 @@ do not push through it. Revisit at every weekly check-in.
   knee. A loaded hip-flexor raise. Low load on the knee joint itself, so it needs
   no staging. Goes in Session B accessory work.
 - **Race:** T100 Dubai, 06:00, open water, trisuit, no wetsuit.
+- **Open water access confirmed** — a local beach. **Saturday is the open-water
+  day.** The Saturday solo swim becomes an open-water session. He has never swum
+  open water, so build it from short and close to shore.
 - **Gym: 09:00–10:30 Tuesday and Thursday**, after the swim lesson.
 - 174 cm, ~74 kg, 32 years old.
 - FTP 250 W is not trustworthy. Power meter coming.
@@ -183,6 +192,5 @@ do not push through it. Revisit at every weekly check-in.
 
 1. Any travel between now and 14 November?
 2. Longest **continuous** run without walking, and did the knee complain?
-3. Has he swum in open water before? Ever swum 1.5 km without a wetsuit?
 4. What is the swim coach working on in the Tuesday and Thursday lessons?
 5. Race-day logistics — drive up at 04:00, or stay in Dubai the night before?

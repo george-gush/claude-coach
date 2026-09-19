@@ -344,19 +344,23 @@ Rules, in order of priority:
 **He does not want his phone in the gym.** So the target is his watch, not Hevy.
 
 **Verified:** intervals.icu cannot structure a strength session. A
-`WeightTraining` event compiles to `workout_doc: []`. There is no API route from
-here to an exercise list on his watch. See `garmin-workouts.md` §6.
+`WeightTraining` event compiles to `workout_doc: []`. See `garmin-workouts.md` §6.
 
-So:
+**But the workouts are still built for him, not by him.** He said plainly on
+2026-09-19 that building them himself is not what he asked for, and he is right.
+The route is the `garminconnect` library (0.3.16+, Python 3.12+), which creates
+strength workouts directly in Garmin Connect via
+`StrengthWorkout` + `create_strength_set`.
 
-- **Garmin Connect** — Sessions A and B are built by hand, once, in the Garmin
-  Connect web workout builder. They stay stable for about four weeks, so this is
-  a one-time cost. Supply him the exact exercise, set, rep and tempo list to
-  enter.
-- **Substitutions.** Garmin's exercise library may not contain Cossack squat,
-  Copenhagen plank, Spanish squat or tibialis raise. This is unverified — he will
-  find out when he builds it. Have a substitute ready for each, or use a generic
-  exercise slot with the real name in the step note.
+- **Exercise mapping is already resolved.** All 27 movements in Sessions A and B
+  map to real Garmin catalogue entries — 21 exact, 6 substituted. The full table
+  is in `garmin-exercise-map.md`. Do not re-derive it; read it.
+- **Six substitutions.** Cossack squat, Spanish squat, tibialis raise, Copenhagen
+  plank, KB knee raise and Pallof press are not in Garmin's catalogue under those
+  names. The watch will display Garmin's name. **Tell him which six**, so he is
+  not confused mid-session.
+- **This needs his Garmin Connect login**, and it is an unofficial API. Do not
+  set it up without him agreeing to that specifically.
 - **Google Calendar** — the time block, the warm-up, and why the session exists.
 - **intervals.icu** — write the `WeightTraining` event anyway. It is empty, but it
   keeps the calendar and the load model complete and gives somewhere to read the

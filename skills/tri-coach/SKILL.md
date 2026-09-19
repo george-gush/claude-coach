@@ -59,6 +59,7 @@ calorie or macro targets.
 |---|---|
 | Any gym session, knee question, lower-body load, power work | `references/strength.md` |
 | **Writing any workout to the Garmin watch** — syntax, traps, verification | `references/garmin-workouts.md` |
+| Building a gym session in Garmin Connect — exercise keys | `references/garmin-exercise-map.md` |
 | Writing to the calendar, planning a week, the weekly check-in | `references/scheduling.md` |
 | Should he train today? HRV, sleep, illness, load, injury | `references/load-and-recovery.md` |
 | Building or changing a block; swim, bike or run session design | `references/training-methods.md` |

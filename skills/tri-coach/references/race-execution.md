@@ -64,10 +64,10 @@ going out too hard. Set explicit **early caps**, not just targets.
   is a legitimate and often faster approach at this fitness level. Plan them in
   advance so they are a decision rather than a collapse.
 
-### Estimated total
-Swim ~30 min + T1 ~5 + bike ~80 + T2 ~3 + run ~100 ≈ **3 h 20 – 3 h 40**.
-Give him this range early, and update it as the run develops. Do not let race
-day be the first time he sees a realistic number.
+### Do not predict a finish time
+He asked on 2026-09-19 not to be given projected completion times, and he is
+checking the cut-offs himself. Give him **pacing targets and effort caps per
+discipline**. Do not total them up into a predicted finish unless he asks.
 
 ---
 
