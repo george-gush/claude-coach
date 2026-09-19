@@ -2,9 +2,13 @@
   "name": "tri-dashboard",
   "version": "1.0.0",
   "private": true,
-  "scripts": { "dev": "next dev", "build": "next build", "start": "next start" },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
   "dependencies": {
-    "next": "15.5.4",
+    "next": "15.5.25",
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "recharts": "2.15.4"
