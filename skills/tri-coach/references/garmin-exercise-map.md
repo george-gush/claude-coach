@@ -33,7 +33,7 @@ exercise_name, weight_kg)`.
 | Seated DB shoulder press | `SHOULDER_PRESS` | `SEATED_DUMBBELL_SHOULDER_PRESS` |  |
 | Seated calf raise | `CALF_RAISE` | `SEATED_CALF_RAISE` |  |
 | Single-leg RDL | `DEADLIFT` | `SINGLE_LEG_ROMANIAN_DEADLIFT_WITH_DUMBBELL` |  |
-| Sled push | `SLED` | `SLED` |  |
+| Sled push | `SLED` | `PUSH` | `SLED` is the CATEGORY, not an exercise. Using it as the name silently produced a generic step. |
 | Spanish squat / wall sit | `SQUAT` | `BODY_WEIGHT_WALL_SQUAT` | **Substitute** — standard isometric quad alternative |
 | Standing calf raise | `CALF_RAISE` | `SINGLE_LEG_STANDING_CALF_RAISE` |  |
 | Tibialis raise | `CALF_RAISE` | `SEATED_DUMBBELL_TOE_RAISE` | **Substitute** — closest tib ant loading in catalog |

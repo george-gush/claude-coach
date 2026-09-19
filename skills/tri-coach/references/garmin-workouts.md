@@ -254,6 +254,30 @@ version trap below does not apply to this route.
 here, which has no strength support at all. Pin 0.3.16 and check
 `StrengthWorkout` exists before building anything.
 
+#### Rate limiting — use the saved tokens
+
+Garmin returned `429 Mobile login returned 429 — IP rate limited` on a third
+login from this container within minutes. **Do not log in with the password on
+every call.** After the first login, tokens live in `GARMINTOKENS`
+(`/root/.garminconnect/garmin_tokens.json`). Resume from those:
+
+```python
+g = Garmin(); g.login('/root/.garminconnect')
+```
+
+Repeated password logins will eventually lock him out of his own account.
+
+#### Verify after every upload
+
+```python
+w = g.get_workout_by_id(wid)
+steps = w['workoutSegments'][0]['workoutSteps']
+missing = [s for s in steps if not (s.get('workoutSteps') or [s])[0].get('exerciseName')]
+assert not missing          # a step with no exerciseName is a generic step
+```
+
+An invalid exercise name does not error. It silently drops to an unlabelled step.
+
 #### What it costs
 
 - **Free.** Open source, no API fees.
