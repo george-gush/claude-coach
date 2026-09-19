@@ -158,6 +158,8 @@ do not push through it. Revisit at every weekly check-in.
 ## Preferences
 
 - Plan the week **together**, do not dictate it.
+- **One full rest day per week**, Monday by default. Stated 2026-09-19. Not
+  negotiable, and not to be quietly filled when a session slips.
 - Short, simple, clear English. Answer first.
 - Fuels deliberately before gym sessions.
 - Upper body training is for aesthetics. Lower body is for the knee.

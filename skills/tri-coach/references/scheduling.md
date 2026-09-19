@@ -180,42 +180,47 @@ adaptive instead of just repetitive.
 
 ## 6. Default week shape
 
-This is a starting template, not a rule. Adjust it to the block and to recovery.
-Total: 3 swims, 3 runs, 2 rides, 2 gym.
+**One full rest day per week is non-negotiable.** He asked for it and his data
+backs it up — his form has not been positive once in three weeks. Monday is the
+default, because the long weekend sessions land on Saturday and Sunday.
+
+Ten sessions across six training days. Total: 3 swims, 3 runs, 2 rides, 2 gym.
 
 | Day | AM | PM |
 |---|---|---|
-| Mon | — | Bike — Intervals |
-| Tue | **Swim — Lesson** 07:00 | Gym A **09:00–10:30** |
-| Wed | Run — Intervals | — |
-| Thu | **Swim — Lesson** 07:00 | Gym B **09:00–10:30** |
+| **Mon** | **REST — full day off** | — |
+| Tue | **Swim — Lesson** 07:00 | Gym A 09:00–10:30 |
+| Wed | Run — Intervals | Bike — Easy |
+| Thu | **Swim — Lesson** 07:00 | Gym B 09:00–10:30 |
 | Fri | Run — Easy | — |
-| Sat | Bike — Endurance | Swim — Solo (technique) |
-| Sun | Run — Long | — |
+| Sat | **Run — Long** | Swim — Solo / open water |
+| Sun | Bike — Endurance | — |
 
 Notes on this shape:
-- **Gym stacks onto swim days, 09:00–10:30 Tue and Thu.** Confirmed by him. The
-  swim warms the knee for free and it saves two trips to the gym. There is a
-  one-hour gap after the lesson — that is fine, it is not a problem to solve.
-- **Wednesday run is the hard run.** It sits 24 h after Gym A, not before it.
-- **Sunday long run** is the session the whole build is pointed at. Protect it.
-- **Friday is the easiest day.** It is the UAE weekend and the natural place to
-  lose a session without cost.
-- Heat: Abu Dhabi in September and October is severe. Outdoor sessions go early
-  morning or after sunset. Move, do not cancel — and say so in the event body.
-
----
+- **Saturday holds the long run, not Sunday.** It is the most important session
+  of the week, so it goes on a free day, on fresh legs, after Friday's easy run.
+- **Sunday is the long ride.** It has the time, and it costs the knee nothing.
+- **Gym stacks onto swim days, 09:00–10:30.** The swim warms the knee for free
+  and it saves two trips to the gym.
+- **Wednesday is the only midweek double**, and the bike half of it stays easy.
+  It exists to hit two rides a week without touching the rest day.
+- **Friday's easy run is the release valve.** It is the first session to go in a
+  bad week.
+- Heat: Abu Dhabi from September to October is severe. Outdoor work goes before
+  06:30 or after sunset. Move it, do not cancel it, and say why in the event body.
 
 ## 7. What to do when the week breaks
 
 Priority order when sessions must be dropped. Cut from the bottom.
 
-1. **Sunday long run** — the race limiter. Protect first.
+1. **Saturday long run** — the race limiter. Protect first.
 2. **Swim lessons** — fixed, paid, coach-led.
 3. **Gym A and B** — this is knee rehab. Dropping it costs run capacity later.
-4. Saturday endurance ride.
+4. Sunday endurance ride.
 5. Wednesday run intervals.
-6. Monday bike intervals.
+6. Wednesday easy bike.
 7. Solo technique swim.
 
 Never replace a dropped session with a harder version of another one.
+**Never** fill the rest day. A week that eats its rest day is a week that was
+too big, and the fix is the following week, not that day.
