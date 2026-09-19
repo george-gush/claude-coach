@@ -181,3 +181,123 @@ tr:last-child td { border-bottom: 0; }
 }
 .tip .r { display: flex; gap: 10px; justify-content: space-between; }
 .tip .lab { color: var(--text-muted); }
+
+/* ---------------------------------------------------- v2: insight dashboard */
+.wrap { max-width: 1240px; }
+header.top h1 { font-size: 21px; font-weight: 640; }
+.toprt { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+.lede {
+  font-size: 14px; color: var(--text-secondary); line-height: 1.6;
+  margin: 0 0 16px; max-width: 70ch;
+}
+
+.card h2 .h2sub {
+  text-transform: none; letter-spacing: 0; font-weight: 400;
+  color: var(--text-muted); margin-left: 8px; font-size: 11px;
+}
+.empty { color: var(--text-muted); font-size: 13px; padding: 14px 0; }
+
+/* ---- metric tiles ---- */
+.metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+@media (min-width: 620px) { .metrics { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 900px) { .metrics { grid-template-columns: repeat(6, 1fr); } }
+.metric .mlabel {
+  font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--text-muted); font-weight: 600; margin-bottom: 3px;
+}
+.metric .mvalue { font-size: 27px; font-weight: 620; line-height: 1.08; letter-spacing: -0.02em; }
+.metric .munit { font-size: 13px; font-weight: 500; color: var(--text-muted); margin-left: 2px; }
+.metric .mdelta { font-size: 11px; margin-top: 3px; display: flex; gap: 5px; align-items: baseline; flex-wrap: wrap; }
+.metric .mdelta b { font-weight: 650; }
+.metric .mdelta.up b { color: var(--good); }
+.metric .mdelta.down b { color: var(--critical); }
+.metric .mdelta.flat b { color: var(--text-muted); }
+.metric .mbase, .metric .mhint { color: var(--text-muted); }
+.metric .mhint { font-size: 11px; margin-top: 3px; }
+
+/* ---- sparklines ---- */
+.sparkgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+@media (min-width: 820px) { .sparkgrid { grid-template-columns: repeat(4, 1fr); } }
+.sparkhead {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 11.5px; color: var(--text-muted); margin-bottom: 2px;
+}
+.sparkhead b { font-size: 15px; color: var(--text-primary); font-weight: 620; }
+
+/* ---- insight cards ---- */
+.insights { display: grid; gap: 12px; grid-template-columns: 1fr; }
+@media (min-width: 880px) { .insights { grid-template-columns: 1fr 1fr; } }
+.insight {
+  background: var(--surface-1); border: 1px solid var(--border);
+  border-left: 3px solid var(--text-muted);
+  border-radius: 12px; padding: 15px 17px;
+}
+.insight.critical { border-left-color: var(--critical); }
+.insight.watch    { border-left-color: var(--warning); }
+.insight.good     { border-left-color: var(--good); }
+.insight.neutral  { border-left-color: var(--swim); }
+.insight header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; gap: 10px; }
+.itag {
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em;
+  color: var(--text-muted);
+}
+.insight.critical .itag { color: var(--critical); }
+.insight.watch .itag { color: var(--warning); }
+.insight.good .itag { color: var(--good); }
+.iconf {
+  font-size: 10px; color: var(--text-muted); text-transform: uppercase;
+  letter-spacing: .05em; border: 1px solid var(--border);
+  padding: 2px 7px; border-radius: 999px;
+}
+.insight h3 { font-size: 16px; margin: 0 0 7px; line-height: 1.3; letter-spacing: -0.01em; font-weight: 620; }
+.insight p { margin: 0; font-size: 13.5px; line-height: 1.62; color: var(--text-secondary); }
+.insight footer {
+  margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--grid);
+  font-size: 11px; color: var(--text-muted); font-variant-numeric: tabular-nums;
+}
+
+/* ---- correlation bars ---- */
+.corrs { display: flex; flex-direction: column; gap: 9px; }
+.corr { display: grid; grid-template-columns: 1fr 120px 62px; gap: 10px; align-items: center; font-size: 12.5px; }
+@media (min-width: 700px) { .corr { grid-template-columns: 1fr 220px 74px; } }
+.corr .clab { color: var(--text-secondary); }
+.corr.weak .clab { color: var(--text-muted); }
+.ctrack { position: relative; height: 8px; background: var(--surface-2); border-radius: 999px; }
+.cmid { position: absolute; left: 50%; top: -2px; bottom: -2px; width: 1px; background: var(--border); }
+.cfill { position: absolute; top: 0; bottom: 0; border-radius: 999px; }
+.cval { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+.cval small { display: block; font-weight: 400; color: var(--text-muted); font-size: 10px; }
+
+/* ---- coverage bars ---- */
+.coverage { display: flex; flex-direction: column; gap: 8px; }
+.covrow { display: grid; grid-template-columns: 1fr 1.6fr 70px; gap: 10px; align-items: center; font-size: 12.5px; }
+.covlab { color: var(--text-secondary); }
+.covtrack { height: 8px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
+.covfill { display: block; height: 100%; border-radius: 999px; }
+.covval { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+.covval small { color: var(--text-muted); font-weight: 400; }
+
+.gaps { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.65; color: var(--text-secondary); }
+.gaps li { margin-bottom: 5px; }
+
+.sdot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 7px; }
+.crow { cursor: pointer; }
+.crow:hover td { background: var(--surface-2); }
+
+.tip .tiplabel { font-weight: 640; margin-bottom: 5px; }
+.tip .r { display: flex; gap: 14px; justify-content: space-between; align-items: center; }
+.tip .lab { color: var(--text-secondary); display: inline-flex; align-items: center; gap: 6px; }
+.tip .lab i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
+.tip .val { font-variant-numeric: tabular-nums; font-weight: 600; }
+
+.foot {
+  margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--border);
+  text-align: center; font-size: 11.5px; color: var(--text-muted);
+}
+
+/* Tabs: on narrow screens wrap to two rows rather than clipping Training/Body
+   off the right edge with no affordance. */
+nav.tabs { flex-wrap: wrap; overflow-x: visible; }
+nav.tabs button { min-width: 0; flex: 1 1 30%; }
+@media (min-width: 680px) { nav.tabs button { flex: 1 1 auto; } }
