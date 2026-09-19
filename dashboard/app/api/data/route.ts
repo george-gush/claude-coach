@@ -44,6 +44,12 @@ export async function GET() {
       icu(`/sport-settings`).catch(() => []),
     ]);
 
+    // The /activities endpoint returns a bare stub for anything that arrived via
+    // Strava ("STRAVA activities are not available via the API"), which hides a
+    // large block of real training. /athlete-summary is computed server-side from
+    // the full set, so it is the honest source for volume and load.
+    const weekSummary = await icu(`/athlete-summary?start=${RECORD_START}&end=${shift(1)}`).catch(() => []);
+
     // ------------------------------------------------------------- wellness
     const rows = (wellnessRaw || [])
       .filter((w: any) => w?.id && w.id >= RECORD_START && w.id <= today)
@@ -158,7 +164,25 @@ export async function GET() {
       ],
     };
 
-    // training rollup
+    // Weekly training from athlete-summary — counts sessions the activities
+    // endpoint refuses to return.
+    const trueWeekly = (weekSummary || [])
+      .filter((w: any) => w?.date && w.date.slice(0, 10) >= RECORD_START)
+      .map((w: any) => ({
+        week: w.date.slice(0, 10),
+        sessions: w.count ?? 0,
+        hours: r2((w.time || 0) / 3600),
+        km: r2((w.distance || 0) / 1000),
+        load: Math.round(w.training_load || 0),
+        fitness: r2(w.fitness),
+        fatigue: r2(w.fatigue),
+        form: r2(w.form),
+      }))
+      .sort((a: any, b: any) => (a.week < b.week ? -1 : 1));
+    const visibleSessions = acts.length;
+    const trueSessions = trueWeekly.reduce((s: number, w: any) => s + w.sessions, 0);
+
+    // training rollup (from the visible subset only — used for the sport split)
     const weeks: Record<string, any> = {};
     for (const a of acts) {
       if (!a.date) continue;
@@ -203,6 +227,8 @@ export async function GET() {
       quality.push(`Daily steps exist on only ${has("steps")} of ${rows.length} days — step trends are not meaningful yet.`);
     if (has("weight") < 5)
       quality.push(`Weight logged on ${has("weight")} days. Weight sync appears to be off, so body-composition trend is unavailable.`);
+    if (trueSessions > visibleSessions * 1.5)
+      quality.push(`intervals.icu will only return full detail for ${visibleSessions} of ${trueSessions} sessions — the rest arrived via Strava and the API returns a stub for them. Weekly hours, distance and load below come from the server-side summary and are complete; the per-session list and the sport split do not include them.`);
     const loadDays = rows.filter((r: any) => r.ctl && r.ctl > 0).length;
     if (loadDays < rows.length * 0.7)
       quality.push(`Training load only exists for ${loadDays} of ${rows.length} days — structured training started part-way through the record, so load cannot explain anything before that.`);
@@ -237,6 +263,8 @@ export async function GET() {
       drivers,
       sleep,
       weekly,
+      trueWeekly,
+      sessionCounts: { visible: visibleSessions, actual: trueSessions },
       upcoming,
       compliance,
       activities: acts,

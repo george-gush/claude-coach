@@ -254,7 +254,27 @@ export default function Page() {
       {/* ============================================================ TRAINING */}
       {tab === "Training" && (
         <div className="grid two">
-          <Card title="Weekly volume by sport" wide>
+          <Card title="Weekly training" sub="complete — includes sessions the API hides" wide>
+            <Legend items={[["Hours", "var(--swim)"], ["Training load", "var(--bike)"]]} />
+            <ResponsiveContainer width="100%" height={240}>
+              <BarChart data={(d.trueWeekly || []).filter((w: any) => w.hours > 0)} margin={{ top: 6, right: 8, left: -20, bottom: 0 }}>
+                <CartesianGrid vertical={false} />
+                <XAxis dataKey="week" tickFormatter={shortDate} tickLine={false} axisLine={false} minTickGap={24} />
+                <YAxis tickLine={false} axisLine={false} unit=" h" />
+                <Tooltip content={<Tip />} labelFormatter={shortDate} cursor={{ fill: "var(--surface-2)" }} />
+                <Bar dataKey="hours" name="Hours" fill="var(--swim)" radius={[4, 4, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+            <p className="note">
+              {d.sessionCounts?.actual} sessions since {shortDate(d.record.start)}, of which intervals.icu
+              will only describe {d.sessionCounts?.visible} in detail — the rest came through Strava,
+              which the API will not return. These hours and loads are the complete figure.
+              Training genuinely began in mid-June; the two stray May entries aside, everything before
+              that is real absence rather than missing data.
+            </p>
+          </Card>
+
+          <Card title="Volume by sport" sub={`only the ${d.sessionCounts?.visible} sessions with full detail`} wide>
             <Legend items={[["Swim", "var(--swim)"], ["Bike", "var(--bike)"], ["Run", "var(--run)"], ["Strength", "var(--strength)"]]} />
             <ResponsiveContainer width="100%" height={240}>
               <BarChart data={(d.weekly || []).slice(-12)} margin={{ top: 6, right: 8, left: -20, bottom: 0 }}>
