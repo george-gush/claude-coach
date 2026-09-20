@@ -100,3 +100,39 @@ started, so they are not visible here. Needs a new session.
 **Expected:** see the prediction block in `plans/2026-09-21_week1.md`.
 
 **Review on:** Saturday 26 September.
+
+---
+
+## 2026-09-20 — Dashboard built. Two findings corrected.
+
+**Built:** the health dashboard, live on Vercel, six tabs, ten measured
+insights. Each insight states its own sample size. No insight prints without
+a significance test behind it.
+
+**Corrections to things I told him before:**
+1. I said his HRV was falling. It fell from April to June, then FLATTENED.
+   The last three months read 28.1, 27.25, 26.89. A decline that stopped is a
+   level shift already absorbed, not a problem getting worse.
+2. His dashboard showed 22 sessions when he had done 78. intervals.icu returns
+   Strava-sourced activities as stubs with no data. Use the athlete-summary
+   endpoint to see through them.
+
+**Engine bugs found and fixed (all were producing wrong statements):**
+- `Math.abs()` on the form-vs-HRV correlation. r = -0.241 is BACKWARDS, not
+  strong. Testing the absolute value called a broken relationship a good one.
+- Form counted 149 of 231 days. ctl/atl decay to tiny non-zero values, so days
+  with no training looked like training days. Filter `ctl >= 5`. Now 15 of 94.
+- Two separate changepoint cards for one event. Merged into one week.
+- Bar charts on a truncated y-axis made April and May invisible and exaggerated
+  small month-to-month moves. Changed to dot-and-line.
+
+**Tooling note — do not repeat:**
+`pkill -f "next start"` matches its own shell command line and kills the shell
+(exit 144) while leaving the server running. Find the PID with
+`ps -eo pid,args | grep next-server` and `kill <pid>`.
+
+**Still open:**
+- Hevy API key never supplied. No Hevy data is in the dashboard.
+- Garmin-only metrics (Body Battery, running tolerance, VO2max trend) are not
+  in the dashboard yet. They need a Python runtime the serverless app lacks.
+- The dashboard URL sits behind Vercel Auth. His call whether to open it up.
