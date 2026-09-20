@@ -136,3 +136,42 @@ a significance test behind it.
 - Garmin-only metrics (Body Battery, running tolerance, VO2max trend) are not
   in the dashboard yet. They need a Python runtime the serverless app lacks.
 - The dashboard URL sits behind Vercel Auth. His call whether to open it up.
+
+---
+
+## 2026-09-20 — The morning brief failed. Root cause and fix.
+
+**What happened:** the 05:45 routine fired into a blank session and reported it
+could find no repo, no `athlete/` files and no `skills/tri-coach/`. It refused
+to write a brief rather than invent data. That refusal was correct.
+
+**What it was NOT:** the repo was never lost. It is intact in the working
+session and pushed. The failing session was a different, empty one.
+
+**Root cause:** the routine has `persist_session: false`. It creates a NEW,
+EMPTY session on every fire. `folders: []` — no repository is ever attached.
+My prompt opened with "SETUP — read `skills/tri-coach/SKILL.md`...", which
+reads as mandatory, so the run stopped at step 1. It had a working
+INTERVALS_API_KEY the whole time and could have written the brief.
+
+**Fix applied to the routine prompt:**
+- It now states that a blank session is expected, and clones the repo itself:
+  `git clone https://github.com/george-gush/claude-coach` (public, no auth).
+- A failed clone is explicitly NOT a reason to stop. Write the brief from
+  intervals.icu plus the inline KEY CONTEXT.
+- Closing line changed to: "A missing repo is not a reason to stop; missing
+  DATA is."
+- Write-back has a fallback chain: git push → GitHub tools → put the note in
+  the reply and say it was not saved.
+
+**Stale facts corrected in the routine prompt at the same time:**
+- It said "HRV falling ~17% over three weeks". Wrong on both counts. The fall
+  ran April to June and then STOPPED. Prompt now forbids telling him his HRV
+  is falling.
+- Baseline HRV moved 25 → 27.
+- Added: heat is seasonal; form does not measure his recovery (r=-0.241);
+  Strava stubs are real sessions, cross-check athlete-summary.
+
+**Limitation to remember:** `update_trigger` cannot attach a repository or
+rebind a routine to an existing session. It takes only name, cron, enabled,
+model and prompt. Self-cloning is the only fix available from here.
