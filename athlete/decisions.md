@@ -218,3 +218,24 @@ green/orange CVD separation (protan ΔE 5.1). Moving both — bike #eb6834 →
 
 **Rule to keep:** a correlation across a regime change is not a finding. Check
 what the zero-cluster in a scatter actually is before reporting the r.
+
+**Deployment gotcha found the same day.** Vercel had silently stopped building
+on push. The last three commits sat on GitHub undeployed while the live site
+served a 10-hour-old build — no errors, no queued builds, nothing to notice.
+Two of those commits touched only `athlete/`, so a skipped build was correct;
+the third rebuilt the whole dashboard and should have deployed.
+
+Fix that works from here, without a Vercel token or CLI link:
+`create_deployment` with `deploymentId` of the last good deploy plus
+`withLatestCommit: true` and `forceNew: 1`. It inherits root directory and env
+vars and picks up the branch head. Verify with `get_deployment` that `state` is
+READY and that `alias` includes `tri-dashboard-george-2fa2.vercel.app` — a READY
+build that is not aliased is not the live site.
+
+ALWAYS check the deployed commit SHA after pushing. Do not assume a push means
+a deploy.
+
+**Access:** `ssoProtection` is on for `all_except_custom_domains`, so every
+vercel.app URL needs a Vercel login. A custom domain would be exempt. Turning
+SSO off would put his health data on the open internet. Raised with him; his
+call, not mine.
