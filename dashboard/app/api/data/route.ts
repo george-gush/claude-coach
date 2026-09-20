@@ -73,7 +73,19 @@ export async function GET() {
       .sort((a: any, b: any) => (a.date < b.date ? -1 : 1));
 
     const has = (k: string) => rows.filter((r: any) => r[k] != null).length;
-    const latest = rows[rows.length - 1] || {};
+
+    /** A day is only "synced" once the overnight metrics have landed. Garmin
+     *  posts an intraday heart-rate sample into restingHR hours before Whoop
+     *  uploads the night, which reads as a resting HR of 75 against a true
+     *  range of 49-57 — a false +5 SD alarm on a half-written row. Fall back to
+     *  the last complete day and say so, rather than show a daytime pulse as a
+     *  resting heart rate. */
+    const isSynced = (r: any) => r && (r.hrv != null || r.sleepH != null);
+    const lastRow = rows[rows.length - 1] || {};
+    const latest = isSynced(lastRow)
+      ? lastRow
+      : [...rows].reverse().find(isSynced) || lastRow;
+    const latestIsStale = latest !== lastRow;
 
     // ----------------------------------------------------------- activities
     const acts = (activitiesRaw || []).filter(isRealActivity).map((a: any) => ({
@@ -251,6 +263,8 @@ export async function GET() {
         measuredDays: has("hrv"),
         coverage: Object.fromEntries(METRICS.map((k) => [k, has(k)])),
       },
+      latestDate: latest.date ?? null,
+      latestIsStale,
       race: { ...RACE, daysToRace: Math.ceil((new Date(RACE.date + "T00:00:00Z").getTime() - new Date(today + "T00:00:00Z").getTime()) / 864e5) },
       today: latest,
       baseline,

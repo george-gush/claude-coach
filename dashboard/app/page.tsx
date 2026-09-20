@@ -5,23 +5,25 @@ import {
   ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine,
 } from "recharts";
 import {
-  SPORT_VAR, f1, f2, hm, pace, shortDate, monthLabel, Tip, Legend, Card, Metric,
-  Spark, MonthlyChart, TrendLine, InsightCard, CorrBar, WeekdayChart,
+  SPORT_VAR, METRIC_VAR, METRIC_LABEL, METRIC_INVERT, f1, f2, hm, pace, shortDate,
+  Tip, Legend, Card, Explain, StatGrid, MetricTile, Spark, MonthlyChart, TrendLine,
+  ScatterPlot, BarsChart, WeekdayChart, CorrBar, InsightTile, Sheet,
 } from "./ui";
 
-const TABS = ["Today", "Insights", "Recovery", "Sleep", "Training", "Body"] as const;
+const TABS = ["Today", "Findings", "Recovery", "Sleep", "Training"] as const;
 type Tab = (typeof TABS)[number];
 
-const LEAD_LABEL: Record<string, string> = {
-  hrv: "HRV", restingHR: "Resting HR", sleepH: "Sleep duration",
-  sleepScore: "Sleep score", respiration: "Breathing rate",
-};
+type View =
+  | { kind: "insight"; i: any }
+  | { kind: "metric"; key: string }
+  | { kind: "session"; a: any }
+  | null;
 
 export default function Page() {
-  const [tab, setTab] = useState<Tab>("Insights");
+  const [tab, setTab] = useState<Tab>("Today");
   const [d, setD] = useState<any>(null);
   const [err, setErr] = useState<string | null>(null);
-  const [open, setOpen] = useState<number | null>(null);
+  const [view, setView] = useState<View>(null);
 
   useEffect(() => {
     fetch("/api/data").then((r) => r.json())
@@ -41,7 +43,86 @@ export default function Page() {
   if (!d) return <div className="wrap"><div className="skeleton">Reading {`>`}7 months of your data…</div></div>;
 
   const b = d.baseline;
-  const crit = (d.insights || []).filter((i: any) => i.severity === "critical").length;
+  const insights = d.insights || [];
+  const crit = insights.filter((i: any) => i.severity === "critical").length;
+  const openMetric = (key: string) => setView({ kind: "metric", key });
+
+  /* ------------------------------------------------------------ metric sheet */
+  const metricSheet = (key: string) => {
+    const label = METRIC_LABEL[key] || key;
+    const color = METRIC_VAR[key] || "var(--swim)";
+    const invert = !!METRIC_INVERT[key];
+    const base = b[key];
+    const t = d.trends?.[key];
+    const wd = d.weekdays?.[key];
+    const roll = d.rollups?.[key];
+    const driver = (d.drivers || []).find((x: any) => x.metric === key);
+    const stats = [
+      { k: "Today", v: base?.today != null ? `${f2(base.today)}` : "not synced" },
+      { k: "Typical (60d)", v: base?.mean != null ? `${f2(base.mean)}` : "—" },
+      { k: "Against typical", v: base?.z != null ? `${base.z > 0 ? "+" : ""}${base.z} SD` : "—" },
+      ...(t?.last90 ? [{ k: "Last 90 days", v: `${t.last90.change > 0 ? "+" : ""}${t.last90.change}` }] : []),
+      ...(t?.all ? [{ k: "Whole record", v: `${t.all.change > 0 ? "+" : ""}${t.all.change}` }] : []),
+      ...(driver?.r != null ? [{ k: "Drives readiness", v: `r=${driver.r > 0 ? "+" : ""}${driver.r}` }] : []),
+    ];
+    return (
+      <>
+        <StatGrid stats={stats} />
+        <h4 className="sheeth">By month</h4>
+        <MonthlyChart data={d.monthly} dataKey={key} color={color} invert={invert} />
+        {!!roll?.length && (<>
+          <h4 className="sheeth">Rolling 28-day trend</h4>
+          <TrendLine height={200} series={[{ name: label, color, data: roll }]} />
+        </>)}
+        {!!wd?.length && (<>
+          <h4 className="sheeth">By day of week</h4>
+          <WeekdayChart data={wd} color={color} />
+        </>)}
+        <h4 className="sheeth">Related findings</h4>
+        <div className="minitiles">
+          {insights.filter((i: any) => i.metric === key).map((i: any) => (
+            <button className="minitile" key={i.id} onClick={() => setView({ kind: "insight", i })}>
+              <b>{i.headline.value}{i.headline.unit}</b><span>{i.claim}</span><span className="chev">→</span>
+            </button>
+          ))}
+          {!insights.some((i: any) => i.metric === key) && <div className="empty">Nothing firing on this metric.</div>}
+        </div>
+      </>
+    );
+  };
+
+  /* ----------------------------------------------------------- insight sheet */
+  const insightChart = (i: any) => {
+    const c = i.chart;
+    if (!c) return null;
+    if (c.kind === "monthly")
+      return <MonthlyChart data={d.monthly} dataKey={c.key} color={METRIC_VAR[c.key] || "var(--swim)"}
+        invert={c.invert} unit={c.unit || ""} />;
+    if (c.kind === "rolling")
+      return <TrendLine height={220} mark={c.mark} unit={c.unit || ""}
+        series={c.keys.filter((k: string) => d.rollups?.[k]?.length)
+          .map((k: string) => ({ name: METRIC_LABEL[k] || k, color: METRIC_VAR[k], data: d.rollups[k] }))} />;
+    if (c.kind === "weekday")
+      return d.weekdays?.[c.key] ? <WeekdayChart data={d.weekdays[c.key]} color={METRIC_VAR[c.key]} unit={c.unit || ""} /> : null;
+    if (c.kind === "dist")
+      return (
+        <ResponsiveContainer width="100%" height={200}>
+          <BarChart data={d.sleep.distribution} margin={{ top: 8, right: 8, left: -22, bottom: 0 }}>
+            <CartesianGrid vertical={false} />
+            <XAxis dataKey="band" tickLine={false} axisLine={false} />
+            <YAxis tickLine={false} axisLine={false} />
+            <Tooltip content={<Tip suffix=" nights" />} cursor={{ fill: "var(--surface-2)" }} />
+            <ReferenceLine x={`${d.sleep.targetH}+`} stroke="var(--good)" strokeDasharray="4 4" />
+            <Bar dataKey="n" name="nights" fill="var(--strength)" radius={[4, 4, 0, 0]} />
+          </BarChart>
+        </ResponsiveContainer>
+      );
+    if (c.kind === "scatter")
+      return <ScatterPlot points={c.points} xLabel={c.xLabel} yLabel={c.yLabel} />;
+    if (c.kind === "bars")
+      return <BarsChart points={c.points} unit={c.unit || ""} />;
+    return null;
+  };
 
   return (
     <div className="wrap">
@@ -54,7 +135,11 @@ export default function Page() {
           </div>
         </div>
         <div className="toprt">
-          {crit > 0 && <span className="pill red"><span className="dot" />{crit} need{crit === 1 ? "s" : ""} attention</span>}
+          {crit > 0 && (
+            <button className="pill red" onClick={() => setTab("Findings")}>
+              <span className="dot" />{crit} need{crit === 1 ? "s" : ""} attention
+            </button>
+          )}
           <span className="sub">{d.race.daysToRace}d to {d.race.name}</span>
         </div>
       </header>
@@ -67,77 +152,80 @@ export default function Page() {
 
       {/* =============================================================== TODAY */}
       {tab === "Today" && (
-        <div className="grid two">
-          <Card title="Where you are today" sub="against your own last 60 days" wide>
-            <div className="metrics">
-              <Metric label="HRV" value={f1(b.hrv.today)} base={b.hrv} />
-              <Metric label="Resting HR" value={f1(b.restingHR.today)} base={b.restingHR} invert />
-              <Metric label="Sleep" value={f2(b.sleepH.today)} unit=" h" base={b.sleepH} />
-              <Metric label="Readiness" value={f1(b.readiness.today)} base={b.readiness} />
-              <Metric label="Breathing" value={f2(b.respiration.today)} base={b.respiration} invert />
-              <Metric label="Blood oxygen" value={f1(b.spO2.today)} unit="%" base={b.spO2} />
+        <>
+          {d.latestIsStale && (
+            <div className="stale">
+              <b>Last night has not synced yet.</b> Showing {shortDate(d.latestDate)}, your most
+              recent complete day. Today's row carries a daytime heart-rate sample and no overnight
+              data, so it is not a reading.
             </div>
-            <p className="note">
-              σ is how far today sits from your own recent normal — not a population average.
-              Beyond ±1σ is genuinely unusual for you.
-            </p>
-          </Card>
-
-          <Card title="Last 60 days at a glance" wide>
-            <div className="sparkgrid">
-              {[["hrv", "HRV", "var(--swim)"], ["restingHR", "Resting HR", "var(--bike)"],
-                ["sleepH", "Sleep", "var(--strength)"], ["readiness", "Readiness", "var(--run)"]].map(([k, lab, c]) => (
-                <div className="sparkbox" key={k}>
-                  <div className="sparkhead"><span>{lab}</span><b>{f1(b[k]?.today)}</b></div>
-                  <Spark data={recent} dataKey={k} color={c} />
-                </div>
+          )}
+          <div className="metrics wide">
+            {[["hrv", "HRV"], ["restingHR", "Resting HR"], ["sleepH", "Sleep"],
+              ["readiness", "Readiness"], ["respiration", "Breathing"], ["spO2", "Blood oxygen"]]
+              .map(([k, lab]) => (
+                <MetricTile key={k} label={lab} value={k === "sleepH" ? f2(b[k]?.today) : f1(b[k]?.today)}
+                  unit={k === "sleepH" ? " h" : k === "spO2" ? "%" : ""} base={b[k]}
+                  invert={!!METRIC_INVERT[k]} onClick={() => openMetric(k)} />
               ))}
-            </div>
-          </Card>
+          </div>
 
-          <Card title="Coming up">
-            <div className="list">
-              {(d.upcoming || []).slice(0, 6).map((s: any, i: number) => (
-                <div className="item" key={i}>
-                  <span className="when">{shortDate(s.date)} {s.time}</span>
-                  <span className="what"><i className="sdot" style={{ background: SPORT_VAR[s.sport] }} />{s.name}</span>
-                  <span className="dur">{hm(s.minutes)}</span>
-                </div>
-              ))}
-              {!d.upcoming?.length && <div className="empty">Nothing scheduled.</div>}
-            </div>
-          </Card>
+          <h3 className="secth">What matters most right now</h3>
+          <div className="tiles">
+            {insights.slice(0, 3).map((i: any) => (
+              <InsightTile key={i.id} i={i} onClick={() => setView({ kind: "insight", i })} />
+            ))}
+          </div>
+          <button className="morebtn" onClick={() => setTab("Findings")}>
+            See all {insights.length} findings →
+          </button>
 
-          <Card title="Recent sessions">
-            <div className="list">
-              {(d.activities || []).slice(0, 6).map((a: any, i: number) => (
-                <div className="item" key={i}>
-                  <span className="when">{shortDate(a.date)}</span>
-                  <span className="what"><i className="sdot" style={{ background: SPORT_VAR[a.sport] }} />{a.name || a.sport}</span>
-                  <span className="dur">{hm(a.minutes)}{a.km ? ` · ${a.km}km` : ""}</span>
-                </div>
-              ))}
-            </div>
-          </Card>
-        </div>
+          <div className="grid two">
+            <Card title="Coming up">
+              <div className="list">
+                {(d.upcoming || []).slice(0, 6).map((s: any, i: number) => (
+                  <div className="item" key={i}>
+                    <span className="when">{shortDate(s.date)} {s.time}</span>
+                    <span className="what"><i className="sdot" style={{ background: SPORT_VAR[s.sport] }} />{s.name}</span>
+                    <span className="dur">{hm(s.minutes)}</span>
+                  </div>
+                ))}
+                {!d.upcoming?.length && <div className="empty">Nothing scheduled.</div>}
+              </div>
+            </Card>
+
+            <Card title="Recent sessions" sub="tap one for detail">
+              <div className="list">
+                {(d.activities || []).slice(0, 6).map((a: any, i: number) => (
+                  <button className="item clickable" key={i} onClick={() => setView({ kind: "session", a })}>
+                    <span className="when">{shortDate(a.date)}</span>
+                    <span className="what"><i className="sdot" style={{ background: SPORT_VAR[a.sport] }} />{a.name || a.sport}</span>
+                    <span className="dur">{hm(a.minutes)}{a.km ? ` · ${a.km}km` : ""}</span>
+                  </button>
+                ))}
+              </div>
+            </Card>
+          </div>
+        </>
       )}
 
-      {/* ============================================================ INSIGHTS */}
-      {tab === "Insights" && (
+      {/* ============================================================ FINDINGS */}
+      {tab === "Findings" && (
         <>
           <p className="lede">
-            {d.insights.length} findings from {d.record.measuredDays ?? d.record.days} days of daily measurement. Each one is recomputed from live data
-            every time this page loads — if the pattern goes away, so does the card.
+            {insights.length} findings, recomputed live. Tap any one for the numbers behind it.
           </p>
-          <div className="insights">
-            {d.insights.map((i: any) => <InsightCard key={i.id} i={i} />)}
+          <div className="tiles">
+            {insights.map((i: any) => (
+              <InsightTile key={i.id} i={i} onClick={() => setView({ kind: "insight", i })} />
+            ))}
           </div>
           {!!d.quality?.length && (
             <Card title="What this dashboard cannot tell you" wide>
-              <ul className="gaps">{d.quality.map((q: string, i: number) => <li key={i}>{q}</li>)}</ul>
-              <p className="note">
-                Stated plainly because a missing metric shown as zero is worse than one shown as missing.
-              </p>
+              <Explain label={`${d.quality.length} known gaps`}>
+                <ul className="gaps">{d.quality.map((q: string, i: number) => <li key={i}>{q}</li>)}</ul>
+                <p>A missing metric shown as zero is worse than one shown as missing.</p>
+              </Explain>
             </Card>
           )}
         </>
@@ -146,15 +234,11 @@ export default function Page() {
       {/* ============================================================ RECOVERY */}
       {tab === "Recovery" && (
         <div className="grid two">
-          <Card title="HRV by month" sub="the long arc" wide>
+          <Card title="HRV by month" sub="the long arc" wide onClick={() => openMetric("hrv")}>
             <MonthlyChart data={d.monthly} dataKey="hrv" color="var(--swim)" />
-            <p className="note">
-              Monthly averages, not daily readings. A single night tells you almost nothing;
-              a month tells you where your system actually sits.
-            </p>
           </Card>
 
-          <Card title="Resting heart rate by month" wide>
+          <Card title="Resting heart rate by month" wide onClick={() => openMetric("restingHR")}>
             <MonthlyChart data={d.monthly} dataKey="restingHR" color="var(--bike)" invert />
           </Card>
 
@@ -163,35 +247,42 @@ export default function Page() {
               { name: "HRV", color: "var(--swim)", data: d.rollups.hrv },
               { name: "Resting HR", color: "var(--bike)", data: d.rollups.restingHR },
             ]} />
-            <p className="note">
-              These two normally move opposite each other. When they move the same way, it is
-              usually noise. When they diverge in the unfavourable direction together, it is real.
-            </p>
+            <Explain>
+              These two normally move opposite each other. When they move the same way it is usually
+              noise. When they diverge in the unfavourable direction together, it is real.
+            </Explain>
           </Card>
 
-          <Card title="What actually drives your readiness score" wide>
+          <Card title="What drives your readiness score" sub="tap a bar" wide>
             <div className="corrs">
               {d.drivers.map((x: any) => (
-                <CorrBar key={x.metric} label={LEAD_LABEL[x.metric] || x.metric} r={x.r} n={x.n} verdict={x.verdict} />
+                <CorrBar key={x.metric} label={METRIC_LABEL[x.metric] || x.metric} r={x.r} n={x.n}
+                  verdict={x.verdict} onClick={() => openMetric(x.metric)} />
               ))}
             </div>
-            <p className="note">
-              Correlation of each metric against your daily readiness. Grey bars are relationships
-              too weak or too thinly sampled to trust.
-            </p>
+            <Explain>Grey bars are relationships too weak or too thinly sampled to trust.</Explain>
           </Card>
 
           <Card title="Which signal leads which" sub="next-day prediction" wide>
             <div className="corrs">
               {d.leads.map((l: any) => {
                 const one = l.lags.find((x: any) => x.lag === 1);
-                return <CorrBar key={l.label} label={l.label} r={one?.r} n={one?.n} verdict={one?.verdict} />;
+                return <CorrBar key={l.label} label={l.label} r={one?.r} n={one?.n} verdict={one?.verdict}
+                  onClick={() => openMetric(l.cause)} />;
               })}
             </div>
-            <p className="note">
+            <Explain>
               Today's value against tomorrow's. A strong bar means that metric is an early warning —
-              it moves before the thing you actually care about does.
-            </p>
+              it moves before the thing you care about does.
+            </Explain>
+          </Card>
+
+          <Card title="Breathing rate by month" sub="your steadiest signal" onClick={() => openMetric("respiration")}>
+            <MonthlyChart data={d.monthly} dataKey="respiration" color="var(--bike)" invert />
+          </Card>
+
+          <Card title="Blood oxygen by month" onClick={() => openMetric("spO2")}>
+            <MonthlyChart data={d.monthly} dataKey="spO2" color="var(--run)" unit="%" domain={[92, 98]} />
           </Card>
 
           <Card title="HRV by day of week">
@@ -208,10 +299,13 @@ export default function Page() {
         <div className="grid two">
           <Card title="The debt" wide>
             <div className="metrics">
-              <Metric label="Owed" value={d.sleep.debtH} unit=" h" hint={`vs ${d.sleep.targetH} h target`} />
-              <Metric label="Average" value={f2(d.sleep.meanH)} unit=" h" base={b.sleepH} />
-              <Metric label="Nights on target" value={d.sleep.hitTarget} hint={`of ${d.sleep.nights} (${f1((d.sleep.hitTarget / d.sleep.nights) * 100)}%)`} />
-              <Metric label="Nights under 6 h" value={d.sleep.under6} hint={d.sleep.under5 ? `${d.sleep.under5} under 5 h` : undefined} />
+              <MetricTile label="Owed" value={d.sleep.debtH} unit=" h" hint={`vs ${d.sleep.targetH} h target`} />
+              <MetricTile label="Average" value={f2(d.sleep.meanH)} unit=" h" base={b.sleepH}
+                onClick={() => openMetric("sleepH")} />
+              <MetricTile label="Nights on target" value={d.sleep.hitTarget}
+                hint={`of ${d.sleep.nights} (${f1((d.sleep.hitTarget / d.sleep.nights) * 100)}%)`} />
+              <MetricTile label="Nights under 6 h" value={d.sleep.under6}
+                hint={d.sleep.under5 ? `${d.sleep.under5} under 5 h` : undefined} />
             </div>
           </Card>
 
@@ -225,27 +319,26 @@ export default function Page() {
                 <Bar dataKey="n" name="nights" fill="var(--strength)" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
-            <p className="note">
-              The shape matters more than the average. A pile at 6–7 h with a thin tail above 7.5 h
+            <Explain>
+              The shape matters more than the average. A pile at 6–7 h with a thin tail above the target
               means the target is not being missed narrowly — it is rarely being aimed at.
-            </p>
+            </Explain>
           </Card>
 
-          <Card title="Sleep by month" wide>
+          <Card title="Sleep by month" wide onClick={() => openMetric("sleepH")}>
             <MonthlyChart data={d.monthly} dataKey="sleepH" color="var(--strength)" unit=" h" domain={[0, 9]} />
           </Card>
 
           <Card title="Rolling 28-day sleep" wide>
             <TrendLine height={220} unit=" h" refLine={d.sleep.targetH} refLabel={`${d.sleep.targetH} h target`}
-              domain={[4, 9]}
-              series={[{ name: "Sleep", color: "var(--strength)", data: d.rollups.sleepH }]} />
+              domain={[4, 9]} series={[{ name: "Sleep", color: "var(--strength)", data: d.rollups.sleepH }]} />
           </Card>
 
           <Card title="Sleep by day of week">
             <WeekdayChart data={d.weekdays.sleepH} color="var(--strength)" unit="h" />
           </Card>
 
-          <Card title="Sleep score by month">
+          <Card title="Sleep score by month" onClick={() => openMetric("sleepScore")}>
             <MonthlyChart data={d.monthly} dataKey="sleepScore" color="var(--run)" />
           </Card>
         </div>
@@ -254,8 +347,7 @@ export default function Page() {
       {/* ============================================================ TRAINING */}
       {tab === "Training" && (
         <div className="grid two">
-          <Card title="Weekly training" sub="complete — includes sessions the API hides" wide>
-            <Legend items={[["Hours", "var(--swim)"], ["Training load", "var(--bike)"]]} />
+          <Card title="Weekly training" sub="includes sessions the API hides" wide>
             <ResponsiveContainer width="100%" height={240}>
               <BarChart data={(d.trueWeekly || []).filter((w: any) => w.hours > 0)} margin={{ top: 6, right: 8, left: -20, bottom: 0 }}>
                 <CartesianGrid vertical={false} />
@@ -265,16 +357,15 @@ export default function Page() {
                 <Bar dataKey="hours" name="Hours" fill="var(--swim)" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
-            <p className="note">
-              {d.sessionCounts?.actual} sessions since {shortDate(d.record.start)}, of which intervals.icu
-              will only describe {d.sessionCounts?.visible} in detail — the rest came through Strava,
-              which the API will not return. These hours and loads are the complete figure.
-              Training genuinely began in mid-June; the two stray May entries aside, everything before
-              that is real absence rather than missing data.
-            </p>
+            <Explain label={`Why ${d.sessionCounts?.actual} sessions but only ${d.sessionCounts?.visible} detailed`}>
+              {d.sessionCounts?.actual} sessions since {shortDate(d.record.start)}, of which intervals.icu will
+              only describe {d.sessionCounts?.visible} in detail — the rest came through Strava, which the API
+              returns as empty stubs. These hours and loads are the complete figure. Training genuinely began
+              in mid-June; everything before that is real absence, not missing data.
+            </Explain>
           </Card>
 
-          <Card title="Volume by sport" sub={`only the ${d.sessionCounts?.visible} sessions with full detail`} wide>
+          <Card title="Volume by sport" sub={`the ${d.sessionCounts?.visible} sessions with full detail`} wide>
             <Legend items={[["Swim", "var(--swim)"], ["Bike", "var(--bike)"], ["Run", "var(--run)"], ["Strength", "var(--strength)"]]} />
             <ResponsiveContainer width="100%" height={240}>
               <BarChart data={(d.weekly || []).slice(-12)} margin={{ top: 6, right: 8, left: -20, bottom: 0 }}>
@@ -302,15 +393,11 @@ export default function Page() {
                 <Bar dataKey="longestRunKm" name="Longest run" fill="var(--run)" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
-            <p className="note">Session distance including walk breaks, not continuous running.</p>
+            <Explain>Session distance including walk breaks, not continuous running.</Explain>
           </Card>
 
-          <Card title="Fitness, fatigue and form" wide>
+          <Card title="Fitness, fatigue and form" wide onClick={() => openMetric("form")}>
             <MonthlyChart data={d.monthly.filter((m: any) => m.ctl)} dataKey="form" color="var(--run)" />
-            <p className="note">
-              Form is fitness minus fatigue. Below zero means fatigue is winning. It only exists for
-              months where training was actually recorded.
-            </p>
           </Card>
 
           <Card title="Planned against actual" sub="last 14 days" wide>
@@ -331,18 +418,14 @@ export default function Page() {
             </table>
           </Card>
 
-          <Card title="Every session" wide>
+          <Card title="Every session" sub="tap a row" wide>
             <table>
               <thead><tr><th>Date</th><th>Session</th><th className="num">Time</th><th className="num">km</th><th className="num">Pace</th></tr></thead>
               <tbody>
                 {(d.activities || []).slice(0, 40).map((a: any, i: number) => (
-                  <tr key={i} className="crow" onClick={() => setOpen(open === i ? null : i)}>
+                  <tr key={i} className="crow" onClick={() => setView({ kind: "session", a })}>
                     <td>{shortDate(a.date)}</td>
-                    <td><i className="sdot" style={{ background: SPORT_VAR[a.sport] }} />{a.name || a.sport}
-                      {open === i && <div className="sub" style={{ marginTop: 4 }}>
-                        {a.type} · avg HR {a.hr ?? "—"} · max {a.maxHr ?? "—"} · load {a.load ?? "—"}
-                      </div>}
-                    </td>
+                    <td><i className="sdot" style={{ background: SPORT_VAR[a.sport] }} />{a.name || a.sport}</td>
                     <td className="num">{hm(a.minutes)}</td>
                     <td className="num">{a.km || "—"}</td>
                     <td className="num">{a.sport === "Run" ? pace(a.paceSecPerKm) : a.kph ? `${a.kph} kph` : "—"}</td>
@@ -354,46 +437,58 @@ export default function Page() {
         </div>
       )}
 
-      {/* ================================================================ BODY */}
-      {tab === "Body" && (
-        <div className="grid two">
-          <Card title="Breathing rate by month" sub="your steadiest signal" wide>
-            <MonthlyChart data={d.monthly} dataKey="respiration" color="var(--bike)" invert />
-            <p className="note">
-              Overnight breathing barely moves month to month, which is exactly what makes a shift
-              meaningful. It is also the metric that leads your others — see Recovery.
-            </p>
-          </Card>
-
-          <Card title="Blood oxygen by month" wide>
-            <MonthlyChart data={d.monthly} dataKey="spO2" color="var(--run)" unit="%" domain={[92, 98]} />
-          </Card>
-
-          <Card title="Data coverage" sub="what is actually measured" wide>
-            <div className="coverage">
-              {Object.entries(d.record.coverage).map(([k, n]: any) => {
-                const p = Math.round((n / d.record.days) * 100);
-                return (
-                  <div className="covrow" key={k}>
-                    <span className="covlab">{LEAD_LABEL[k] || k}</span>
-                    <span className="covtrack"><span className="covfill" style={{ width: `${p}%`, background: p > 80 ? "var(--good)" : p > 40 ? "var(--warning)" : "var(--critical)" }} /></span>
-                    <span className="covval">{n}<small>/{d.record.days}</small></span>
-                  </div>
-                );
-              })}
-            </div>
-            <p className="note">
-              Anything under about 80% cannot support a trend claim. This is here so you know which
-              charts to trust.
-            </p>
-          </Card>
-        </div>
-      )}
-
       <footer className="foot">
         Live from intervals.icu — Whoop recovery and Garmin activities.
         Recomputed {new Date(d.generatedAt).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}.
       </footer>
+
+      {/* =============================================================== SHEETS */}
+      <Sheet open={view?.kind === "insight"} onClose={() => setView(null)}
+        eyebrow={view?.kind === "insight" ? view.i.headline.caption : ""}
+        title={view?.kind === "insight" ? view.i.claim : ""}>
+        {view?.kind === "insight" && (
+          <>
+            <div className="sheethero">
+              {view.i.headline.value}<span className="tunit">{view.i.headline.unit}</span>
+            </div>
+            {view.i.action && <p className="sheetaction">{view.i.action}</p>}
+            <StatGrid stats={view.i.stats} />
+            {view.i.chart && <div className="sheetchart">{insightChart(view.i)}</div>}
+            <Explain>{view.i.body}</Explain>
+            <Explain label="How this was computed">
+              <p>{view.i.method}</p>
+              <p className="dim">Evidence: {view.i.evidence} · confidence: {view.i.confidence}</p>
+            </Explain>
+            {view.i.metric && (
+              <button className="morebtn" onClick={() => openMetric(view.i.metric)}>
+                Open {METRIC_LABEL[view.i.metric] || view.i.metric} in full →
+              </button>
+            )}
+          </>
+        )}
+      </Sheet>
+
+      <Sheet open={view?.kind === "metric"} onClose={() => setView(null)} eyebrow="Metric"
+        title={view?.kind === "metric" ? (METRIC_LABEL[view.key] || view.key) : ""}>
+        {view?.kind === "metric" && metricSheet(view.key)}
+      </Sheet>
+
+      <Sheet open={view?.kind === "session"} onClose={() => setView(null)}
+        eyebrow={view?.kind === "session" ? shortDate(view.a.date) : ""}
+        title={view?.kind === "session" ? (view.a.name || view.a.sport) : ""}>
+        {view?.kind === "session" && (
+          <StatGrid stats={[
+            { k: "Sport", v: view.a.sport },
+            { k: "Type", v: view.a.type || "—" },
+            { k: "Duration", v: hm(view.a.minutes) },
+            { k: "Distance", v: view.a.km ? `${view.a.km} km` : "—" },
+            { k: "Pace", v: view.a.sport === "Run" ? pace(view.a.paceSecPerKm) : view.a.kph ? `${view.a.kph} kph` : "—" },
+            { k: "Average HR", v: view.a.hr != null ? `${view.a.hr} bpm` : "—" },
+            { k: "Max HR", v: view.a.maxHr != null ? `${view.a.maxHr} bpm` : "—" },
+            { k: "Training load", v: view.a.load != null ? `${view.a.load}` : "—" },
+          ]} />
+        )}
+      </Sheet>
     </div>
   );
 }

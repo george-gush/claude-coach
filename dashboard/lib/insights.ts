@@ -11,6 +11,15 @@ import {
   changepoint, currentStreak,
 } from "./analytics";
 
+export type Stat = { k: string; v: string };
+export type Chart =
+  | { kind: "monthly"; key: string; invert?: boolean; unit?: string }
+  | { kind: "rolling"; keys: string[]; unit?: string; mark?: string }
+  | { kind: "weekday"; key: string; unit?: string }
+  | { kind: "dist" }
+  | { kind: "scatter"; xLabel: string; yLabel: string; points: { x: number; y: number }[] }
+  | { kind: "bars"; unit?: string; points: { label: string; value: number }[] };
+
 export type Insight = {
   id: string;
   title: string;
@@ -20,12 +29,28 @@ export type Insight = {
   evidence: string;
   metric?: string;
   rank: number;
+  /** The one number that carries the finding. Shown large; read before any prose. */
+  headline: { value: string; unit?: string; caption: string };
+  /** The finding in one short line. Never a paragraph. */
+  claim: string;
+  /** What to do about it, if anything. */
+  action?: string;
+  /** Straightforward tokens of data, for scanning rather than reading. */
+  stats: Stat[];
+  /** How it was computed, in one line. */
+  method: string;
+  chart?: Chart;
 };
 
 const pct = (a: number, b: number) => ((b - a) / a) * 100;
 const f1 = (n: number) => Math.round(n * 10) / 10;
 const f2 = (n: number) => Math.round(n * 100) / 100;
 const hrs = (s: number) => f2(s / 3600);
+/** Headline numbers use a real minus sign (U+2212), not a hyphen, and never
+ *  more precision than the estimate deserves. */
+const hv = (n: number, dp = 2) =>
+  String(dp === 2 ? f2(n) : f1(n)).replace("-", "\u2212");
+const hvs = (n: number, dp = 2) => (n > 0 ? "+" : "") + hv(n, dp);
 const DAY = 864e5;
 const daysBetween = (a: string, b: string) =>
   Math.round((new Date(b + "T00:00:00Z").getTime() - new Date(a + "T00:00:00Z").getTime()) / DAY);
@@ -56,6 +81,24 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
       const fellUntil = withHrv[Math.max(troughIdx, withHrv.indexOf(peak) + 1)];
       add({
         id: "hrv-long-arc",
+      headline: drop >= 0
+        ? { value: `${hvs(drop, 1)}%`, unit: "", caption: `HRV above its low — now ${now.hrv}` }
+        : { value: `${hv(drop, 1)}%`, unit: "", caption: stabilised
+              ? `from the ${fmtMonth(peak.month)} peak — but flat for 3 months`
+              : `from the ${fmtMonth(peak.month)} peak, over ${monthsSince} months` },
+      claim: drop >= 0 ? "HRV is recovering from its low"
+        : stabilised ? "HRV fell, then stopped falling" : `HRV falling ${monthsSince} months, not weeks`,
+      action: drop >= 0 ? undefined : stabilised
+        ? "Treat this as your new baseline, not a warning"
+        : "Look at sleep and heat before adding load",
+      stats: [
+        { k: "Peak", v: `${peak.hrv} (${fmtMonth(peak.month)})` },
+        { k: "Now", v: `${now.hrv}` },
+        { k: "Last 3 months", v: tail.map((t) => t.hrv).join(" → ") },
+        { k: "Months of data", v: `${withHrv.length}` },
+      ],
+      method: "Monthly averages, each needing at least 14 measured nights. Flat = last 3 months within 5%.",
+      chart: { kind: "monthly", key: "hrv" },
         title:
           drop >= 0
             ? `HRV is ${f1(drop)}% above its low`
@@ -89,6 +132,18 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     if (h && rh && (Math.abs(h.d) > 4 || Math.abs(rh.d) > 4)) {
       add({
         id: "season",
+        headline: { value: `${hvs(rh.d, 1)}%`, unit: "",
+                    caption: "resting HR, summer vs your first 3 months" },
+        claim: "Summer costs you — heat, not lost fitness",
+        action: "Do not compare today against April",
+        stats: [
+          { k: "HRV", v: `${f1(h.a)} → ${f1(h.b)} (${f1(h.d)}%)` },
+          { k: "Resting HR", v: `${f1(rh.a)} → ${f1(rh.b)} (${f1(rh.d) > 0 ? "+" : ""}${f1(rh.d)}%)` },
+          { k: "Cool days", v: `${cool.length}` },
+          { k: "Recent days", v: `${hot.length}` },
+        ],
+        method: "First 3 months on record against the last 90 days. Same body, same device.",
+        chart: { kind: "monthly", key: "restingHR", invert: true },
         title: "Your summer costs you measurably — and it is seasonal, not a decline",
         body: `Comparing your first 3 months on record (from ${fmtMonth(cool[0].date.slice(0, 7))}, n=${cool.length}) against the last 90 days (n=${hot.length}) — same body, same device: HRV ${f1(h.a)} → ${f1(h.b)} (${f1(h.d)}%), resting heart rate ${f1(rh.a)} → ${f1(rh.b)} (${f1(rh.d) > 0 ? "+" : ""}${f1(rh.d)}%). Both moved the unfavourable way together, which is what heat strain looks like. Nothing you did wrong — but it means your "baseline" is seasonal, and comparing today against April is comparing two different environments.`,
         severity: "neutral",
@@ -109,6 +164,17 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     const avg = mean(sleepDays.map((r) => r.sleepH))!;
     add({
       id: "sleep-debt",
+      headline: { value: `${Math.round(debt)}`, unit: " h", caption: `owed against your ${target} h target` },
+      claim: `${Math.round(debt)} hours of sleep owed`,
+      action: "The largest single thing you can change",
+      stats: [
+        { k: "Average", v: `${f2(avg)} h` },
+        { k: "On target", v: `${hitTarget} of ${sleepDays.length} (${f1((hitTarget / sleepDays.length) * 100)}%)` },
+        { k: "Under 6 h", v: `${under6} nights` },
+        { k: "Equivalent", v: `${Math.round(debt / target)} full nights` },
+      ],
+      method: `Sum of (target − actual) across every tracked night, floored at zero.`,
+      chart: { kind: "dist" },
       title: `${Math.round(debt)} hours of sleep owed`,
       body: `Across ${sleepDays.length} tracked nights you averaged ${f2(avg)} h against your ${target} h target. You hit the target on ${hitTarget} nights — ${f1((hitTarget / sleepDays.length) * 100)}% — and went under 6 h on ${under6}. The shortfall adds up to about ${Math.round(debt)} hours, roughly ${Math.round(debt / target)} full nights. This is the single largest modifiable thing in your data, and it has been true every month on record rather than being a recent slip.`,
       severity: avg < target - 1 ? "critical" : "watch",
@@ -134,6 +200,17 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
       if (now.v > best.v * 1.4) {
         add({
           id: "sleep-consistency",
+          headline: { value: `${hvs(pct(best.v, now.v), 1)}%`, unit: "",
+                      caption: "more night-to-night swing than your steadiest month" },
+          claim: "Your sleep became erratic and stayed erratic",
+          action: "Fix bedtime before chasing more hours",
+          stats: [
+            { k: "Steadiest", v: `${f2(best.v)} h swing (${fmtMonth(best.m)})` },
+            { k: "Now", v: `${f2(now.v)} h swing` },
+            { k: "Months compared", v: `${vol.length}` },
+          ],
+          method: "Mean absolute change in sleep duration between consecutive nights, by month.",
+          chart: { kind: "bars", unit: " h", points: vol.map((v) => ({ label: v.m, value: f2(v.v) })) },
           title: "Your sleep got erratic, and stayed erratic",
           body: `Night-to-night swing in sleep duration averaged ${f2(best.v)} h in ${fmtMonth(best.m)}, your steadiest month. It is now ${f2(now.v)} h — ${f1(pct(best.v, now.v))}% more volatile. Irregular timing disrupts recovery independently of total hours, so two people averaging the same 6.5 h can recover very differently. Your average barely moved; your consistency collapsed.`,
           severity: "watch",
@@ -153,6 +230,18 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     const beatsSleep = sleepLag[0].r == null || Math.abs(r1.r) > Math.abs(sleepLag[0].r);
     add({
       id: "respiration-lead",
+      headline: { value: hvs(r1.r!), unit: " r",
+                  caption: `predicts tomorrow's resting HR · n=${r1.n}` },
+      claim: "Breathing rate warns you before anything else",
+      action: "Watch it — nobody does, and for you it moves first",
+      stats: [
+        { k: "Breathing → next-day RHR", v: `r=${r1.r! > 0 ? "+" : ""}${r1.r}` },
+        { k: "Sleep → next-day RHR", v: sleepLag[0].r != null ? `r=${sleepLag[0].r}` : "no signal" },
+        { k: "Paired nights", v: `${r1.n}` },
+        { k: "Verdict", v: r1.verdict },
+      ],
+      method: "Today's value against tomorrow's, Pearson, significance-tested before reporting.",
+      chart: { kind: "monthly", key: "respiration", invert: true },
       title: "Your breathing rate warns you before anything else does",
       body: `Last night's overnight respiration predicts tomorrow's resting heart rate at r=${r1.r! > 0 ? "+" : ""}${r1.r} across ${r1.n} paired nights${beatsSleep ? ", which is a stronger signal than sleep duration manages" : ""}. Respiration is also your most stable metric, so when it moves, it means something. Almost nobody looks at this number — it is usually buried three screens deep — but for you it leads the others.`,
       severity: "neutral",
@@ -174,6 +263,16 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
   if (readVsHrv.r != null && readVsSleep.r != null && readVsHrv.r > 0.6 && readVsHrv.r > readVsSleep.r * 2) {
     add({
       id: "readiness-redundant",
+      headline: { value: hvs(readVsHrv.r!), unit: " r", caption: `readiness vs HRV — sleep manages only ${hvs(readVsSleep.r!)}` },
+      claim: "Readiness is mostly just HRV wearing a hat",
+      action: "Do not treat it as a second opinion",
+      stats: [
+        { k: "vs HRV", v: `r=+${readVsHrv.r}` },
+        { k: "vs sleep duration", v: `r=+${readVsSleep.r}` },
+        { k: "Days", v: `${readVsHrv.n}` },
+      ],
+      method: "Same-day Pearson correlation of the readiness score against each input.",
+      chart: { kind: "monthly", key: "hrv" },
       title: "Your recovery score is mostly just HRV wearing a hat",
       body: `Readiness tracks same-day HRV at r=+${readVsHrv.r} but sleep duration at only r=+${readVsSleep.r} (n=${readVsHrv.n}). So when you read the score you are largely re-reading HRV, and the sleep you actually got is barely represented. Worth knowing before you treat it as an independent second opinion.`,
       severity: "neutral",
@@ -207,6 +306,18 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     if (streak >= 14) {
       add({
         id: "form-streak",
+        headline: { value: `${streak}`, unit: " days", caption: "of negative form in a row" },
+        claim: formIsBackwards ? `${streak} days negative — but form is backwards for you`
+          : `${streak} straight days of negative form`,
+        action: formIsBlind ? "Read form as training, not recovery" : "Clear fatigue before the next build",
+        stats: [
+          { k: "Streak", v: `${streak} days` },
+          { k: "Positive days", v: `${positive} of ${formRows.length}` },
+          { k: "Form vs HRV", v: fVsHrv.r != null ? `r=${fVsHrv.r}` : "n/a" },
+          { k: "Form vs readiness", v: fVsRdy.r != null ? `r=${fVsRdy.r}` : "n/a" },
+        ],
+        method: "Form = fitness − fatigue, counted only from the day fitness got off the floor (CTL ≥ 5).",
+        chart: { kind: "monthly", key: "form" },
         title: `${streak} straight days of negative form`,
         body: `Form — fitness minus fatigue — has been below zero for ${streak} consecutive days, and was positive on only ${positive} of ${formRows.length} days with real training load. Some negative form is normal while building; a streak this long means fatigue is being carried forward rather than cleared.${formIsBackwards
           ? ` But here is the caveat that matters more than the streak: for you, form correlates with HRV at r=${fVsHrv.r} — negative — and with your readiness score at r=${fVsRdy.r}, across ${fVsHrv.n} days. It is supposed to run the other way. Form is computed from training load alone, so it cannot see your sleep, your stress or the heat, and on your data it is not measuring recovery at all. Read it as a description of your training. Your HRV, resting heart rate and sleep are the ones telling you how you actually are.`
@@ -235,6 +346,18 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     const gap = Math.abs(daysBetween(cpHrv!.date, cpRhr!.date));
     add({
       id: "changepoint-both",
+      headline: { value: "2", unit: " markers",
+                  caption: `broke in the same week — effect sizes ${cpHrv!.effect} and ${cpRhr!.effect}, both large` },
+      claim: `Something changed the week of ${fmtDate(earlier.date)}`,
+      action: "Worth remembering what happened that week",
+      stats: [
+        { k: "HRV", v: `${cpHrv!.before} → ${cpHrv!.after} (${fmtDate(cpHrv!.date)})` },
+        { k: "Resting HR", v: `${cpRhr!.before} → ${cpRhr!.after} (${fmtDate(cpRhr!.date)})` },
+        { k: "Effect sizes", v: `${cpHrv!.effect} and ${cpRhr!.effect}` },
+        { k: "Days apart", v: `${gap}` },
+      ],
+      method: "Largest mean split by Cohen's d, reported only above d=0.8 (large).",
+      chart: { kind: "rolling", keys: ["hrv", "restingHR"], mark: earlier.date },
       title: `Something changed in the week of ${fmtDate(earlier.date)}`,
       body: `Two independent markers broke in the same week${gap ? `, ${gap} day${gap === 1 ? "" : "s"} apart` : " on the same day"}. HRV averaged ${cpHrv!.before} before ${fmtDate(cpHrv!.date)} and ${cpHrv!.after} after. Resting heart rate went ${cpRhr!.before} → ${cpRhr!.after} around ${fmtDate(cpRhr!.date)}. Effect sizes ${cpHrv!.effect} and ${cpRhr!.effect} — both large. One metric shifting is noise; two unrelated ones shifting together within a week is a real change in state. Something happened to you that week. It is worth remembering what.`,
       severity: "watch",
@@ -251,6 +374,17 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
       const worse = good === "up" ? cp.after < cp.before : cp.after > cp.before;
       add({
         id: `changepoint-${key}`,
+        headline: { value: hvs(cp.after - cp.before, 1), unit: "",
+                    caption: `step change in ${label} around ${fmtDate(cp.date)} — effect ${cp.effect}, large` },
+        claim: `${label[0].toUpperCase()}${label.slice(1)} stepped ${worse ? "the wrong way" : "the right way"}`,
+        stats: [
+          { k: "Before", v: `${cp.before}` },
+          { k: "After", v: `${cp.after}` },
+          { k: "Effect size", v: `${cp.effect} (large)` },
+          { k: "Date", v: fmtDate(cp.date) },
+        ],
+        method: "Largest mean split by Cohen's d, reported only above d=0.8.",
+        chart: { kind: "rolling", keys: [key], mark: cp.date },
         title: `Your ${label} stepped ${worse ? "the wrong way" : "the right way"} around ${fmtDate(cp.date)}`,
         body: `Averaged ${cp.before} before ${fmtDate(cp.date)} and ${cp.after} after — an effect size of ${cp.effect}, which is large. This is the biggest single step change in the record.`,
         severity: worse ? "watch" : "good",
@@ -274,6 +408,16 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
       if (spread > 12) {
         add({
           id: `dow-${key}`,
+          headline: { value: `${f1(spread)}%`, unit: "", caption: `gap between ${best.name} and ${worst.name}` },
+          claim: `${worst.name} is reliably your worst day for ${label}`,
+          action: `Plan the hard session away from ${worst.name}`,
+          stats: [
+            { k: "Best", v: `${best.name} ${best.value}${unit}` },
+            { k: "Worst", v: `${worst.name} ${worst.value}${unit}` },
+            { k: "Days averaged", v: `${dow.reduce((s, dd) => s + dd.n, 0)}` },
+          ],
+          method: "Every day of the record grouped by weekday, minimum 8 samples per day.",
+          chart: { kind: "weekday", key, unit },
           title: `${worst.name} is reliably your worst day for ${label}`,
           body: `Averaged over ${dow.reduce((s, d) => s + d.n, 0)} days: ${label} is ${best.value}${unit} on ${best.name} and ${worst.value}${unit} on ${worst.name} — a ${f1(spread)}% gap that repeats every week. Weekly rhythms hide completely in a daily view, and this one is large enough to plan around.`,
           severity: "neutral",
@@ -298,6 +442,17 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     if (hrvFalling && rhrRising) {
       add({
         id: "hrv-rhr-agree",
+        headline: { value: hvs(rhrT.totalChange), unit: " bpm",
+                    caption: "resting HR over 60 days, with HRV falling too" },
+        claim: "Both recovery markers moving the wrong way together",
+        action: "Take this seriously rather than explaining it away",
+        stats: [
+          { k: "HRV change", v: `${f2(hrvT.totalChange)}` },
+          { k: "Resting HR change", v: `${f2(rhrT.totalChange) > 0 ? "+" : ""}${f2(rhrT.totalChange)}` },
+          { k: "Window", v: `${hrvT.days} days` },
+        ],
+        method: "Ordinary least squares slope over the last 60 days, both metrics.",
+        chart: { kind: "rolling", keys: ["hrv", "restingHR"] },
         title: "Both recovery markers are moving the wrong way together",
         body: `Over the last 60 days HRV has drifted ${f2(hrvT.totalChange)} and resting heart rate ${f2(rhrT.totalChange) > 0 ? "+" : ""}${f2(rhrT.totalChange)}. When these two disagree it is usually measurement noise. When they agree, as they do here, it is a real shift in autonomic state — and it is worth taking seriously rather than explaining away.`,
         severity: "watch",
@@ -308,6 +463,16 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     } else if (!hrvFalling && !rhrRising) {
       add({
         id: "hrv-rhr-good",
+        headline: { value: hvs(hrvT.totalChange), unit: "",
+                    caption: "HRV over 60 days, with resting HR falling too" },
+        claim: "Both recovery markers improving together",
+        stats: [
+          { k: "HRV change", v: `${f2(hrvT.totalChange) > 0 ? "+" : ""}${f2(hrvT.totalChange)}` },
+          { k: "Resting HR change", v: `${f2(rhrT.totalChange)}` },
+          { k: "Window", v: `${hrvT.days} days` },
+        ],
+        method: "Ordinary least squares slope over the last 60 days, both metrics.",
+        chart: { kind: "rolling", keys: ["hrv", "restingHR"] },
         title: "Both recovery markers are improving together",
         body: `Over 60 days HRV moved ${f2(hrvT.totalChange) > 0 ? "+" : ""}${f2(hrvT.totalChange)} and resting heart rate ${f2(rhrT.totalChange)}. Both pointing the favourable way at once is the clearest signal that recovery is genuinely improving.`,
         severity: "good",
@@ -327,14 +492,29 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     if (r.atl != null && r.ctl != null) wk[k].load += Math.max(0, r.atl - (r.ctl ?? 0)) ;
     if (r.sleepH != null) wk[k].sleep.push(r.sleepH);
   }
+  // Only weeks with real training load. Weeks before training began carry load 0,
+  // and including them turns this into "training vs not training" — a different
+  // claim, on a regime change, that the headline would misreport as intensity.
   const wkRows = Object.entries(wk)
-    .filter(([, v]) => v.sleep.length >= 5)
+    .filter(([, v]) => v.sleep.length >= 5 && v.load > 0)
     .map(([k, v]) => ({ week: k, load: v.load, sleep: mean(v.sleep)! }));
   if (wkRows.length >= 12) {
     const c = correlate(wkRows.map((w) => w.load), wkRows.map((w) => w.sleep));
     if (c.r != null && c.r < -0.3 && (c.verdict === "strong" || c.verdict === "real but modest")) {
       add({
         id: "load-eats-sleep",
+        headline: { value: hv(c.r!), unit: " r", caption: `training load vs sleep · ${c.n} training weeks` },
+        claim: "The weeks you train hardest, you sleep least",
+        action: "Break this loop before adding any volume",
+        stats: [
+          { k: "Correlation", v: `r=${c.r}` },
+          { k: "Weeks", v: `${c.n}` },
+          { k: "Verdict", v: c.verdict },
+          { k: "Direction", v: "backwards — hard weeks need more sleep" },
+        ],
+        method: "Weekly totals across weeks with real training load only; weeks before training began are excluded.",
+        chart: { kind: "scatter", xLabel: "Weekly load", yLabel: "Mean sleep (h)",
+                 points: wkRows.map((w) => ({ x: f1(w.load), y: f2(w.sleep) })) },
         title: "The weeks you train hardest are the weeks you sleep least",
         body: `Across ${c.n} weeks, higher training load goes with less sleep that same week (r=${c.r}). That is the wrong way round — hard weeks are exactly when you need more sleep, not less. It is also self-reinforcing: less sleep degrades recovery, which makes the same load cost more, which eats further into sleep. Of everything in this data, this loop is the most worth breaking.`,
         severity: "critical",
@@ -357,6 +537,16 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     if (dead) {
       add({
         id: "form-meaningless",
+        headline: { value: hv(vsHrv.r!), unit: " r", caption: `form vs HRV · effectively zero · n=${vsHrv.n}` },
+        claim: "Form does not predict how you actually feel",
+        action: "Read it as training description, not body state",
+        stats: [
+          { k: "vs HRV", v: `r=${vsHrv.r}` },
+          { k: "vs readiness", v: `r=${vsRdy.r}` },
+          { k: "Days", v: `${vsHrv.n}` },
+        ],
+        method: "Same-day Pearson, restricted to days with real training load (CTL ≥ 5).",
+        chart: { kind: "monthly", key: "form" },
         title: "Your form number does not predict how you actually feel",
         body: `Form — the fitness-minus-fatigue figure every training app puts front and centre — correlates with your HRV at r=${vsHrv.r} and with your readiness score at r=${vsRdy.r} across ${vsHrv.n} days. Both are effectively zero. It is computed purely from training load, so it cannot see your sleep, your stress or the heat. Treat it as a description of your training, not of your body. The recovery metrics are the ones telling you something.`,
         severity: "neutral",
@@ -381,6 +571,17 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
   if (zh != null && zr != null && Math.abs(zr) > Math.abs(zh) * 1.3 && Math.abs(zr) > 0.6) {
     add({
       id: "rhr-more-sensitive",
+      headline: { value: hv(Math.abs(zr)), unit: " SD", caption: `resting HR moved this far — HRV moved only ${hv(Math.abs(zh))} SD` },
+      claim: "Resting heart rate is your sharper signal",
+      action: "If you track one number, track this one",
+      stats: [
+        { k: "Resting HR shift", v: `${f2(Math.abs(zr))} SD` },
+        { k: "HRV shift", v: `${f2(Math.abs(zh))} SD` },
+        { k: "Difference", v: `${f1((Math.abs(zr) / Math.abs(zh) - 1) * 100)}% further` },
+        { k: "Split", v: `${early.length} early vs ${lateR.length} recent days` },
+      ],
+      method: "First half of the record against the second, scaled by pooled standard deviation.",
+      chart: { kind: "monthly", key: "restingHR", invert: true },
       title: "Resting heart rate is your sharper signal, not HRV",
       body: `Comparing the first half of the record against the second: resting heart rate moved ${f2(Math.abs(zr))} standard deviations while HRV moved ${f2(Math.abs(zh))}. Everyone watches HRV because it is the number the apps lead with, but for you resting heart rate has shifted ${f1((Math.abs(zr) / Math.abs(zh) - 1) * 100)}% further and it is far less noisy night to night. If you are going to track one number, track that one.`,
       severity: "neutral",

@@ -175,3 +175,46 @@ INTERVALS_API_KEY the whole time and could have written the brief.
 **Limitation to remember:** `update_trigger` cannot attach a repository or
 rebind a routine to an existing session. It takes only name, cron, enabled,
 model and prompt. Self-cloning is the only fix available from here.
+
+---
+
+## 2026-09-20 — Dashboard redesign, and a finding I had to withdraw
+
+**His feedback:** the screens were not informative. The Insights tab was walls of
+text. Nothing was clickable. He wants to read less and click more.
+
+**Audit findings:** 10 prose cards, roughly 800 words before a single number.
+Every card carried an always-visible explainer paragraph. Nothing was clickable
+except one table. Tabs were named by topic, not by question.
+
+**Rebuilt around one rule: number first, claim second, prose behind a click.**
+- Every finding is now a tile: severity dot, one big number, a one-line claim,
+  a caption, and the action. The prose is behind "Why this matters".
+- Every tile, metric, correlation bar and session row opens a detail sheet with
+  the stat tokens, the chart and the method.
+- Tabs cut 6 → 5. Body merged into Recovery, where those signals belong.
+
+**A finding I got wrong and have now withdrawn.**
+"The weeks you train hardest are the weeks you sleep least" was the top card,
+marked critical, r=-0.379 across 32 weeks. I told him this morning it was the
+loop most worth breaking. It was an artefact. 18 of those 32 weeks were before
+he started training at all, so the correlation was measuring "training versus
+not training", not "hard weeks versus easy weeks". Restricted to weeks with
+real load: n=14, r=-0.317, NOT significant. Above load>5: r=-0.106, nothing.
+The rule now excludes zero-load weeks, the n>=20 gate stops it firing, and the
+card is gone. Told him directly rather than letting it disappear quietly.
+
+**Second real bug: a daytime pulse shown as a resting heart rate.**
+Today's wellness row carried restingHR 75 with every overnight field null —
+Garmin posts an intraday sample hours before Whoop uploads the night. The
+dashboard showed 75 at +5.41 SD in red. His true range is 49-57. A day is now
+only treated as synced once hrv or sleep has landed; otherwise it falls back to
+the last complete day and says so on screen.
+
+**Palette:** validated with the dataviz validator rather than by eye. Light mode
+failed the 3:1 contrast floor on green (2.74:1). Darkening green alone broke
+green/orange CVD separation (protan ΔE 5.1). Moving both — bike #eb6834 →
+#e0552c, run #1baf7a → #17a06f — passes every check in both modes.
+
+**Rule to keep:** a correlation across a regime change is not a finding. Check
+what the zero-cluster in a scatter actually is before reporting the r.
