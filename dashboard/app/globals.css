@@ -511,3 +511,165 @@ button.item {
   padding: 11px 13px; margin-bottom: 14px;
 }
 .stale b { color: var(--text-primary); }
+
+/* ===================================================================
+   Verdict layer: category chips, target bands, badges, headlines.
+   =================================================================== */
+
+.chips { display: grid; gap: 12px; grid-template-columns: 1fr; margin-bottom: 4px; }
+@media (min-width: 640px)  { .chips { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .chips { grid-template-columns: repeat(4, 1fr); } }
+
+.chip {
+  text-align: left; font: inherit; color: inherit; cursor: pointer;
+  background: var(--surface-1); border: 1px solid var(--border);
+  border-top: 3px solid var(--text-muted); border-radius: 12px; padding: 13px 14px 11px;
+  display: flex; flex-direction: column; gap: 3px; transition: border-color .12s, transform .12s;
+}
+.chip:hover { transform: translateY(-1px); }
+.chip.good { border-top-color: var(--good); }
+.chip.watch { border-top-color: var(--warning); }
+.chip.attention { border-top-color: var(--critical); }
+.chip.unknown { border-top-color: var(--text-muted); }
+.chiptop { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.chiplabel { font-size: 13px; font-weight: 640; }
+.chipstatus {
+  display: inline-flex; align-items: center; gap: 5px; font-size: 10.5px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .04em; color: var(--text-muted);
+}
+.chipstatus .sev { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.chip.good .chipstatus { color: var(--good); }
+.chip.watch .chipstatus { color: var(--warning); }
+.chip.attention .chipstatus { color: var(--critical); }
+.chiphero {
+  font-size: 27px; font-weight: 650; letter-spacing: -0.02em; line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.chipunit { font-size: 11px; font-weight: 500; color: var(--text-muted); margin-left: 3px; letter-spacing: 0; }
+.chipline { font-size: 11.5px; color: var(--text-secondary); line-height: 1.45; }
+.chipfoot {
+  display: flex; align-items: center; font-size: 11px; color: var(--text-muted);
+  margin-top: 5px; padding-top: 7px; border-top: 1px dashed var(--border);
+}
+
+/* --- Critical Markers category sections -------------------------------- */
+.catsec { margin-bottom: 26px; transition: opacity .2s; }
+.catsec.dim { opacity: .45; }
+.cathead {
+  display: flex; align-items: flex-start; gap: 14px; justify-content: space-between;
+  padding: 12px 14px; border-radius: 11px; background: var(--surface-1);
+  border: 1px solid var(--border); border-left: 3px solid var(--text-muted); margin-bottom: 12px;
+}
+.cathead.good { border-left-color: var(--good); }
+.cathead.watch { border-left-color: var(--warning); }
+.cathead.attention { border-left-color: var(--critical); }
+.cathead h2 { font-size: 15px; font-weight: 650; margin: 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.cathead .sev { width: 9px; height: 9px; border-radius: 50%; background: var(--text-muted); flex: none; }
+.cathead.good .sev { background: var(--good); }
+.cathead.watch .sev { background: var(--warning); }
+.cathead.attention .sev { background: var(--critical); }
+.catstatus { font-size: 12px; font-weight: 400; color: var(--text-secondary); line-height: 1.5; }
+.catblurb { font-size: 11px; color: var(--text-muted); margin-top: 5px; }
+.cathero {
+  font-size: 22px; font-weight: 640; font-variant-numeric: tabular-nums; white-space: nowrap;
+  letter-spacing: -0.02em;
+}
+.cathero span { font-size: 10px; font-weight: 500; color: var(--text-muted); margin-left: 3px; }
+
+/* --- target band ------------------------------------------------------- */
+.bands { display: flex; flex-direction: column; gap: 16px; }
+.band {
+  width: 100%; text-align: left; font: inherit; color: inherit; background: none;
+  border: 1px solid transparent; border-radius: 9px; padding: 9px 10px; cursor: pointer;
+}
+.band:hover { border-color: var(--border); background: var(--surface-1); }
+.band:disabled { cursor: default; }
+.bandhead { display: flex; align-items: baseline; gap: 10px; margin-bottom: 7px; }
+.bandname { font-size: 13px; font-weight: 620; }
+.banddir { font-size: 11px; color: var(--text-muted); }
+.bandnow {
+  margin-left: auto; font-size: 17px; font-weight: 640; font-variant-numeric: tabular-nums;
+}
+.bandnow small { font-size: 10px; font-weight: 500; color: var(--text-muted); }
+.bandtrack {
+  position: relative; height: 10px; border-radius: 5px; background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+.bandzone { position: absolute; top: 0; bottom: 0; background: color-mix(in srgb, var(--good) 26%, transparent); }
+.bandmean { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--text-muted); opacity: .55; }
+.banddot {
+  position: absolute; top: 50%; width: 13px; height: 13px; border-radius: 50%;
+  background: var(--good); border: 2px solid var(--surface-1); transform: translate(-50%, -50%);
+}
+.banddot.out { background: var(--critical); }
+.bandfoot {
+  display: flex; justify-content: space-between; gap: 8px; margin-top: 6px;
+  font-size: 10.5px; color: var(--text-muted);
+}
+.bandtarget { font-weight: 600; }
+.band.out .bandtarget { color: var(--critical); }
+.bandext { font-size: 10px; color: var(--text-muted); margin-top: 5px; font-style: italic; opacity: .85; }
+
+/* --- badges ------------------------------------------------------------ */
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.badge {
+  display: inline-flex; align-items: baseline; gap: 5px; padding: 4px 8px;
+  border-radius: 7px; background: var(--surface-2); border: 1px solid var(--border);
+  font-size: 11px; line-height: 1.3;
+}
+.badge b { font-size: 12.5px; font-weight: 640; font-variant-numeric: tabular-nums; }
+.badge span { color: var(--text-muted); font-size: 10px; }
+.badge.easy b { color: var(--good); }
+.badge.moderate b { color: var(--warning); }
+.badge.hard b { color: var(--critical); }
+
+/* --- session rows ------------------------------------------------------ */
+.srows { display: flex; flex-direction: column; gap: 8px; }
+.srow {
+  width: 100%; text-align: left; font: inherit; color: inherit; cursor: pointer;
+  background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 12px; transition: border-color .12s;
+}
+.srow:hover { border-color: var(--text-muted); }
+.srow.stub { opacity: .62; }
+.srowtop { display: flex; align-items: center; gap: 8px; }
+.srowname { font-size: 13px; font-weight: 560; flex: 1; }
+.srowdate { font-size: 11px; color: var(--text-muted); }
+.srowstub { font-size: 11px; color: var(--text-muted); margin-top: 5px; font-style: italic; }
+.sessiondesc { font-size: 14px; line-height: 1.5; margin: 0 0 4px; color: var(--text-primary); }
+
+/* --- headline above a chart -------------------------------------------- */
+.headline {
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  padding: 10px 12px; border-radius: 9px; background: var(--surface-2);
+  border-left: 3px solid var(--text-muted); margin-bottom: 12px;
+}
+.headline.warn { border-left-color: var(--warning); }
+.hlval { font-size: 25px; font-weight: 650; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.hlunit { font-size: 11px; font-weight: 500; color: var(--text-muted); margin-left: 3px; }
+.hltext { font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; flex: 1; min-width: 200px; }
+
+/* --- race readiness ---------------------------------------------------- */
+.races { display: flex; flex-direction: column; gap: 15px; }
+.racehead { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+.racesport { font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 7px; }
+.racepct { font-size: 15px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.racetrack { height: 9px; border-radius: 5px; background: var(--surface-2); border: 1px solid var(--border); overflow: hidden; }
+.racefill { display: block; height: 100%; border-radius: 4px; }
+.racefoot { font-size: 11px; color: var(--text-muted); margin-top: 5px; }
+.racenote { font-size: 10px; color: var(--text-muted); font-style: italic; margin-top: 3px; }
+
+/* --- correlation meaning line ------------------------------------------ */
+.cmean { grid-column: 1 / -1; font-size: 11.5px; color: var(--text-secondary); line-height: 1.45; margin-top: 3px; }
+.corr .cval small { display: block; font-size: 9.5px; color: var(--text-muted); font-weight: 500; }
+
+/* --- deduction line + not-measured ------------------------------------- */
+.deduce { font-size: 12.5px; line-height: 1.55; color: var(--text-secondary); margin: 0 0 10px; }
+.deduce b { color: var(--text-primary); }
+.notmeasured {
+  font-size: 13px; line-height: 1.6; color: var(--text-secondary);
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-left: 3px solid var(--warning); border-radius: 9px; padding: 11px 13px;
+}
+.notmeasured.small { font-size: 12px; margin-bottom: 12px; }
+.notmeasured b { color: var(--text-primary); }

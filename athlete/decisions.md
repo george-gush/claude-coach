@@ -291,3 +291,51 @@ was labelled exactly as strong as HRV (r=+0.741). Now reports `significant`
 squared as a percentage, which is the number he can actually use:
   HRV 54.8% · resting HR 24.3% · sleep score 10.2% · sleep hours 6.0% ·
   breathing 5.1%
+
+---
+
+## 2026-09-21 — Verdict layer. The audit's diagnosis, and what it changed.
+
+**Six parallel audit agents, 557k tokens, 7 minutes.** Their one-line diagnosis
+was right and worth keeping: *every screen computes a number and then stops one
+sentence short — it never says which direction is good, what he should be aiming
+at, or what the verdict is.*
+
+**Built:**
+- Findings -> **Critical Markers**, four themed sections (heart / sleep /
+  activity / fitness). Each has a status header computed from the DATA, not from
+  whether a rule fired — a category with no firing rule is not thereby healthy.
+- Category is set LITERALLY per rule, never derived from `metric`.
+  readiness-redundant and respiration-lead are statements about his autonomic
+  signal and belong under heart, not under their own metric.
+- Fitness status is coloured by the CTL ramp and NEVER by form. Form correlates
+  negatively with his HRV, so a red header off a negative-form streak would be
+  actively false for him.
+- Recovery gained a "where you are against where you should be" band per metric:
+  direction-of-good as TEXT (not colour alone), target = his own 75th percentile
+  over 60 days, labelled "your own good days".
+- Population references added ONLY where published ranges are firm — resting HR,
+  breathing rate, blood oxygen — in smaller italic text marked as external.
+  Deliberately NO population HRV band. He chose this.
+- Correlations now lead with shared variance as a percentage plus a plain
+  sentence. HRV 54.8%, resting HR 24.3%, sleep length 6.0%.
+- Sport-correct pace at last: swim min/100m, run min/km, bike km/h. The old
+  `pace()` had "/km" baked into the formatter so it could never render a swim,
+  and `paceSecPerKm` was computed only for runs, so swims and rides fell through
+  to a km/h branch.
+- Sessions are badge rows with a plain-English descriptor. Strava stubs render
+  greyed and explain themselves rather than looking like a data bug.
+- Race readiness strip: swim 75%, bike 137%, run 63% of race distance.
+- Strength renders as "not tracked", never as zero.
+
+**Two bugs found while building, both mine:**
+1. **The in-progress week was identified by POSITION.** A zero-hour current week
+   gets filtered out by `hours > 0`, and `completeWeeks[length-2]` then skipped
+   the real last complete week. On a Monday it reported the week before last:
+   3.46 h instead of 4.72 h. Now identified by DATE. Fixing it surfaced a
+   genuine finding: load jumped 35.9% in one week, which matters for the knee.
+2. **The target band clipped any dot beyond p10/p90** at the track edge. Domain
+   now padded 8% each side.
+
+**Rule to keep:** identify "the current period" by date, never by array position.
+A filter upstream can silently shift what position means.

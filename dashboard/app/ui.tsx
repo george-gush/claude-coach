@@ -258,7 +258,7 @@ export function WeekdayChart({ data, color, unit = "" }: any) {
 }
 
 /** Correlation strength bar — signed, so direction is visible. Clickable. */
-export function CorrBar({ label, r, n, verdict, onClick }: any) {
+export function CorrBar({ label, r, n, verdict, shared, strength, meaning, onClick }: any) {
   const w = r == null ? 0 : Math.min(Math.abs(r), 1) * 50;
   const weak = verdict === "no reliable relationship" || verdict === "sample too small to call" || verdict === "too few paired days";
   const C: any = onClick ? "button" : "div";
@@ -274,7 +274,11 @@ export function CorrBar({ label, r, n, verdict, onClick }: any) {
           }} />
         )}
       </div>
-      <div className="cval">{r == null ? "—" : `${r > 0 ? "+" : ""}${r}`}<small>n={n}</small></div>
+      <div className="cval">
+        {shared == null || weak ? "—" : `${shared}%`}
+        <small>{weak ? "no reliable link" : "shared"}</small>
+      </div>
+      {meaning && <div className="cmean">{meaning}</div>}
     </C>
   );
 }
@@ -322,6 +326,137 @@ export function Sheet({ open, onClose, title, eyebrow, children }: any) {
         </header>
         <div className="sheetbody">{children}</div>
       </div>
+    </div>
+  );
+}
+
+/* ===================================================================
+   Redesign round 2: verdict layer. Every panel states a direction, a
+   target and a takeaway before it shows a chart.
+   =================================================================== */
+
+const STATUS_WORD: Record<string, string> = {
+  good: "Good", watch: "Drifting", attention: "Needs attention", unknown: "No data",
+};
+
+/** One of the four at-a-glance markers: heart, sleep, activity, fitness. */
+export function MarkerChip({ m, onClick }: any) {
+  return (
+    <button className={`chip ${m.status}`} onClick={onClick}>
+      <div className="chiptop">
+        <span className="chiplabel">{m.label}</span>
+        <span className="chipstatus"><span className="sev" />{STATUS_WORD[m.status]}</span>
+      </div>
+      <div className="chiphero">{m.hero}<span className="chipunit">{m.heroUnit}</span></div>
+      <div className="chipline">{m.line}</div>
+      <div className="chipfoot">{m.findings} finding{m.findings === 1 ? "" : "s"}<span className="chev">→</span></div>
+    </button>
+  );
+}
+
+/** "Where I am against where I should be", one row per metric.
+ *
+ *  Each row is its own single axis — no shared scale, never a dual axis. The
+ *  direction of good is TEXT ("higher is better"), not colour, because colour
+ *  alone cannot carry direction for a colour-blind reader. Colour is used only
+ *  to mark today's dot falling outside the target zone. */
+export function TargetBand({ g, onClick }: any) {
+  // Pad the domain so a value beyond p10/p90 still renders a whole dot rather
+  // than half of one clipped at the track edge.
+  const rawLo = Math.min(g.p10 ?? 0, g.today ?? Infinity, g.target ?? Infinity);
+  const rawHi = Math.max(g.p90 ?? 1, g.today ?? -Infinity, g.target ?? -Infinity);
+  const pad = (rawHi - rawLo || 1) * 0.08;
+  const lo = rawLo - pad, hi = rawHi + pad;
+  const span = hi - lo || 1;
+  const x = (v: number) => ((v - lo) / span) * 100;
+  const zoneLeft = g.better === "higher" ? x(g.target) : 0;
+  const zoneWidth = g.better === "higher" ? 100 - x(g.target) : x(g.target);
+  const out = g.inZone === false;
+  return (
+    <button className={`band${out ? " out" : ""}`} onClick={onClick} disabled={!onClick}>
+      <div className="bandhead">
+        <span className="bandname">{g.label}</span>
+        <span className="banddir">{g.better === "higher" ? "↑ higher is better" : "↓ lower is better"}</span>
+        <span className="bandnow">{g.today ?? "—"}<small>{g.unit}</small></span>
+      </div>
+      <div className="bandtrack">
+        <span className="bandzone" style={{ left: `${zoneLeft}%`, width: `${zoneWidth}%` }} />
+        {g.mean != null && <span className="bandmean" style={{ left: `${x(g.mean)}%` }} />}
+        {g.today != null && <span className={`banddot${out ? " out" : ""}`} style={{ left: `${x(g.today)}%` }} />}
+      </div>
+      <div className="bandfoot">
+        <span>{g.p10}{g.unit}</span>
+        <span className="bandtarget">
+          target {g.better === "higher" ? "≥" : "≤"} {g.target}{g.unit} · your own good days
+        </span>
+        <span>{g.p90}{g.unit}</span>
+      </div>
+      {g.external && (
+        <div className="bandext">{g.external.note}</div>
+      )}
+    </button>
+  );
+}
+
+/** Session badges. Different sports carry different badges — a fixed table
+ *  column cannot show a swim and a ride the same things. */
+export function Badges({ items }: any) {
+  if (!items?.length) return null;
+  return (
+    <div className="badges">
+      {items.map((b: any, i: number) => (
+        <span className={`badge${b.tone ? ` ${b.tone}` : ""}`} key={i}>
+          <b>{b.v}</b><span>{b.k}</span>
+        </span>
+      ))}
+    </div>
+  );
+}
+
+export function SessionRow({ a, onClick }: any) {
+  return (
+    <button className={`srow${a.stub ? " stub" : ""}`} onClick={onClick}>
+      <div className="srowtop">
+        <i className="sdot" style={{ background: SPORT_VAR[a.sport] }} />
+        <span className="srowname">{a.name || a.sport}</span>
+        <span className="srowdate">{shortDate(a.date)}</span>
+        <span className="chev">→</span>
+      </div>
+      {a.stub
+        ? <div className="srowstub">Came through Strava — the API returns no detail for these.</div>
+        : <Badges items={a.badges} />}
+    </button>
+  );
+}
+
+/** A headline above a chart: the number, and the sentence that number means. */
+export function Headline({ value, unit, text, tone }: any) {
+  return (
+    <div className={`headline${tone ? ` ${tone}` : ""}`}>
+      <div className="hlval">{value}<span className="hlunit">{unit}</span></div>
+      <div className="hltext">{text}</div>
+    </div>
+  );
+}
+
+/** Race readiness per discipline, against the actual race distances. */
+export function RaceBar({ r }: any) {
+  const w = Math.min(r.pctOfRace, 100);
+  const done = r.pctOfRace >= 100;
+  return (
+    <div className="race">
+      <div className="racehead">
+        <span className="racesport"><i className="sdot" style={{ background: SPORT_VAR[r.sport] }} />{r.sport}</span>
+        <span className="racepct">{r.pctOfRace}%</span>
+      </div>
+      <div className="racetrack">
+        <span className="racefill" style={{ width: `${w}%`, background: SPORT_VAR[r.sport] }} />
+      </div>
+      <div className="racefoot">
+        longest {r.best} km of {r.target} km
+        {done ? " — covered" : ` — ${Math.round((r.target - r.best) * 10) / 10} km short`}
+      </div>
+      {r.note && <div className="racenote">{r.note}</div>}
     </div>
   );
 }

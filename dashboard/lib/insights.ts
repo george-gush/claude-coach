@@ -29,6 +29,13 @@ export type Insight = {
   evidence: string;
   metric?: string;
   rank: number;
+  /** Which at-a-glance marker this finding belongs under. Set literally per rule,
+   *  never derived from `metric`: readiness-redundant and respiration-lead are
+   *  both statements about his cardiac/autonomic signal and belong under heart. */
+  category: "heart" | "sleep" | "activity" | "fitness";
+  /** True for findings about how to READ his numbers rather than where he stands.
+   *  They are collapsed into a sub-row so status findings lead. */
+  meta?: boolean;
   /** The one number that carries the finding. Shown large; read before any prose. */
   headline: { value: string; unit?: string; caption: string };
   /** The finding in one short line. Never a paragraph. */
@@ -55,7 +62,10 @@ const DAY = 864e5;
 const daysBetween = (a: string, b: string) =>
   Math.round((new Date(b + "T00:00:00Z").getTime() - new Date(a + "T00:00:00Z").getTime()) / DAY);
 
-export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insight[] {
+export function buildInsights(
+  rows: Row[],
+  opts: { sleepTargetH: number; weeks?: { week: string; hours: number; load: number; sessions: number }[] }
+): Insight[] {
   const out: Insight[] = [];
   const add = (i: Omit<Insight, "rank">) => out.push({ ...i, rank: 0 });
   if (rows.length < 30) return out;
@@ -81,6 +91,7 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
       const fellUntil = withHrv[Math.max(troughIdx, withHrv.indexOf(peak) + 1)];
       add({
         id: "hrv-long-arc",
+      category: "heart",
       headline: drop >= 0
         ? { value: `${hvs(drop, 1)}%`, unit: "", caption: `HRV above its low — now ${now.hrv}` }
         : { value: `${hv(drop, 1)}%`, unit: "", caption: stabilised
@@ -132,6 +143,7 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     if (h && rh && (Math.abs(h.d) > 4 || Math.abs(rh.d) > 4)) {
       add({
         id: "season",
+        category: "heart",
         headline: { value: `${hvs(rh.d, 1)}%`, unit: "",
                     caption: "resting HR, summer vs your first 3 months" },
         claim: "Summer costs you — heat, not lost fitness",
@@ -164,6 +176,7 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     const avg = mean(sleepDays.map((r) => r.sleepH))!;
     add({
       id: "sleep-debt",
+      category: "sleep",
       headline: { value: `${Math.round(debt)}`, unit: " h", caption: `owed against your ${target} h target` },
       claim: `${Math.round(debt)} hours of sleep owed`,
       action: "The largest single thing you can change",
@@ -200,6 +213,7 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
       if (now.v > best.v * 1.4) {
         add({
           id: "sleep-consistency",
+          category: "sleep",
           headline: { value: `${hvs(pct(best.v, now.v), 1)}%`, unit: "",
                       caption: "more night-to-night swing than your steadiest month" },
           claim: "Your sleep became erratic and stayed erratic",
@@ -230,6 +244,8 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     const beatsSleep = sleepLag[0].r == null || Math.abs(r1.r) > Math.abs(sleepLag[0].r);
     add({
       id: "respiration-lead",
+      category: "heart",
+      meta: true,
       headline: { value: hvs(r1.r!), unit: " r",
                   caption: `predicts tomorrow's resting HR · n=${r1.n}` },
       claim: "Breathing rate warns you before anything else",
@@ -264,6 +280,8 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
   if (readVsHrv.r != null && readVsSleep.r != null && readVsHrv.r > 0.6 && readVsHrv.r > readVsSleep.r * 2) {
     add({
       id: "readiness-redundant",
+      category: "heart",
+      meta: true,
       headline: { value: hvs(readVsHrv.r!), unit: " r", caption: `readiness vs HRV — sleep manages only ${hvs(readVsSleep.r!)}` },
       claim: "Readiness is mostly just HRV wearing a hat",
       action: "Do not treat it as a second opinion",
@@ -307,6 +325,7 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     if (streak >= 14) {
       add({
         id: "form-streak",
+        category: "fitness",
         headline: { value: `${streak}`, unit: " days", caption: "of negative form in a row" },
         claim: formIsBackwards ? `${streak} days negative — but form is backwards for you`
           : `${streak} straight days of negative form`,
@@ -347,6 +366,7 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     const gap = Math.abs(daysBetween(cpHrv!.date, cpRhr!.date));
     add({
       id: "changepoint-both",
+      category: "heart",
       headline: { value: "2", unit: " markers",
                   caption: `broke in the same week — effect sizes ${cpHrv!.effect} and ${cpRhr!.effect}, both large` },
       claim: `Something changed the week of ${fmtDate(earlier.date)}`,
@@ -375,6 +395,7 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
       const worse = good === "up" ? cp.after < cp.before : cp.after > cp.before;
       add({
         id: `changepoint-${key}`,
+        category: "heart",
         headline: { value: hvs(cp.after - cp.before, 1), unit: "",
                     caption: `step change in ${label} around ${fmtDate(cp.date)} — effect ${cp.effect}, large` },
         claim: `${label[0].toUpperCase()}${label.slice(1)} stepped ${worse ? "the wrong way" : "the right way"}`,
@@ -409,6 +430,7 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
       if (spread > 12) {
         add({
           id: `dow-${key}`,
+          category: key === "sleepH" ? "sleep" : "heart",
           headline: { value: `${f1(spread)}%`, unit: "", caption: `gap between ${best.name} and ${worst.name}` },
           claim: `${worst.name} is reliably your worst day for ${label}`,
           action: `Plan the hard session away from ${worst.name}`,
@@ -443,6 +465,7 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     if (hrvFalling && rhrRising) {
       add({
         id: "hrv-rhr-agree",
+        category: "heart",
         headline: { value: hvs(rhrT.totalChange), unit: " bpm",
                     caption: "resting HR over 60 days, with HRV falling too" },
         claim: "Both recovery markers moving the wrong way together",
@@ -464,6 +487,7 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     } else if (!hrvFalling && !rhrRising) {
       add({
         id: "hrv-rhr-good",
+        category: "heart",
         headline: { value: hvs(hrvT.totalChange), unit: "",
                     caption: "HRV over 60 days, with resting HR falling too" },
         claim: "Both recovery markers improving together",
@@ -504,6 +528,7 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     if (c.r != null && c.r < -0.3 && c.significant) {
       add({
         id: "load-eats-sleep",
+        category: "sleep",
         headline: { value: hv(c.r!), unit: " r", caption: `training load vs sleep · ${c.n} training weeks` },
         claim: "The weeks you train hardest, you sleep least",
         action: "Break this loop before adding any volume",
@@ -539,6 +564,8 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     if (dead) {
       add({
         id: "form-meaningless",
+        category: "fitness",
+        meta: true,
         headline: { value: hv(vsHrv.r!), unit: " r", caption: `form vs HRV · effectively zero · n=${vsHrv.n}` },
         claim: "Form does not predict how you actually feel",
         action: "Read it as training description, not body state",
@@ -573,6 +600,8 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
   if (zh != null && zr != null && Math.abs(zr) > Math.abs(zh) * 1.3 && Math.abs(zr) > 0.6) {
     add({
       id: "rhr-more-sensitive",
+      category: "heart",
+      meta: true,
       headline: { value: hv(Math.abs(zr)), unit: " SD", caption: `resting HR moved this far — HRV moved only ${hv(Math.abs(zh))} SD` },
       claim: "Resting heart rate is your sharper signal",
       action: "If you track one number, track this one",
@@ -591,6 +620,78 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
       evidence: `${early.length} early days vs ${lateR.length} recent`,
       metric: "restingHR",
     });
+  }
+
+  // ------------------------------------------- 14-16. activity (his own volume)
+  // These exist so the ACTIVITY marker is never an empty category. They compare
+  // him only against his own trailing weeks, never against a plan or a norm.
+  // The caller passes complete weeks only — no slicing off a trailing entry here,
+  // because a zero-hour current week is already filtered out upstream and slicing
+  // would then drop a real week.
+  const done = (opts.weeks || []).filter((w) => w.hours > 0);
+  if (done.length >= 4) {
+    const last = done[done.length - 1];
+    const prior = done.slice(-9, -1);
+    const hMean = mean(prior.map((w) => w.hours));
+    const sMean = mean(prior.map((w) => w.sessions));
+
+    if (last && hMean != null && prior.length >= 3) {
+      const delta = pct(hMean, last.hours);
+      add({
+        id: "activity-volume",
+        category: "activity",
+        title: `${f1(last.hours)} h last week`,
+        headline: { value: `${hvs(delta, 0)}%`, unit: "",
+                    caption: `last week against your own ${prior.length}-week average of ${f1(hMean)} h` },
+        claim: delta >= 0 ? "You trained above your own average" : "You trained below your own average",
+        action: Math.abs(delta) > 40 ? "A swing this size is worth a reason" : undefined,
+        body: `Your last complete week was ${f1(last.hours)} h across ${last.sessions} sessions, against a trailing average of ${f1(hMean)} h and ${f1(sMean ?? 0)} sessions. This compares you only against yourself — there is no target here, because the plan is the place for targets.`,
+        severity: Math.abs(delta) > 50 ? "watch" : "neutral",
+        confidence: "measured",
+        evidence: `${done.length} complete weeks`,
+        stats: [
+          { k: "Last week", v: `${f1(last.hours)} h · ${last.sessions} sessions` },
+          { k: "Your average", v: `${f1(hMean)} h · ${f1(sMean ?? 0)} sessions` },
+          { k: "Change", v: `${hvs(delta, 0)}%` },
+          { k: "Weeks compared", v: `${prior.length}` },
+        ],
+        method: "Last complete week against the mean of the preceding weeks. The in-progress week is excluded.",
+        chart: { kind: "bars", unit: " h", points: done.slice(-10).map((w) => ({ label: w.week.slice(5), value: f1(w.hours) })) },
+        metric: "hours",
+      });
+    }
+
+    // Ramp rate — the injury-relevant one, given his knee.
+    if (done.length >= 5) {
+      const recent = done.slice(-1)[0];
+      const base4 = mean(done.slice(-5, -1).map((w) => w.load));
+      if (base4 && recent.load) {
+        const ramp = pct(base4, recent.load);
+        if (Math.abs(ramp) >= 25) {
+          add({
+            id: "activity-ramp",
+            category: "activity",
+            title: `Training load ${ramp > 0 ? "up" : "down"} ${f1(Math.abs(ramp))}%`,
+            headline: { value: `${hvs(ramp, 0)}%`, unit: "",
+                        caption: "load against your trailing 4-week average" },
+            claim: ramp > 0 ? `Load jumped ${f1(ramp)}% in one week` : `Load dropped ${f1(Math.abs(ramp))}% in one week`,
+            action: ramp > 40 ? "Big jumps are where the knee complains — hold this level before adding more" : undefined,
+            body: `Last week carried ${Math.round(recent.load)} of training load against a trailing four-week mean of ${Math.round(base4)}. Ramp rate matters more than absolute volume for injury risk, and with a degenerated meniscus it is the number to watch rather than total hours.`,
+            severity: ramp > 40 ? "watch" : "neutral",
+            confidence: "measured",
+            evidence: `${done.length} complete weeks of load`,
+            stats: [
+              { k: "Last week", v: `${Math.round(recent.load)}` },
+              { k: "4-week mean", v: `${Math.round(base4)}` },
+              { k: "Change", v: `${hvs(ramp, 0)}%` },
+            ],
+            method: "Last complete week's load against the mean of the four weeks before it.",
+            chart: { kind: "bars", unit: "", points: done.slice(-10).map((w) => ({ label: w.week.slice(5), value: Math.round(w.load) })) },
+            metric: "load",
+          });
+        }
+      }
+    }
   }
 
   // rank: severity first, then confidence
