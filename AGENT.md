@@ -8,6 +8,7 @@ You are an agentic coding assistant (Claude Code or similar) helping a user set 
 adaptive-endurance-coach/
   AGENT.md                          <- this file
   README.md                         <- human-facing overview
+  athlete/                          <- athlete memory, copy to ~/.training/
   skills/adaptive-endurance-coach/  <- the coaching skill (copy this to the user's Claude skills dir)
     SKILL.md
     references/
@@ -154,7 +155,7 @@ This is all handled by the skill itself (see `skills/adaptive-endurance-coach/re
 
 **Cross-platform note on athlete memory:** the skill maintains persistent athlete memory in a `.training` folder under the user's home directory — `~/.training/` on macOS/Linux, `%USERPROFILE%\.training\` on Windows (e.g. `C:\Users\<name>\.training\`). This is created automatically by the skill on first run; you don't need to create it yourself. The skill's own SKILL.md contains the explicit per-OS resolution rule, so once the skill is installed (Step 5) it will handle this correctly on its own regardless of platform.
 
-This repo intentionally contains no athlete data — the user starts with a clean slate.
+This repo now carries the owner's own athlete data in `athlete/` (see `athlete/README.md`) — copy it to `~/.training/` before a coaching session. Anyone else cloning this repo should delete that folder and start from a clean slate.
 
 ## Step 7 — Sanity check
 
