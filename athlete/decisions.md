@@ -239,3 +239,55 @@ a deploy.
 vercel.app URL needs a Vercel login. A custom domain would be exempt. Turning
 SSO off would put his health data on the open internet. Raised with him; his
 call, not mine.
+
+---
+
+## 2026-09-21 — The stress score question, answered with data
+
+**He asked: "can't we get it from Whoop?"** No. Verified, not assumed:
+- Whoop's public API exposes sleep, recovery, workouts and cycle strain only.
+  No Stress Monitor, no continuous daytime HR or HRV.
+- The Whoop -> intervals.icu sync is narrower still: 8 overnight fields.
+  `stress` and `baevskySI` are 0 of 233 days. Nothing populates them.
+- Everything Whoop gives is measured while he is asleep. That is the structural
+  reason a stress score could not be built from it.
+
+**Garmin has it, and it is real.** 480 three-minute samples across a full 24h,
+plus Body Battery.
+
+**The independence test — the number that decided this:**
+| Candidate                              | Shared variance with overnight HRV |
+|----------------------------------------|-----------------------------------|
+| Composite of Whoop fields (HRV+RHR+sleep+ATL) | 76% — HRV relabelled       |
+| Garmin daytime stress                  | **3.4%** (r=-0.185, n=21)         |
+| Body Battery high                      | 10.3% (r=+0.321, n=20)            |
+
+Garmin daytime stress is genuinely new information. The Whoop composite was not.
+
+**But the history is thin: 21 days, from 2026-08-27.** Nothing significant at
+that n. A z-scored stress metric needs ~60 days of his own distribution first.
+Decision: ingest now, display raw with an explicit "building baseline — N of 60
+days" state, score it later. No placeholder number.
+
+**Standing rule for any future composite:** re-test it against overnight HRV.
+If |r| > 0.7, it is HRV wearing a hat — drop it.
+
+**Fetch method that works** (the agent found this; the obvious endpoints do not):
+`get_user_summary(date)` per day carries stress averages, all four duration
+buckets and all four Body Battery values in one call. `get_weekly_stress`
+returns only a weekly aggregate; `get_body_battery` rejects ranges over 28 days
+and never returns high/low; `get_stress_summary` returns percentages, not
+durations. Resume tokens from /root/.garminconnect, 0.25s between days, no 429s.
+
+**Architecture note:** garminconnect is Python; the dashboard is Node on Vercel.
+The app cannot call Garmin directly. The daily brief routine already holds the
+credentials and runs every morning — it writes a snapshot into the repo and the
+dashboard reads that. Up to 24h stale, and it must say so on screen.
+
+**Also fixed today: `correlate()` was conflating significance with effect size.**
+It returned "strong" off a t-test alone, so at n=228 breathing rate (r=-0.225)
+was labelled exactly as strong as HRV (r=+0.741). Now reports `significant`
+(the t-test) and `strength` (the effect size) separately, plus `shared` — r
+squared as a percentage, which is the number he can actually use:
+  HRV 54.8% · resting HR 24.3% · sleep score 10.2% · sleep hours 6.0% ·
+  breathing 5.1%

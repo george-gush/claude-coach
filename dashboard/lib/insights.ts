@@ -226,7 +226,7 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
   const respLag = lagged(rows, "respiration", "restingHR", [1]);
   const sleepLag = lagged(rows, "sleepH", "restingHR", [1]);
   const r1 = respLag[0];
-  if (r1.r != null && Math.abs(r1.r) > 0.2 && (r1.verdict === "strong" || r1.verdict === "real but modest")) {
+  if (r1.r != null && Math.abs(r1.r) > 0.2 && r1.significant) {
     const beatsSleep = sleepLag[0].r == null || Math.abs(r1.r) > Math.abs(sleepLag[0].r);
     add({
       id: "respiration-lead",
@@ -238,14 +238,15 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
         { k: "Breathing → next-day RHR", v: `r=${r1.r! > 0 ? "+" : ""}${r1.r}` },
         { k: "Sleep → next-day RHR", v: sleepLag[0].r != null ? `r=${sleepLag[0].r}` : "no signal" },
         { k: "Paired nights", v: `${r1.n}` },
-        { k: "Verdict", v: r1.verdict },
+        { k: "Shared variation", v: `${r1.shared}%` },
+        { k: "Strength", v: r1.strength },
       ],
       method: "Today's value against tomorrow's, Pearson, significance-tested before reporting.",
       chart: { kind: "monthly", key: "respiration", invert: true },
       title: "Your breathing rate warns you before anything else does",
       body: `Last night's overnight respiration predicts tomorrow's resting heart rate at r=${r1.r! > 0 ? "+" : ""}${r1.r} across ${r1.n} paired nights${beatsSleep ? ", which is a stronger signal than sleep duration manages" : ""}. Respiration is also your most stable metric, so when it moves, it means something. Almost nobody looks at this number — it is usually buried three screens deep — but for you it leads the others.`,
       severity: "neutral",
-      confidence: r1.verdict === "strong" ? "measured" : "suggestive",
+      confidence: r1.strength === "strong" || r1.strength === "moderate" ? "measured" : "suggestive",
       evidence: `r=${r1.r}, n=${r1.n}, ${r1.verdict}`,
       metric: "respiration",
     });
@@ -500,7 +501,7 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
     .map(([k, v]) => ({ week: k, load: v.load, sleep: mean(v.sleep)! }));
   if (wkRows.length >= 12) {
     const c = correlate(wkRows.map((w) => w.load), wkRows.map((w) => w.sleep));
-    if (c.r != null && c.r < -0.3 && (c.verdict === "strong" || c.verdict === "real but modest")) {
+    if (c.r != null && c.r < -0.3 && c.significant) {
       add({
         id: "load-eats-sleep",
         headline: { value: hv(c.r!), unit: " r", caption: `training load vs sleep · ${c.n} training weeks` },
@@ -509,7 +510,8 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
         stats: [
           { k: "Correlation", v: `r=${c.r}` },
           { k: "Weeks", v: `${c.n}` },
-          { k: "Verdict", v: c.verdict },
+          { k: "Shared variation", v: `${c.shared}%` },
+          { k: "Strength", v: c.strength },
           { k: "Direction", v: "backwards — hard weeks need more sleep" },
         ],
         method: "Weekly totals across weeks with real training load only; weeks before training began are excluded.",
@@ -518,7 +520,7 @@ export function buildInsights(rows: Row[], opts: { sleepTargetH: number }): Insi
         title: "The weeks you train hardest are the weeks you sleep least",
         body: `Across ${c.n} weeks, higher training load goes with less sleep that same week (r=${c.r}). That is the wrong way round — hard weeks are exactly when you need more sleep, not less. It is also self-reinforcing: less sleep degrades recovery, which makes the same load cost more, which eats further into sleep. Of everything in this data, this loop is the most worth breaking.`,
         severity: "critical",
-        confidence: c.verdict === "strong" ? "measured" : "suggestive",
+        confidence: c.strength === "strong" || c.strength === "moderate" ? "measured" : "suggestive",
         evidence: `r=${c.r} across ${c.n} weeks`,
         metric: "sleepH",
       });

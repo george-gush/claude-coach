@@ -21,11 +21,25 @@ export function median(xs: number[]) {
   return s.length % 2 ? s[i] : (s[i - 1] + s[i]) / 2;
 }
 
-/** Pearson r plus a two-sided significance verdict. n < 20 is never called significant. */
+/** Pearson r, with SIGNIFICANCE and EFFECT SIZE reported separately.
+ *
+ *  These are different questions and conflating them misleads. The old version
+ *  returned "strong" off a t-test alone, so at n=228 it called breathing rate
+ *  (r=-0.225) exactly as strong as HRV (r=+0.741) — a significance test wearing
+ *  an effect-size word. Significance says "this is unlikely to be chance";
+ *  effect size says "this actually matters". Both are reported, and the plain
+ *  verdict is built from both.
+ *
+ *  `shared` is r squared as a percentage: how much of one series' variation is
+ *  accounted for by the other. It is the number a non-statistician can actually
+ *  use, and it is brutal about weak correlations — r=0.245 is 6%, not "a link". */
 export function correlate(a: number[], b: number[]) {
   const pairs = a.map((x, i) => [x, b[i]]).filter(([x, y]) => Number.isFinite(x) && Number.isFinite(y));
   const n = pairs.length;
-  if (n < 8) return { r: null, n, verdict: "too few paired days" as const };
+  if (n < 8) return {
+    r: null, n, shared: null, significant: false,
+    strength: "unknown" as const, verdict: "too few paired days" as const,
+  };
   const xs = pairs.map((p) => p[0]);
   const ys = pairs.map((p) => p[1]);
   const mx = mean(xs)!;
@@ -37,12 +51,29 @@ export function correlate(a: number[], b: number[]) {
   const r = den ? num / den : 0;
   // t = r*sqrt(n-2)/sqrt(1-r^2); |t| > ~2 is p<0.05 for n>30
   const t = Math.abs(r) >= 1 ? Infinity : Math.abs(r) * Math.sqrt((n - 2) / (1 - r * r));
+  const significant = n >= 20 && t > 2.0;
+  const abs = Math.abs(r);
+  // Effect-size bands. Conventional for behavioural data, where r=0.5 is already
+  // a powerful relationship and r=0.2 is real but nearly useless for prediction.
+  const strength =
+    abs >= 0.5 ? ("strong" as const)
+    : abs >= 0.3 ? ("moderate" as const)
+    : abs >= 0.1 ? ("weak" as const)
+    : ("negligible" as const);
   const verdict =
     n < 20 ? ("sample too small to call" as const)
-    : t > 2.6 ? ("strong" as const)
-    : t > 2.0 ? ("real but modest" as const)
-    : ("no reliable relationship" as const);
-  return { r: Math.round(r * 1000) / 1000, n, verdict };
+    : !significant ? ("no reliable relationship" as const)
+    : strength === "strong" ? ("strong link" as const)
+    : strength === "moderate" ? ("moderate link" as const)
+    : ("real but weak" as const);
+  return {
+    r: Math.round(r * 1000) / 1000,
+    n,
+    shared: Math.round(r * r * 1000) / 10, // percent of shared variation, 1dp
+    significant,
+    strength,
+    verdict,
+  };
 }
 
 /** Rolling mean over the previous `win` values, aligned to the last element. */
