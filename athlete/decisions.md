@@ -339,3 +339,39 @@ at, or what the verdict is.*
 
 **Rule to keep:** identify "the current period" by date, never by array position.
 A filter upstream can silently shift what position means.
+
+---
+
+## 2026-09-23 — Brief moves from a fixed fire to polling
+
+**Why:** a fixed 05:45 fire read the wellness row before Whoop had uploaded, so
+the brief either carried no overnight numbers or, worse, caught a half-written
+row (a daytime pulse sitting in restingHR with everything else null).
+
+**How it works now:** the routine fires hourly and gates itself.
+1. Clone, read `athlete/.brief_state` — one line, the date of the last brief.
+   Matches today (Dubai) -> exit, reply `no-op: brief already sent today`.
+2. Fetch today's wellness. HRV and sleepSecs both null, and before the cutoff ->
+   exit, reply `no-op: overnight data has not synced yet`. Next tick retries.
+3. Data landed, or cutoff reached -> send. At the cutoff with no data it says so
+   plainly and writes the brief from the plan and yesterday's training. It never
+   estimates a number.
+4. After sending, write today's Dubai date to `.brief_state`, commit, push. That
+   is what makes the remaining ticks no-op.
+
+**Two deviations from what he specified, both forced:**
+1. **15-minute ticks are rejected.** The platform minimum is 1 hour:
+   *"cron expression may fire runs as little as 15 minutes apart; the minimum
+   interval is 1 hour"*. Settled on hourly.
+2. **His cron was in the wrong timezone.** He gave `0,15,30,45 5-10 * * *` for
+   "05:00-10:45 local", but cron is stored in UTC — that expression fires
+   09:00-14:45 Dubai. The existing `45 1 * * *` labelled "05:45 Dubai" already
+   proved UTC storage. Stored `0 1-6 * * *` = 05:00-10:00 Dubai.
+
+**Failure mode designed for:** if the clone fails the routine cannot read or
+write the marker, so it must not send on an early tick or he gets six copies.
+It sends only at the cutoff in that case, and says the clone failed.
+
+**Rule to keep:** cron on this platform is UTC and the minimum interval is one
+hour. Convert before writing an expression, and never trust a schedule labelled
+with a local time without checking the stored value.
