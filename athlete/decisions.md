@@ -478,3 +478,17 @@ in the plan but was dropped from the first Garmin build. Not restored yet.
   same spot) and seated calf raise + DB curl. Pulldown, Copenhagen, KB knee raise
   straight — no upper isolation move left to pair them with.
 All three workouts re-verified from Garmin's copy after the PUT.
+
+**Leg-extension isometric restored to Gym B** (full and trimmed), 3 x 30 s per
+leg, timed, left then right. Garmin has no machine leg extension; mapped to
+Banded Exercises / Leg Extension with a watch note. He did not know the exercise
+existed — it had never reached his watch.
+
+**Knee, 22 Sep:** pain at the start of Gym A only, gone once warm. No swelling.
+Green. He expects the pain to keep fading as he gets stronger — that is the
+direction the evidence points (exercise therapy for degenerative meniscus;
+see injuries.md).
+
+**Open:** the Block 0 Spanish-squat hold is still encoded as a 1-rep step in both
+A and B, so it logs 0 reps. Should become a timed 30 s hold like the leg
+extension. Offered, not yet done.

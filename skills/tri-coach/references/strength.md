@@ -187,7 +187,7 @@ the meniscus — it dulls pain before loading.
 | 5 | **B2** Dumbbell curl | 3 × 12 | |
 | 6 | Copenhagen plank | 3 × 20–30 s / side | Short lever first. See §6. Straight. |
 | 6 | Kettlebell knee raise | 3 × 10 / side | Athlete request. Hip flexor, not knee joint. Straight. |
-| 6 | Leg extension isometric hold @ 60° | 3 × 30 s / side | **Not on the watch.** Dropped in the first Garmin build; not yet restored. |
+| 6 | Leg extension isometric hold @ 60° | 3 × 30 s / side | Single leg, so the left knee cannot hide behind the right. Restored to the watch 23 Sep as a timed hold. |
 | 6 | Dead bug | 2 × 8 / side | **Added.** Anti-extension. |
 
 **Trimmed Session B** (sore-legs day, on the watch as a separate workout): KB

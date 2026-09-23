@@ -53,6 +53,7 @@ That is why swelling, not pain, is the primary signal.
 | 2026-09-19 | Plyometrics deferred until after 14 Nov. Non-impact power only. | Landing forces are what this knee tolerates least, and the run block already competes for the same tissue. Athlete agreed. |
 | 2026-09-19 | Cossack squat, Copenhagen plank and hack squat depth all staged over 8 weeks. | Deep flexion under side load is the least tolerated position. |
 | 2026-09-19 | Warm-up block made mandatory before every run, ride and gym session. | Directly addresses the reported pain mechanism. |
+| 2026-09-22 | **First full Gym A.** Knee pain at the start only; gone once warmed up. No swelling reported. | Green. Matches the known cold-start pattern exactly — Block 0 is doing its job. Leg-extension isometric (single-leg, 60 deg) added back to Gym B on 23 Sep. |
 
 ## Secondary — low arch ("lazy arch")
 

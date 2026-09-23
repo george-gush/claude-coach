@@ -52,6 +52,9 @@ will show Garmin's name, not ours.
 | Copenhagen plank | Side Plank Leg Lifts | Partly. Less adductor-specific. Keep the short-lever progression regardless of the name. |
 | Kettlebell knee raise | Weighted External Hip Raise | Yes. Loaded standing hip flexor, which is what he described. |
 | Pallof press | Half Kneeling Stability Chop | Yes. Anti-rotation family. |
+| Leg-extension isometric @ 60 deg | Banded Exercises / Leg Extension | Yes. Garmin has **no machine leg extension**; this is the only knee-extension entry with quads as primary. Build it as a TIMED step (conditionTypeKey `time`, 30 s), LEFT then RIGHT in one repeat group, with a step note saying to use the machine. |
+
+**Timed holds work on strength steps.** `endCondition: {conditionTypeId: 2, conditionTypeKey: "time"}` with `endConditionValue` in seconds. Use this for every isometric instead of a 1-rep placeholder — a 1-rep hold logs as 0 reps and looks like a missed set.
 
 ## Regenerating this map
 
