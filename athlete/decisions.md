@@ -427,3 +427,44 @@ chest-supported row or weighted pull-up 4 x 6-10, lat pulldown 3 x 12.
 **23 Sep:** very sore after his first full Gym A. HRV 32.0 (record), readiness 95,
 7.5 h sleep — systemic recovery complete; the soreness is local muscle damage.
 Skipped the run intervals and the easy bike. Walk only. Correct call.
+
+---
+
+## 2026-09-23 (later) — Workouts rebuilt: supersets, power loads, no time cap
+
+**His decisions:**
+- Remove the end-of-session Spanish squat hold from Gym A. Done.
+- **Supersets for isolation moves only** — compounds and power stay straight.
+- **No 85-minute cap.** His gym is large and he needs his rests. He is right: the
+  cap was my estimate, not a physiological limit. The real rule is no EXTRA
+  volume. Week 1 ran long because of 4x the reps on power moves, straight sets
+  where the plan had supersets, and 34 min of idle watch time.
+- Trimmed Gym B loaded for 24 Sep alongside the full one. He picks in the morning.
+
+**My error, owned:** the plan always had A1/A2 supersets. The first Garmin build
+put every exercise on as straight sets, so they never reached his watch.
+
+**On the watch now** (all verified by re-reading from Garmin):
+- Gym A `1702370915` — updated in place. Supersets: calf raise + lateral raise;
+  cable fly + triceps extension (same cable). Finisher hold gone. Med ball 6 kg
+  4 x 3, KB swing 20 kg 3 x 8, each with a note on the watch.
+- Gym B full `1702371548` — updated in place. Supersets: band walk + Copenhagen;
+  lat pulldown + face pull (same cable); seated calf raise + DB curl. KB swing
+  24 kg, sled ~40 kg with notes. Single-leg RDL straight (compound).
+- Gym B trimmed `1707522816` — new. Scheduled 24 Sep.
+- Stale duplicate Gym B `1702364740` unscheduled from 24 Sep (template kept).
+- **Canonical IDs are the ones above.** `1702364739` (A) and `1702364740` (B) are
+  stale duplicates from the first build. Never schedule them.
+- Originals backed up in `athlete/metrics/garmin_backups/`.
+
+**Mechanics that work:**
+- Superset = one RepeatGroupDTO containing [exercise A, exercise B, rest].
+- Weight on a step: `weightValue` (kg) + `weightUnit: {unitId: 8, unitKey:
+  "kilogram", factor: 1000.0}`. Verified it round-trips.
+- Step `description` carries a note shown on the watch.
+- Update in place: GET the live workout, replace `workoutSteps` (strip stepId on
+  rebuilt steps, renumber stepOrder/childStepId), PUT
+  `/workout-service/workout/{id}`. Keeps the ID and the schedule.
+
+**Open gap:** the leg-extension isometric at 60 degrees (Session B, Block 6) is
+in the plan but was dropped from the first Garmin build. Not restored yet.
