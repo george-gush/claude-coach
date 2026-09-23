@@ -468,3 +468,13 @@ put every exercise on as straight sets, so they never reached his watch.
 
 **Open gap:** the leg-extension isometric at 60 degrees (Session B, Block 6) is
 in the plan but was dropped from the first Garmin build. Not restored yet.
+
+**Superset rule tightened the same evening (his words):** isolation moves on
+*completely different muscle groups* — lower + upper. My first pairings broke it:
+- Gym A: cable fly + triceps extension — both pressing muscles. Now **leg curl +
+  cable fly** (his pairing) and calf raise + lateral raise. Triceps straight.
+- Gym B: band walk + Copenhagen (both hip) and lat pulldown + face pull (both
+  back; pulldown is a compound). Now **band walk + banded face pull** (same band,
+  same spot) and seated calf raise + DB curl. Pulldown, Copenhagen, KB knee raise
+  straight — no upper isolation move left to pair them with.
+All three workouts re-verified from Garmin's copy after the PUT.

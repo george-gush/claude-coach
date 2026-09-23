@@ -121,10 +121,12 @@ those additions to save time — cut sets instead.
 
 Letters mark supersets: `A1`/`A2` alternate with minimal rest.
 
-**Superset rule (his, 23 Sep): isolation moves only.** Compound lifts and power
-moves are always straight sets — they need focus and full recovery. Pair moves
-that load different muscles, ideally at the same station, because his gym is
-large and walking between machines is where the time goes.
+**Superset rule (his, 23 Sep): two ISOLATION moves on completely different
+muscle groups — lower + upper.** Never two moves that share a muscle or a
+region: cable fly + triceps extension are both pressing muscles; band walk +
+Copenhagen are both hip; lat pulldown + face pull are both back. Compound lifts
+and power moves are always straight sets. Where possible, pick a pair that can be
+done in one spot, because his gym is large and walking is where the time goes.
 
 **Duration is not a target.** Do the prescribed sets and reps and take the full
 rests. The session takes as long as that takes. What must not happen is extra
@@ -157,12 +159,12 @@ the set is over.
 | 2 | Hack squat | 4 × 6–8 | Cap the depth. Tempo 3-0-3 for weeks 1–3. Straight sets. |
 | 3 | Incline dumbbell press | 4 × 6–10 | Straight sets. |
 | 4 | Bulgarian split squat | 3 × 8–10 / side | Straight sets — compound. |
-| 4 | Lying leg curl | 3 × 10–12 | **Added.** See §4a. |
 | 5 | Seated dumbbell shoulder press | 3 × 8–12 | **Added.** See §4a. Straight sets — compound. |
-| 5 | **A1** Standing calf raise | 3 × 12 | Gastrocnemius. His own pairing. |
-| 5 | **A2** Lateral raise | 3 × 15 | |
-| 5 | **B1** Cable fly | 3 × 12–15 | Same cable station as B2. |
-| 5 | **B2** Overhead triceps extension | 3 × 12 | |
+| 5 | **A1** Lying leg curl | 3 × 10–12 | **Added.** See §4a. His pairing: lower + upper. |
+| 5 | **A2** Cable fly | 3 × 12–15 | |
+| 5 | **B1** Standing calf raise | 3 × 12 | Gastrocnemius. His own pairing. |
+| 5 | **B2** Lateral raise | 3 × 15 | |
+| 5 | Overhead triceps extension | 3 × 12 | Straight. No lower isolation move left to pair it with. |
 | 6 | Pallof press | 2 × 10 / side | **Added.** Anti-rotation. Stay at the cable. |
 
 The end-of-session Spanish squat hold was **removed on 23 Sep** at his request.
@@ -178,19 +180,20 @@ the meniscus — it dulls pain before loading.
 | 2 | Hip thrust | 4 × 8 | Best knee-sparing posterior chain load. Straight sets. |
 | 3 | Chest-supported row *or* weighted pull-up | 4 × 6–10 | Straight sets. |
 | 4 | Single-leg RDL | 3 × 8 / side | Straight sets — compound, and balance-demanding. |
-| 4 | **A1** Hip abduction — cable, machine or banded lateral walk | 3 × 15 / side | **Added. Highest-priority gap.** See §4a. |
-| 4 | **A2** Copenhagen plank | 3 × 20–30 s / side | Short lever first. See §6. |
-| 4 | Kettlebell knee raise | 3 × 10 / side | Athlete request. Hip flexor, not knee joint. |
-| 5 | **B1** Lat pulldown | 3 × 12 | Same cable station as B2. |
-| 5 | **B2** Face pull | 3 × 15 | Rear delt and upper back. |
-| 5 | **C1** Seated calf raise | 3 × 15 | Soleus. Relevant to run tolerance. |
-| 5 | **C2** Dumbbell curl | 3 × 12 | |
+| 5 | Lat pulldown | 3 × 12 | Straight sets — compound. |
+| 5 | **A1** Hip abduction — banded lateral walk | 3 × 15 / side | **Added. Highest-priority gap.** See §4a. |
+| 5 | **A2** Banded face pull | 3 × 15 | Rear delt and upper back. Same band, same spot as A1. |
+| 5 | **B1** Seated calf raise | 3 × 15 | Soleus. Relevant to run tolerance. |
+| 5 | **B2** Dumbbell curl | 3 × 12 | |
+| 6 | Copenhagen plank | 3 × 20–30 s / side | Short lever first. See §6. Straight. |
+| 6 | Kettlebell knee raise | 3 × 10 / side | Athlete request. Hip flexor, not knee joint. Straight. |
 | 6 | Leg extension isometric hold @ 60° | 3 × 30 s / side | **Not on the watch.** Dropped in the first Garmin build; not yet restored. |
 | 6 | Dead bug | 2 × 8 / side | **Added.** Anti-extension. |
 
 **Trimmed Session B** (sore-legs day, on the watch as a separate workout): KB
 swing 2 × 8 at 20 kg, no sled, hip thrust 3 sets, single-leg RDL 2 sets, no KB
-knee raise. All back, arm and knee-protective work stays at full volume.
+knee raise. All back, arm and knee-protective work stays at full volume. Same
+supersets as the full session.
 
 **Cossack squat has moved into Block 0** as mobility work. At the shallow depth
 he starts at, that is what it actually is. It also guarantees it happens.
