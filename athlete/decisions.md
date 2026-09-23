@@ -375,3 +375,55 @@ It sends only at the cutoff in that case, and says the clone failed.
 **Rule to keep:** cron on this platform is UTC and the minimum interval is one
 hour. Convert before writing an expression, and never trust a schedule labelled
 with a local time without checking the stored value.
+
+---
+
+## 2026-09-23 — Gym A (22 Sep) log corrected in Garmin; first-session lessons
+
+**Corrected in Garmin**, activity 24452568935. Original saved at
+`athlete/metrics/garmin_backups/2026-09-22_gymA_exercise_sets_ORIGINAL.json`.
+- Tibialis raise set 1: the watch sat on it ~34 min between swim and gym.
+  Moved to the minute before its rest; duration 60 s.
+- Side lunge set 2 -> 6 reps, bodyweight.
+- Med-ball chest pass set 1 -> 12 reps x 6 kg. He confirmed it was a real set but
+  did not give the reps; matched to his other three sets. Change if he says otherwise.
+- Bulgarian split squat set 2 -> 9 reps. All sets bodyweight (first time).
+- Single-leg calf raise: he did 3 x 12 each leg. Set 2 was blank over a 92 s
+  window with no gap before the next exercise, so it was split into sets 2 and 3.
+- Deleted: end-of-session wall squat (skipped), both Pallof chops (skipped),
+  a trailing 8 s unknown set.
+- Result: 43 working sets, 0 zero-rep sets bar the two wall-squat holds (holds
+  log 0 reps by design). 6,265 kg volume. Lifting 09:42-11:23 Dubai, ~1h41m.
+
+**What cannot be fixed from here:** the activity's TOTAL time (2h26m) and its
+calories/average HR come from the recording, not the sets. Editing sets does not
+trim the dead 34 minutes out of the activity.
+
+**How the write works** (no MCP tool exists for it):
+`client.put("connectapi", f"{garmin_connect_activity}/{id}/exerciseSets",
+json={"activityId": id, "exerciseSets": [...]}, api=True)`. The array REPLACES
+the whole set list, so deletion is by omission. A new set needs an unused
+`messageIndex`. Always back up the GET first, dry-run, then re-read to verify.
+
+**Confirmed by him:**
+- Hack squat 62.6 kg is correct — the machine has odd plate weights.
+- Side lunge and Bulgarian split squat were bodyweight in week 1.
+
+**Findings that change the programme:**
+1. **Power work drifted into conditioning.** Med-ball chest pass is programmed
+   4 x 3 at maximum intent with 90 s rest; he did 4 x 12. KB swing is 3 x 8; he did
+   3 x 12. Low reps on power moves are the point — tell him before the next A.
+2. **Spanish squat appears twice in Session A by design** — Block 0 (2 x 30 s,
+   pain-damping before load) and the finisher (3 x 45 s, loading). He did the first
+   and skipped the second as redundant. Recommend dropping the finisher hold; the
+   Block 0 one is what protects the meniscus. Pending his agreement.
+3. **Sessions are running long.** ~1h41m of lifting against an 85 min plan.
+4. **Watch habit:** start the workout at the gym, when Block 0 starts — not while
+   resting between sessions.
+
+**Back work** is all in Session B by design (A = quad + push, B = hinge + pull):
+chest-supported row or weighted pull-up 4 x 6-10, lat pulldown 3 x 12.
+
+**23 Sep:** very sore after his first full Gym A. HRV 32.0 (record), readiness 95,
+7.5 h sleep — systemic recovery complete; the soreness is local muscle damage.
+Skipped the run intervals and the easy bike. Walk only. Correct call.
