@@ -492,3 +492,27 @@ see injuries.md).
 **Open:** the Block 0 Spanish-squat hold is still encoded as a 1-rep step in both
 A and B, so it logs 0 reps. Should become a timed 30 s hold like the leg
 extension. Offered, not yet done.
+
+---
+
+## 2026-09-24 — Peak soreness day; holds made timed
+
+**He woke more sore than yesterday, "can barely get out of bed".** That is ~46 h
+after Gym A — the normal peak of delayed-onset soreness, which usually tops out
+at 24-72 h. Expected after a first full session done at 4x the prescribed power
+reps. Not an injury signal on its own.
+
+**Decision:** swim lesson yes (non-weight-bearing; easy legs). Gym B only as the
+**upper + knee** version unless the soreness has clearly eased by then. The
+second Gym B option on the watch (`1707522816`) was rebuilt from "trimmed" into
+"UPPER + KNEE ONLY": Block 0, chest-supported row, lat pulldown, band walk + face
+pull, DB curl, leg-extension hold, dead bug. No KB swing, sled, hip thrust or RDL.
+
+**Red flag told to him once:** dark, cola-coloured urine with severe muscle pain
+after a big first session means see a doctor the same day (exertional muscle
+breakdown). Unlikely, but the scenario fits, so it was named.
+
+**Holds are now timed on the watch** — no more 1-rep placeholders logging as 0:
+- Spanish squat (Block 0, Gym A + B): 2 x 30 s.
+- Leg-extension isometric (Gym B): 3 x (30 s left + 30 s right).
+- Copenhagen plank (Gym B full): 3 x (20 s left + 20 s right), short lever.
