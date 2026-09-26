@@ -190,7 +190,8 @@ do not push through it. Revisit at every weekly check-in.
   knee. A loaded hip-flexor raise. Low load on the knee joint itself, so it needs
   no staging. Goes in Session B accessory work.
 - **Race:** T100 Dubai, 06:00, open water, trisuit, no wetsuit.
-- **Open water access confirmed** — a local beach. **Saturday is the open-water
+- **Open water access confirmed** — a local beach. It is a controlled, man-made
+  beach **on the real sea** (confirmed 26 Sep), so it has real sea conditions. **Saturday is the open-water
   day.** The Saturday solo swim becomes an open-water session. He has never swum
   open water, so build it from short and close to shore.
 - **Gym: 09:00–10:30 Tuesday and Thursday**, after the swim lesson.
