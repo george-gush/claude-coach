@@ -545,3 +545,15 @@ protect the ride): Block 0 → KB swing 4 × 8 @ 24 (20 if the bell stops floati
 → hip thrust 4 × 8 (50 → 60 → 70 → 70, 2 in reserve; 80 on the last set if 70
 is easy) → SL RDL 3 × 8/side @ 14 kg → Copenhagen 3 × 20 s/side short lever →
 KB knee raise 3 × 10/side @ 8 kg. Eat between swim and gym.
+
+**Update 2 (his call):** open water pushed to next Saturday (3 Oct), as
+inconvenient today. Regular pool swim instead, then the gym.
+
+**Last recorded pool swim = Sun 20 Sep** (Garmin 24431056438, 25 m pool). Tue/Thu
+lessons this week are not on the watch. 1,125 m in 40 min: 26 min swimming,
+13 min resting. 100 warm-up (free + breast) → 18 × 50 free (+ one 25) on ~40 s
+rest → 100 cool-down. 50s: first five ~58 s (1:56/100 m), last five 62–81 s;
+median 63 s. Strokes per 50 rose from 22–27 to 31–33 and SWOLF from 40 to 50–56:
+**the stroke shortens as he tires.** Speed is fine; holding form over distance is
+the gap. Today's progression: same volume in longer reps with shorter rest, and a
+stroke-count cap.
