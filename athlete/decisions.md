@@ -536,3 +536,12 @@ is gone. Trimmed-B volume: Block 0 → KB swing 2 × 8 @ 20 → hip thrust 3 × 
 
 **Sun group ride** replaces the 90-min endurance bike. Instruction: sit in,
 mostly zone 2, do not chase surges.
+
+**Update, same day (his call):** swim first (17:00 open water), gym after. Fine:
+the swim barely loads the legs, and DOMS peaks ~46 h later, so Monday's rest day
+takes it, not Sunday's ride. He asked to go harder and add the KB knee raise, so
+today is the **full Gym B lower half** (still no extra volume, and no sled, to
+protect the ride): Block 0 → KB swing 4 × 8 @ 24 (20 if the bell stops floating)
+→ hip thrust 4 × 8 (50 → 60 → 70 → 70, 2 in reserve; 80 on the last set if 70
+is easy) → SL RDL 3 × 8/side @ 14 kg → Copenhagen 3 × 20 s/side short lever →
+KB knee raise 3 × 10/side @ 8 kg. Eat between swim and gym.
