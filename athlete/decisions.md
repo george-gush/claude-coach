@@ -516,3 +516,23 @@ breakdown). Unlikely, but the scenario fits, so it was named.
 - Spanish squat (Block 0, Gym A + B): 2 x 30 s.
 - Leg-extension isometric (Gym B): 3 x (30 s left + 30 s right).
 - Copenhagen plank (Gym B full): 3 x (20 s left + 20 s right), short lever.
+
+## 2026-09-26 Sat — long run missed; missed hinge block moves to today
+
+**What happened this week:** only one run (Mon 33 min) and one watch-recorded
+gym session. Wed run + bike, Fri easy run and Sat long run all missed. CTL fell
+17.9 → 16.2. He is under-loaded, not tired.
+
+**Sat long run:** cancelled at his request. Sunday is a group ride, so it cannot
+move there. The intervals.icu event stays on Sat 26 Sep so it shows as missed.
+Week 2 long run repeats 61 min (8 × 5/1). Do not add volume to make it up.
+
+**Missed Gym B hinge work (Thu):** done today, midday, as a ~35-min block.
+The earlier "not Saturday" advice was only to protect the long run; that reason
+is gone. Trimmed-B volume: Block 0 → KB swing 2 × 8 @ 20 → hip thrust 3 × 8
+(40 → 50 → 60 kg, 2 in reserve) → SL RDL 2 × 8/side @ 12 kg DB → Copenhagen
+2 × 20 s/side short lever. No sled, no KB knee raise. Finish ≥3 h before the
+17:00 open-water swim.
+
+**Sun group ride** replaces the 90-min endurance bike. Instruction: sit in,
+mostly zone 2, do not chase surges.
