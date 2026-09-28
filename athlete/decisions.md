@@ -622,3 +622,12 @@ ride. I kept the **Sat 06:00 long run-walk** — he had dropped it from his list
 it is the race limiter and has now been missed twice. Garmin Gym A schedule
 moved to 28 Sep by PUT on `/workout-service/schedule/{id}` (works; no delete
 needed). Open question: **where is Thursday's gym** after the membership ends?
+
+**Block 0 was not on the watch (he spotted it, 28 Sep).** When I built the gym
+workouts on 19 Sep I only put 3 of the 8 Block 0 moves on the watch (tibialis,
+Cossack as "Side Lunge", Spanish squat). The bike, ankle rock, toe curl, band TKE
+and shallow split squat existed only in `strength.md`. My error. Fixed on both
+Gym A (`1702370915`) and Gym B (`1702371548`): full Block 0 in the right order,
+mapping in `garmin-exercise-map.md`. Gym A also now carries today's reps and
+weights. Backups of both before the change in `metrics/garmin_backups/`.
+Rule: anything in a written session must also be on the watch.
