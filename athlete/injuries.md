@@ -57,6 +57,7 @@ That is why swelling, not pain, is the primary signal.
 | 2026-09-24 | **Leg-extension isometric @ ~60°, first time**, 3 × 30 s/leg up to 13.5 kg. Knee "felt good". No pain reported. | Green. Load the hold at 13.5 kg next Gym B. |
 | 2026-09-27 | **First ride on the new bike** (group ride, 110 min, Z1). A bit of knee discomfort at the start, gone with early pedalling. No stiffness next morning. | Green. Cold-start pattern again. Check saddle height against the old bike. |
 | 2026-09-28 | **Calf tightness** during Gym A single-leg calf raises. He clarified: mild, relaxed after a stretch, and **his calves are always tight** — a long-standing pattern, not an acute event. | Green. Chronic tightness: treat with calf *strength* (straight-knee + bent-knee/soleus raises) and the Block 0 ankle rock, not with stretching alone. Tight calves limit ankle bend and push load onto the knee. |
+| 2026-09-28 | **Pain in the warm-up lunges** (shallow split squat / Cossack) at the start of Gym A. He **skipped the 5-min bike** both times. Hack squat 4 × 8 and BSS 3 × 10 later in the session went fine. | Green. Same cold-start pattern — and the proof that the bike is the part that matters. Warm-up lunges proposed for removal. |
 
 ## Secondary — low arch ("lazy arch")
 
