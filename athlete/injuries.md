@@ -55,6 +55,7 @@ That is why swelling, not pain, is the primary signal.
 | 2026-09-19 | Warm-up block made mandatory before every run, ride and gym session. | Directly addresses the reported pain mechanism. |
 | 2026-09-22 | **First full Gym A.** Knee pain at the start only; gone once warmed up. No swelling reported. | Green. Matches the known cold-start pattern exactly — Block 0 is doing its job. Leg-extension isometric (single-leg, 60 deg) added back to Gym B on 23 Sep. |
 | 2026-09-24 | **Leg-extension isometric @ ~60°, first time**, 3 × 30 s/leg up to 13.5 kg. Knee "felt good". No pain reported. | Green. Load the hold at 13.5 kg next Gym B. |
+| 2026-09-27 | **First ride on the new bike** (group ride, 110 min, Z1). A bit of knee discomfort at the start, gone with early pedalling. No stiffness next morning. | Green. Cold-start pattern again. Check saddle height against the old bike. |
 
 ## Secondary — low arch ("lazy arch")
 

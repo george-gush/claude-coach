@@ -60,7 +60,7 @@ event in mid-October.
 
 | Sport | Value | Confidence |
 |---|---|---|
-| **Bike FTP** | **250 W** | ⚠️ **Do not trust.** Origin unknown, probably a Garmin estimate. He has no power meter. |
+| **Bike FTP** | **250 W — wrong** | ⚠️ **Do not use.** Power meter live since 27 Sep (new bike, SRAM power meter, Edge 1050). First test: 20-min FTP test Sun 4 Oct (or Wed 7 Oct). |
 | Bike LTHR | 163 bpm | |
 | Max HR | 180 bpm | |
 | Bike HR zones | 131 / 145 / 152 / 162 / 166 / 171 / 180 | |
@@ -71,10 +71,11 @@ event in mid-October.
 **Action:** set a run threshold. Do not field-test at maximum effort with this
 knee. Derive it from a controlled effort or from HR-anchored work instead.
 
-**Bike: prescribe by heart rate, not power.** There is no power meter, so a power
-target on the watch gives him nothing to follow. This is what broke his previous
-coach's bike workouts — see `garmin-workouts.md` §4. A power meter is on the way;
-retest FTP properly when it arrives, then switch to power.
+**Bike: heart rate until the FTP test, then power.** The power meter arrived with
+a new bike on 27 Sep 2026. Until a real FTP exists, bike workouts stay on heart
+rate (a power target from the wrong 250 W FTP is what broke his previous coach's
+bike workouts — see `garmin-workouts.md` §4). After the 20-min test, set the FTP
+in intervals.icu and prescribe bike sessions in watts. He asked for power.
 
 ---
 
@@ -196,7 +197,7 @@ do not push through it. Revisit at every weekly check-in.
   open water, so build it from short and close to shore.
 - **Gym: 09:00–10:30 Tuesday and Thursday**, after the swim lesson.
 - 174 cm, ~74 kg, 32 years old.
-- FTP 250 W is not trustworthy. Power meter coming.
+- New bike with a power meter since 27 Sep 2026. FTP 250 W is wrong; tested 4 Oct (or 7 Oct).
 - Repository stays public. He was told what it contains and accepted it.
 
 ## Still open

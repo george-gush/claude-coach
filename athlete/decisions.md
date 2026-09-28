@@ -598,3 +598,18 @@ Also: the brief now reads `strength_log.md` and "Athlete note" NOTEs.
 
 **Real gap it exposed:** week 2 (29 Sep – 4 Oct) is not on the calendar. The
 Coach session writes it today.
+
+**Later same day — his answers, and week 2 written:**
+- Sat 26 Sep: he did **neither** the pool swim nor the gym. The missed hinge
+  block is not made up; Thursday's full Gym B covers it.
+- Knee: discomfort at the start of Sunday's ride, gone with early pedalling; no
+  stiffness today. Green (injuries.md).
+- **New bike with a power meter** (SRAM, Edge 1050) since 27 Sep. He wants bike
+  sessions in power. FTP 250 W is wrong → 20-min test Sun 4 Oct. Heart rate
+  until then. Routine prompt updated.
+- Sunday group ride is occasional. When he does it, it replaces the Sunday
+  session.
+- **Week 2 = week 1 repeated** (`athlete/plans/2026-09-28_week2.md`). intervals.icu
+  events 139495199, 139495205–139495211. Runs carry week 1's step structure
+  (workout_doc) — the text descriptions with "@ 12:00/km" do not parse on their
+  own. Garmin: Gym A scheduled 29 Sep, Gym B full 1 Oct.
