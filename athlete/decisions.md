@@ -613,3 +613,12 @@ Coach session writes it today.
   events 139495199, 139495205–139495211. Runs carry week 1's step structure
   (workout_doc) — the text descriptions with "@ 12:00/km" do not parse on their
   own. Garmin: Gym A scheduled 29 Sep, Gym B full 1 Oct.
+
+**Week 2 revised with him (Mon 28, ~09:30):** Gym A today (last day of his gym
+membership; he overrode Monday rest — last week was light). Tue: run intervals
+straight after the swim lesson. **Wed: FTP test on the track.** Thu: lesson +
+Gym B. Fri: easy run. Sat: pool swim (open water pushed again). Sun: easy long
+ride. I kept the **Sat 06:00 long run-walk** — he had dropped it from his list;
+it is the race limiter and has now been missed twice. Garmin Gym A schedule
+moved to 28 Sep by PUT on `/workout-service/schedule/{id}` (works; no delete
+needed). Open question: **where is Thursday's gym** after the membership ends?
