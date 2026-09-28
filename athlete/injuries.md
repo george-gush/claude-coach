@@ -62,8 +62,8 @@ That is why swelling, not pain, is the primary signal.
 ## Secondary — low arch ("lazy arch")
 
 Not flat feet by the athlete's account. Responds to arch work — toe curls and
-similar — but he has not been consistent. **Resolved by building it into Block 0
-of every gym session**, so it happens whether or not he remembers.
+similar — but he has not been consistent. It was built into Block 0 of every gym
+session, but **moved to home on 28 Sep** — toe curls cannot be done in gym shoes.
 
 Evidence: Tier B. Foot exercises reliably build intrinsic foot muscle. Evidence
 that they change arch height or running outcomes is weak. Low risk. Say this
