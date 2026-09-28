@@ -579,3 +579,22 @@ two more due). His replies to a brief were also never saved, for the same reason
   stop today's remaining duplicates. `.brief_state` is now unused.
 - Today's brief text was not captured: routine run transcripts cannot be read
   from the Coach session. From tomorrow, the NOTE holds it.
+
+**Brief content fixes (same day), from the two briefs he pasted:**
+1. **Reported a plan as fact.** It asked about "Saturday's heavier hip thrust (up
+   to 80 kg)". 80 kg was an *option* in this log. He never reported Saturday's
+   gym, and no activity exists. New rule in the prompt: "did" only from an
+   activity or his own report; plans and options are never facts; if a planned
+   session has no activity, ask.
+2. **Process chatter on his phone.** "Data has landed… Proceeding to SEND" and a
+   long git-error essay after the brief. New rule: final message = the brief
+   only; the marker is saved *before* the brief is printed, so nothing follows it.
+3. **Called sleep "moot" on a rest day** at 5.7 h after a 5.4 h night. New rule:
+   two nights in a row under 6 h is "slipping badly" and gets one line, rest day
+   or not.
+4. **Offered to draft week 2.** Plans belong to the Coach session. New rule: never
+   offer; if tomorrow is empty (and not Monday), say so in one line.
+Also: the brief now reads `strength_log.md` and "Athlete note" NOTEs.
+
+**Real gap it exposed:** week 2 (29 Sep – 4 Oct) is not on the calendar. The
+Coach session writes it today.
