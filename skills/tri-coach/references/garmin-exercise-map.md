@@ -69,8 +69,8 @@ always check the category is sensible before trusting a result.
 
 ## Block 0 on the watch (revised 2026-09-28)
 
-Every gym workout starts with these six, in this order. Warm-up lunges (split
-squat, Cossack as Side Lunge) were removed on 28 Sep.
+Every gym workout starts with these five, in this order. Warm-up lunges (split
+squat, Cossack as Side Lunge) were removed on 28 Sep. Toe curls moved to home the same day (not possible in shoes).
 
 | Block 0 move | Garmin category | Garmin exercise key | Step |
 |---|---|---|---|
@@ -79,4 +79,3 @@ squat, Cossack as Side Lunge) were removed on 28 Sep.
 | Terminal knee extension, band | `BANDED_EXERCISES` | `LEG_EXTENSION` | 2 × (15 L + 15 R) |
 | Spanish squat | `SQUAT` | `BODY_WEIGHT_WALL_SQUAT` | 2 × 30 s timed |
 | Tibialis raise | `CALF_RAISE` | `SEATED_DUMBBELL_TOE_RAISE` | 2 × 15, weight on the step, progressive |
-| Short foot + toe curl | `WARM_UP` | `WARM_UP` (name stored blank; step note carries it) | 2 × (20 L + 20 R) |

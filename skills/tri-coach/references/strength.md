@@ -84,7 +84,8 @@ problem, not a damage problem. So:
 
 Revised 28 Sep with him: warm-up lunges and Cossack squat removed (they hurt on a
 cold knee and added nothing — the Bulgarian split squat trains the pattern).
-Tibialis and toe curls stay, as the last part before the working sets.
+Tibialis stays, as the last part before the working sets. **Toe curls moved to
+home** (same day): they cannot be done in gym shoes. He does them at home.
 
 | # | Movement | Dose | Why |
 |---|---|---|---|
@@ -93,7 +94,6 @@ Tibialis and toe curls stay, as the last part before the working sets.
 | 3 | Terminal knee extension, band | 2 × 15 / side | Quad work in the last 30° of extension. |
 | 4 | Spanish squat isometric | 2 × 30 s | Loads the quad with almost no shear at the joint. Dulls pain before loading. |
 | 5 | Tibialis raise | 2 × 12–15, **progressive** | Athlete priority. Shin and ankle strength. Add 2 kg when both sets reach 15. |
-| 6 | Short foot + toe curl | 2 × 20 / side | The arch work he asked for. |
 
 Before a **run**, use items 1, 5, 6 and 7 only — about 6 minutes. Write these as
 real steps in the Garmin workout, not as a note in the description. A step on the

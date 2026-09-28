@@ -644,3 +644,6 @@ Rule: anything in a written session must also be on the watch.
 - Bike step on the watch is now 10 min (5 fwd / 5 back).
 - Applied to Garmin Gym A `1702370915` and Gym B `1702371548`, `strength.md`,
   `garmin-exercise-map.md`.
+- **Toe curls off the gym workouts (his call, same day):** impossible in gym shoes.
+  He does them **at home**, barefoot. Removed from both Garmin workouts. The arch
+  work is now his to do at home — ask about it now and then, do not nag.
