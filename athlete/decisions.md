@@ -631,3 +631,16 @@ Gym A (`1702370915`) and Gym B (`1702371548`): full Block 0 in the right order,
 mapping in `garmin-exercise-map.md`. Gym A also now carries today's reps and
 weights. Backups of both before the change in `metrics/garmin_backups/`.
 Rule: anything in a written session must also be on the watch.
+
+**Block 0 revised with him (28 Sep, after Gym A):**
+- **Correction:** he DID the bike — 10 min, 5 forward + 5 back. The watch showed
+  seconds only because he did not log it on the watch. I wrongly said he skipped
+  it. So the warm-up lunge pain came *despite* a warm knee: the deep lunge
+  positions are the trigger.
+- **Removed:** warm-up split squat and Cossack squat (he agreed they add nothing).
+- **Kept, his priority:** tibialis raise and toe curls, as the last part before the
+  working sets. Tibialis is now **progressive**: 2 × 12–15, +2 kg when both sets
+  reach 15. Next: 8 kg.
+- Bike step on the watch is now 10 min (5 fwd / 5 back).
+- Applied to Garmin Gym A `1702370915` and Gym B `1702371548`, `strength.md`,
+  `garmin-exercise-map.md`.

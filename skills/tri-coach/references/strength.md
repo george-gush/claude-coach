@@ -80,18 +80,20 @@ problem, not a damage problem. So:
 > If the athlete is short of time, cut the last block of the session. Never cut
 > Block 0.
 
-### Block 0 — Knee and Foot Prep (10–12 min)
+### Block 0 — Knee and Foot Prep (about 15 min)
+
+Revised 28 Sep with him: warm-up lunges and Cossack squat removed (they hurt on a
+cold knee and added nothing — the Bulgarian split squat trains the pattern).
+Tibialis and toe curls stay, as the last part before the working sets.
 
 | # | Movement | Dose | Why |
 |---|---|---|---|
-| 1 | Bike, easy, rising cadence | 5 min | Raises tissue temperature. This is the part that stops the pain. |
+| 1 | Bike, easy | 10 min: 5 forward, 5 backward | Raises tissue temperature. This is the part that stops the pain. |
 | 2 | Knee-to-wall ankle rock | 10 / side | Ankle range. A stiff ankle sends load to the knee. |
-| 3 | Tibialis raise | 2 × 15 | Athlete request. Shin and ankle tolerance. |
-| 4 | Short foot + toe curl | 2 × 20 / side | The arch work he asked for. Do it here so it never gets skipped. |
-| 5 | Terminal knee extension, band | 2 × 15 / side | Quad work in the last 30° of extension. This is the "VMO" work, correctly named. |
-| 6 | Spanish squat isometric | 2 × 30 s | Loads the quad with almost no shear at the joint. Also dulls pain before loading. |
-| 7 | Bodyweight split squat, shallow | 1 × 8 / side | Rehearses the pattern before load. |
-| 8 | Cossack squat | 3 × 6 / side | Athlete request. Mobility at the depth he starts from. **Stage the depth — see §6.** |
+| 3 | Terminal knee extension, band | 2 × 15 / side | Quad work in the last 30° of extension. |
+| 4 | Spanish squat isometric | 2 × 30 s | Loads the quad with almost no shear at the joint. Dulls pain before loading. |
+| 5 | Tibialis raise | 2 × 12–15, **progressive** | Athlete priority. Shin and ankle strength. Add 2 kg when both sets reach 15. |
+| 6 | Short foot + toe curl | 2 × 20 / side | The arch work he asked for. |
 
 Before a **run**, use items 1, 5, 6 and 7 only — about 6 minutes. Write these as
 real steps in the Garmin workout, not as a note in the description. A step on the
@@ -195,8 +197,10 @@ swing 2 × 8 at 20 kg, no sled, hip thrust 3 sets, single-leg RDL 2 sets, no KB
 knee raise. All back, arm and knee-protective work stays at full volume. Same
 supersets as the full session.
 
-**Cossack squat has moved into Block 0** as mobility work. At the shallow depth
-he starts at, that is what it actually is. It also guarantees it happens.
+**Cossack squat removed (28 Sep, agreed with him).** It sat in Block 0 as mobility
+work, but it hurt on a cold knee along with the warm-up split squat, and he felt it
+added nothing. Deep side-loaded flexion is the least tolerated position for this
+meniscus. Do not bring it back before the race.
 
 ---
 

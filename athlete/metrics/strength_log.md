@@ -46,9 +46,10 @@ lever, not dumbbells. Log it as the T-bar row going forward.
 
 ## 2026-09-28 Mon — Gym A (Quad + Push) — Garmin 24528056996 + 24529022798
 Recorded as two activities (he got stuck in the watch settings and restarted).
-Warm-up: **bike skipped both times** (5 s, 41 s). Ankle rock 10/10, tibialis
+Warm-up: **bike 10 min done** (5 forward, 5 backward) — the watch shows seconds
+only because he did not log it properly on the watch. Ankle rock 10/10, tibialis
 15 @ 6 + 11 @ 8, Spanish squat 2 × 30 s, split squat 8/8, Cossack 12 + 6 + 6.
-Toe curls and band TKE skipped. **Pain in the warm-up lunges** (cold knee, no bike).
+Toe curls and band TKE skipped. **Pain in the warm-up lunges despite the bike.**
 | Exercise | Sets |
 |---|---|
 | Med-ball chest throw | 2 × 3 @ 6 (2 sets skipped) |
@@ -63,3 +64,6 @@ Toe curls and band TKE skipped. **Pain in the warm-up lunges** (cold knee, no bi
 | Cable fly | no reps logged — probably skipped |
 | Overhead triceps ext | 12 @ 27, 11 @ 31.5, 11 @ 27 |
 | Pallof press | 10, 11 @ 13.5 ✔ |
+
+**Tibialis progression (his request — he wants a strong tibialis):** 2 × 12–15.
+When both sets reach 15, add 2 kg. Next: 2 × 15 @ 8 kg.

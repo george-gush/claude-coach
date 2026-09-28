@@ -67,19 +67,16 @@ python3.12 -m venv .venv && .venv/bin/pip install 'garminconnect>=0.3.16'
 display name; `find()` does substring search but returns first match, not best —
 always check the category is sensible before trusting a result.
 
-## Block 0 on the watch (added 2026-09-28)
+## Block 0 on the watch (revised 2026-09-28)
 
-Block 0 was missing from both gym workouts until 28 Sep — only tibialis raise,
-Cossack (as Side Lunge) and the Spanish squat were on the watch. **Every gym
-workout must start with all eight Block 0 moves**, in this order:
+Every gym workout starts with these six, in this order. Warm-up lunges (split
+squat, Cossack as Side Lunge) were removed on 28 Sep.
 
 | Block 0 move | Garmin category | Garmin exercise key | Step |
 |---|---|---|---|
-| Easy bike, 5 min | `INDOOR_BIKE` | `STATIONARY_BIKE` | timed, 300 s |
+| Bike 10 min (5 fwd, 5 back) | `INDOOR_BIKE` | `STATIONARY_BIKE` | timed, 600 s |
 | Knee-to-wall ankle rock | `WARM_UP` | `ANKLE_DORSIFLEXION_WITH_BAND` | 10 L + 10 R |
-| Tibialis raise | `CALF_RAISE` | `SEATED_DUMBBELL_TOE_RAISE` | 2 × 15 @ 6 kg |
-| Short foot + toe curl | `WARM_UP` | `WARM_UP` (Garmin stores the name blank; the step note carries it) | 2 × (20 L + 20 R) |
 | Terminal knee extension, band | `BANDED_EXERCISES` | `LEG_EXTENSION` | 2 × (15 L + 15 R) |
 | Spanish squat | `SQUAT` | `BODY_WEIGHT_WALL_SQUAT` | 2 × 30 s timed |
-| Shallow split squat | `SQUAT` | `DUMBBELL_SPLIT_SQUAT` | 8 L + 8 R, bodyweight |
-| Cossack squat | `LUNGE` | `SIDE_LUNGE` | 3 × 6 |
+| Tibialis raise | `CALF_RAISE` | `SEATED_DUMBBELL_TOE_RAISE` | 2 × 15, weight on the step, progressive |
+| Short foot + toe curl | `WARM_UP` | `WARM_UP` (name stored blank; step note carries it) | 2 × (20 L + 20 R) |
