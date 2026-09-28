@@ -557,3 +557,25 @@ median 63 s. Strokes per 50 rose from 22–27 to 31–33 and SWOLF from 40 to 50
 **the stroke shortens as he tires.** Speed is fine; holding form over distance is
 the gap. Today's progression: same volume in longer reps with shorter rest, and a
 stroke-count cap.
+
+## 2026-09-28 Mon — daily brief sent duplicates; sent-marker moved to intervals.icu
+
+**Bug:** `athlete/.brief_state` stayed at 2026-09-23 for five days. The routine
+clones the public repo anonymously, so its `git push` always failed and the
+marker never saved. Every hourly tick after his data synced sent the brief
+again (today: data landed 02:47 UTC, so briefs at ~07:13 and ~08:13 Dubai, with
+two more due). His replies to a brief were also never saved, for the same reason.
+
+**Fix:**
+- Marker is now an intervals.icu calendar **NOTE named "Daily brief sent"** on
+  the Dubai date. Its description holds **the full brief text**, so the Coach
+  session can read exactly what he received:
+  `GET /events?oldest=D&newest=D&category=NOTE`.
+- Anything he tells the brief session is saved as a NOTE named **"Athlete note"**.
+  The Coach session must read these and move them into the `athlete/` files.
+- Routine prompt updated (trig_016TeKE844SexsGRhdmHitPW). Also corrected the stale
+  line saying strength sessions never arrive (Gym A 22 Sep did).
+- Today's marker set by hand (NOTE 139492754 + `.brief_state` = 2026-09-28) to
+  stop today's remaining duplicates. `.brief_state` is now unused.
+- Today's brief text was not captured: routine run transcripts cannot be read
+  from the Coach session. From tomorrow, the NOTE holds it.
