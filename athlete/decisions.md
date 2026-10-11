@@ -647,3 +647,11 @@ Rule: anything in a written session must also be on the watch.
 - **Toe curls off the gym workouts (his call, same day):** impossible in gym shoes.
   He does them **at home**, barefoot. Removed from both Garmin workouts. The arch
   work is now his to do at home — ask about it now and then, do not nag.
+
+## 2026-10-11 Sun — long run re-targeted at 8:00/km (his request)
+He asked for the long run at "8K pace" — read as **8:00/km** for the run segments
+(his recent runs: 5.0 km at 7:24/km avg HR 141 on 8 Oct; 8:28/km incl. walks on
+29 Sep). Same structure: 12-min walk warm-up → 8 × (5 min run / 1 min walk) →
+5-min walk. intervals.icu event 143484969, today 17:00 → Garmin workout
+1725808342. NOTE: no plan exists after week 2 (4 Oct) — weeks 3–4 were never
+written. Must be fixed.
