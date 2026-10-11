@@ -655,3 +655,7 @@ He asked for the long run at "8K pace" — read as **8:00/km** for the run segme
 5-min walk. intervals.icu event 143484969, today 17:00 → Garmin workout
 1725808342. NOTE: no plan exists after week 2 (4 Oct) — weeks 3–4 were never
 written. Must be fixed.
+- **intervals.icu → Garmin push drops pace targets** (the watch copy arrived with
+  "no target" on every step). Fixed on Garmin directly: run steps = pace zone
+  7:45–8:15/km, walks = recovery. Check pace targets on the watch after every
+  intervals push.
