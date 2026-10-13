@@ -210,9 +210,12 @@ do not push through it. Revisit at every weekly check-in.
 5. Race-day logistics — drive up at 04:00, or stay in Dubai the night before?
 
 ## Supplements (reported 13 Oct 2026)
-Taking: vitamin D3 + K2 (complex), omega-3 (California Gold Nutrition),
-magnesium glycinate (Doctor's Best). Coach view: all three reasonable, none
-proven to improve performance. Suggested: creatine monohydrate 3–5 g/day
-(strongest evidence, supports the gym/knee work), electrolytes in the heat, caffeine
+Taking: vitamin D3 + K2 (complex), omega-3 (California Gold Nutrition; he eats
+fish about once every 2 weeks, so keep), magnesium glycinate (Doctor's Best, for
+sleep — he feels it helps), **creatine monohydrate 10 g/day** (his choice; brain
+research). Corrected belief: K2 does not improve D3 absorption — take D3 with a
+meal that has fat. Creatine raises blood creatinine: tell the doctor before any
+kidney blood test. Coach view: all three reasonable, none
+proven to improve performance. Suggested: electrolytes in the heat, caffeine
 on race day (practise it first), and a blood test (25-OH vitamin D, ferritin, B12,
 full blood count) before adding iron or changing the D dose. No blood test yet.

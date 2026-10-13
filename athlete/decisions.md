@@ -659,3 +659,14 @@ written. Must be fixed.
   "no target" on every step). Fixed on Garmin directly: run steps = pace zone
   7:45–8:15/km, walks = recovery. Check pace targets on the watch after every
   intervals push.
+
+## 2026-10-13 Tue — week 4 loaded after his answers
+Gym not open yet (band work at home). Swim lessons still on. Knee fine after the
+11 Oct long run. New hip tightness → 8-min hip mobility routine. He asked for a
+Thursday brick at Yas Marina (40 km + 7–10 km run): agreed to the brick, but the
+run off the bike is capped at 5 × 5/1 (~5 km) — 10 km off the bike is a race
+simulation the knee has not earned (longest run 7.2 km incl. walks). Full
+rehearsal Sat 24/Sun 25 Oct. FTP test moved to Sunday. Friday run dropped.
+Garmin: the intervals push sent both runs as ONE empty step (pushed before the
+workout_doc PUT). Rebuilt both on Garmin from scratch with pace zones 7:45–8:15.
+**Rule: after any intervals run push, open the Garmin copy and rebuild if needed.**
