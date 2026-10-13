@@ -208,3 +208,11 @@ do not push through it. Revisit at every weekly check-in.
 2. Longest **continuous** run without walking, and did the knee complain?
 4. What is the swim coach working on in the Tuesday and Thursday lessons?
 5. Race-day logistics — drive up at 04:00, or stay in Dubai the night before?
+
+## Supplements (reported 13 Oct 2026)
+Taking: vitamin D3 + K2 (complex), omega-3 (California Gold Nutrition),
+magnesium glycinate (Doctor's Best). Coach view: all three reasonable, none
+proven to improve performance. Suggested: creatine monohydrate 3–5 g/day
+(strongest evidence, supports the gym/knee work), electrolytes in the heat, caffeine
+on race day (practise it first), and a blood test (25-OH vitamin D, ferritin, B12,
+full blood count) before adding iron or changing the D dose. No blood test yet.
