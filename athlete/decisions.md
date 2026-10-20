@@ -697,3 +697,10 @@ workout_doc PUT). Rebuilt both on Garmin from scratch with pace zones 7:45–8:1
   knees 3 × 8 (dead bug stays). About 6 extra minutes each. On Garmin: the ab wheel has
   no catalogue entry, so the step is "Plank" with a note. Told him honestly: visible
   abs depend mostly on body fat, not on ab exercises.
+- **Week 5 written** (`plans/2026-10-19_week5.md`) after his answers: brick 15 Oct
+  never happened; Sat 17 run club was near-max (4 km at 5:48–6:51/km, HR to 177) in a
+  heavy cotton shirt; no sea swim, no FTP test (waiting for cycling insoles). Long run
+  repeats 8 × 5/1 on Fri; first sea swim Sat; first brick Sun.
+- **Do not create gym placeholder events in intervals.icu.** They push to Garmin as
+  empty one-step "Gym A/B" workouts that duplicate the real ones. Deleted both
+  placeholders (intervals 146450613/14) and their Garmin copies (1736076920/26).
