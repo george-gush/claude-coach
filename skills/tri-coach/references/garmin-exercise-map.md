@@ -18,7 +18,7 @@ exercise_name, weight_kg)`.
 | DB biceps curl | `CURL` | `ALTERNATING_DUMBBELL_BICEPS_CURL` |  |
 | Dead bug | `HIP_STABILITY` | `DEAD_BUG` |  |
 | Face pull | `ROW` | `BANDED_FACE_PULLS` |  |
-| Hack squat | `SQUAT` | `BARBELL_HACK_SQUAT` |  |
+| Hack squat / **Pendulum squat** | `SQUAT` | `BARBELL_HACK_SQUAT` | Garmin has no pendulum squat (`PENDULUM_SQUAT` is rejected). Step note says PENDULUM. |
 | Hip abduction (banded walk) | `HIP_STABILITY` | `LATERAL_WALKS_WITH_BAND_AT_ANKLES` |  |
 | Hip thrust | `HIP_RAISE` | `BARBELL_HIP_THRUST_ON_FLOOR` |  |
 | Incline DB press | `BENCH_PRESS` | `INCLINE_DUMBBELL_BENCH_PRESS` |  |

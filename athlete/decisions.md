@@ -704,3 +704,7 @@ workout_doc PUT). Rebuilt both on Garmin from scratch with pace zones 7:45–8:1
 - **Do not create gym placeholder events in intervals.icu.** They push to Garmin as
   empty one-step "Gym A/B" workouts that duplicate the real ones. Deleted both
   placeholders (intervals 146450613/14) and their Garmin copies (1736076920/26).
+- **Hack squat → pendulum squat (his new gym has one, 20 Oct).** Same quad job,
+  comparable knee demand — not proven safer. Kept the 90° depth cap and 3-0-3 tempo.
+  Garmin has no pendulum squat entry; the step stays "Hack squat" with a PENDULUM note
+  and no weight (machine leverage unknown — set 1 finds it). Log his weight for next time.

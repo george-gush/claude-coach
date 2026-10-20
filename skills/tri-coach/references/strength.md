@@ -159,7 +159,7 @@ KB swing stays as the session's power move.
 | Block | Exercise | Sets × Reps | Notes |
 |---|---|---|---|
 | 1 | Kettlebell swing | 3 × 8 | Hip power. No landing load. |
-| 2 | Hack squat | 4 × 6–8 | Cap the depth. Tempo 3-0-3 for weeks 1–3. Straight sets. |
+| 2 | **Pendulum squat** (was hack squat; his new gym, 20 Oct) | 4 × 6–8 | Cap the depth at ~90° knee bend. Tempo 3-0-3. Straight sets. Leg press if no pendulum. |
 | 3 | Incline dumbbell press | 4 × 6–10 | Straight sets. |
 | 4 | Bulgarian split squat | 3 × 8–10 / side | Straight sets — compound. |
 | 5 | Seated dumbbell shoulder press | 3 × 8–12 | **Added.** See §4a. Straight sets — compound. |
