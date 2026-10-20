@@ -670,3 +670,22 @@ rehearsal Sat 24/Sun 25 Oct. FTP test moved to Sunday. Friday run dropped.
 Garmin: the intervals push sent both runs as ONE empty step (pushed before the
 workout_doc PUT). Rebuilt both on Garmin from scratch with pace zones 7:45–8:15.
 **Rule: after any intervals run push, open the Garmin copy and rebuild if needed.**
+
+## 2026-10-20 Tue — gym back; Garmin cleaned up
+- **Gym open again** after 3 weeks (last session 28 Sep). He asked for this week's
+  gym sessions on the watch.
+- **Garmin cleanup (his explicit approval to delete anything not needed):** deleted
+  81 workouts — 76 cycling workouts from 2023 (old plan), Gym B "UPPER + KNEE ONLY",
+  the unused "FTP test inside a long ride" (18 Oct, not done), "400Wx150R_10REP",
+  "20m.40x25", "Pool Workout". List saved in
+  `metrics/garmin_backups/2026-10-20_deleted_workouts_list.json`. Kept: Gym A, Gym B,
+  "25m.50x20" (he swam it on 10 Oct). No Garmin training plan is enrolled.
+- **Loads for the first week back (about 10% lighter, same sets):** Gym A today —
+  hack squat 4 × 8 @ 57.5, incline DB 12, shoulder press 8, leg curl 43, tibialis 8.
+  **Gym B Thu 22 Oct, light** — first hinge session ever: KB swing 2 × 8 @ 20, hip
+  thrust 3 × 8 @ 40, SL RDL 2 × 8 @ 10, no sled, row 25, pulldown 32, KB knee raise
+  2 × 10 @ 8. Reason: its soreness peaks ~Sat, and the race rehearsal is this weekend.
+- Backups of both workouts before the change: `metrics/garmin_backups/2026-10-20_*`.
+- Week 4 outcome (from data): Thu 15 brick did not record (empty activity), Sat 17
+  run 4.3 km at HR 165 (hard — ask), no sea swim, no FTP test. Week 5 non-gym
+  sessions are not written yet.
