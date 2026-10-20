@@ -144,7 +144,6 @@ exercise in its own repeat. Build the JSON directly and PUT it.
 
 | Move | Load | Rule |
 |---|---|---|
-| Med-ball chest throw | 6 kg | 3 reps, thrown as hard as possible. If it looks pushed rather than thrown, drop to 4-5 kg. |
 | Kettlebell swing (A) | 20 kg | Up from 16 kg, which he managed for 12. |
 | Kettlebell swing, heavy (B) | 24 kg | Drop to 20 kg if the bell stops floating to chest height. |
 | Sled push | sled + ~40 kg | Pushed at a fast run. If it becomes a grind, it is too heavy. |
