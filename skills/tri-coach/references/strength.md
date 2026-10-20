@@ -154,9 +154,11 @@ the set is over.
 
 ### Session A — Quad and Push
 
+Med-ball chest throw **removed 20 Oct** at his request (he sees no value in it).
+KB swing stays as the session's power move.
+
 | Block | Exercise | Sets × Reps | Notes |
 |---|---|---|---|
-| 1 | Med-ball chest throw | 4 × 3 | Maximum intent. Full rest. |
 | 1 | Kettlebell swing | 3 × 8 | Hip power. No landing load. |
 | 2 | Hack squat | 4 × 6–8 | Cap the depth. Tempo 3-0-3 for weeks 1–3. Straight sets. |
 | 3 | Incline dumbbell press | 4 × 6–10 | Straight sets. |

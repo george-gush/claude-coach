@@ -689,3 +689,5 @@ workout_doc PUT). Rebuilt both on Garmin from scratch with pace zones 7:45–8:1
 - Week 4 outcome (from data): Thu 15 brick did not record (empty activity), Sat 17
   run 4.3 km at HR 165 (hard — ask), no sea swim, no FTP test. Week 5 non-gym
   sessions are not written yet.
+- **Med-ball chest throw removed from Gym A (his call, 20 Oct).** He sees no value
+  in it. KB swing stays as the power move. Removed on Garmin and in `strength.md`.
