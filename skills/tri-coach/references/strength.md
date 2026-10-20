@@ -174,6 +174,9 @@ The end-of-session Spanish squat hold was **removed on 23 Sep** at his request.
 It duplicated the Block 0 hold, and the Block 0 one is the one that matters for
 the meniscus — it dulls pain before loading.
 
+**Core block added 20 Oct (his request: more core, wants visible abs).** End of session:
+hanging knee raise 3 × 10 (45 s rest) → side plank 2 × 30 s/side.
+
 ### Session B — Hinge and Pull
 
 | Block | Exercise | Sets × Reps | Notes |
@@ -192,6 +195,8 @@ the meniscus — it dulls pain before loading.
 | 6 | Kettlebell knee raise | 3 × 10 / side | Athlete request. Hip flexor, not knee joint. Straight. |
 | 6 | Leg extension isometric hold @ 60° | 3 × 30 s / side | Single leg, so the left knee cannot hide behind the right. Restored to the watch 23 Sep as a timed hold. |
 | 6 | Dead bug | 2 × 8 / side | **Added.** Anti-extension. |
+| 7 | **Core:** kneeling cable crunch | 3 × 12 @ ~27 kg | Added 20 Oct. Flexion — the visible-abs work. |
+| 7 | **Core:** ab-wheel rollout from the knees | 3 × 8 | Added 20 Oct. Anti-extension. Only as far as the lower back stays flat. |
 
 **Trimmed Session B** (sore-legs day, on the watch as a separate workout): KB
 swing 2 × 8 at 20 kg, no sled, hip thrust 3 sets, single-leg RDL 2 sets, no KB

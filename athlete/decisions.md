@@ -691,3 +691,9 @@ workout_doc PUT). Rebuilt both on Garmin from scratch with pace zones 7:45–8:1
   sessions are not written yet.
 - **Med-ball chest throw removed from Gym A (his call, 20 Oct).** He sees no value
   in it. KB swing stays as the power move. Removed on Garmin and in `strength.md`.
+- **Core block added to both gym sessions (his request, 20 Oct — "I want my abs to
+  start showing").** Gym A ends with hanging knee raise 3 × 10 + side plank 2 × 30 s/side
+  (Pallof stays). Gym B ends with cable crunch 3 × 12 @ 27 + ab-wheel rollout from the
+  knees 3 × 8 (dead bug stays). About 6 extra minutes each. On Garmin: the ab wheel has
+  no catalogue entry, so the step is "Plank" with a note. Told him honestly: visible
+  abs depend mostly on body fat, not on ab exercises.
