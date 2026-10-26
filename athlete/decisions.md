@@ -729,3 +729,6 @@ take Tuesday easy if legs are sore.
 - **No pace targets on runs (his preference, 26 Oct).** Today's run rebuilt as
   13 × (5 min run / 1 min walk), no target, gel after round 5, stop at 10 km. Rule
   saved in `profile.md`. Future runs: structure + time only; guidance in notes.
+- **Run warm-up split into its own workout (his request, 26 Oct).** Reusable Garmin
+  workout 1742384487 "Run Warm-up — 12 min walk". Run workouts now contain only the
+  run/walk repeats (no warm-up, no cool-down steps). Rule saved in `profile.md`.

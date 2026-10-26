@@ -224,3 +224,6 @@ full blood count) before adding iron or changing the D dose. No blood test yet.
 **No pace targets on run workouts.** The watch alerts ("pace above/below") annoy
 him. He runs at the pace that feels comfortable. Put run/walk structure and time only;
 give pace or HR guidance in the step note, never as a target.
+**Warm-up is a separate workout** ("Run Warm-up — 12 min walk", Garmin 1742384487:
+6 min walk + 6 min power walk). The run workout has no warm-up or cool-down steps,
+so walking never lowers the run's average pace. Schedule both on run days.
