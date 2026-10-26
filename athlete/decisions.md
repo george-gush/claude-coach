@@ -726,3 +726,6 @@ take Tuesday easy if legs are sore.
   12 × (6 min @ 8:00–8:30/km, HR ≤ 155 / 1 min walk) → 5 min walk. Gel after round 4.
   **Exit rules:** knee > 3/10, calf/hamstring tightness, or HR > 160 on an easy step →
   walk home. Brick workouts unscheduled from today; the brick moves to week 6.
+- **No pace targets on runs (his preference, 26 Oct).** Today's run rebuilt as
+  13 × (5 min run / 1 min walk), no target, gel after round 5, stop at 10 km. Rule
+  saved in `profile.md`. Future runs: structure + time only; guidance in notes.

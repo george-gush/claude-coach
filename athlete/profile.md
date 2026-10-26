@@ -219,3 +219,8 @@ kidney blood test. Coach view: all three reasonable, none
 proven to improve performance. Suggested: electrolytes in the heat, caffeine
 on race day (practise it first), and a blood test (25-OH vitamin D, ferritin, B12,
 full blood count) before adding iron or changing the D dose. No blood test yet.
+
+## Run workout preference (26 Oct 2026)
+**No pace targets on run workouts.** The watch alerts ("pace above/below") annoy
+him. He runs at the pace that feels comfortable. Put run/walk structure and time only;
+give pace or HR guidance in the step note, never as a target.
