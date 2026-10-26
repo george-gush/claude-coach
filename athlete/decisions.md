@@ -708,3 +708,13 @@ workout_doc PUT). Rebuilt both on Garmin from scratch with pace zones 7:45–8:1
   comparable knee demand — not proven safer. Kept the 90° depth cap and 3-0-3 tempo.
   Garmin has no pendulum squat entry; the step stays "Hack squat" with a PENDULUM note
   and no weight (machine leverage unknown — set 1 finds it). Log his weight for next time.
+
+## 2026-10-26 Mon — first brick moved to today (his call)
+Week 5 reality: Gym A 20 Oct ✔, swims 20/22 Oct ✔, ride 40 km 22 Oct ✔, Fri long
+run ✘ (no run since 17 Oct), **first sea swim 25 Oct ✔ (220 m)** + 1.2 km pool,
+Gym B (first hinge session) 25 Oct 16:45 ✔. Sunday brick not done → today.
+He asked 5 km or 10 km off the bike. **Answer: 5 km run-walk (5 × 5/1), hard cap
+6 km.** Reasons: no run in 9 days; longest run ever 7.2 km incl. walks; Gym B hinge
+~20 h earlier (soreness rising); 5.2–5.5 h sleep on the last recorded nights.
+Garmin brick workouts rescheduled to 26 Oct (schedule PUT). Monday rest moves:
+take Tuesday easy if legs are sore.
