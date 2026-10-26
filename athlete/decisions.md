@@ -718,3 +718,11 @@ He asked 5 km or 10 km off the bike. **Answer: 5 km run-walk (5 × 5/1), hard ca
 ~20 h earlier (soreness rising); 5.2–5.5 h sleep on the last recorded nights.
 Garmin brick workouts rescheduled to 26 Oct (schedule PUT). Monday rest moves:
 take Tuesday easy if legs are sore.
+- **Changed again (his call):** no brick today. He runs instead and wants to reach
+  **10 km for the first time**, as run-walk intervals with a gel. Coach view: a big
+  jump (longest 7.2 km, no run in 9 days, Gym B yesterday, short sleep), but it is
+  run-walk at easy pace and the race is 19 days out, so made as safe as possible:
+  Garmin workout 1742381047 "Run — 10 km run-walk attempt", today: 6 min walk →
+  12 × (6 min @ 8:00–8:30/km, HR ≤ 155 / 1 min walk) → 5 min walk. Gel after round 4.
+  **Exit rules:** knee > 3/10, calf/hamstring tightness, or HR > 160 on an easy step →
+  walk home. Brick workouts unscheduled from today; the brick moves to week 6.
