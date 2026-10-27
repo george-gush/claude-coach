@@ -737,3 +737,13 @@ take Tuesday easy if legs are sore.
   intervals.icu** as of 27 Oct — asked him to sync or send distance, time, HR.
   Fatigue from 8 km fits: first run past 7.2 km, no run for 9 days, first Gym B
   hinge session ~25 h earlier, short sleep.
+- **26 Oct run synced (Garmin 24864433355): FIRST 10 KM EVER.** 10.02 km in 83.1 min
+  (8:18/km incl. walks), avg HR 140, max 167. 13 × 5/1, no pace target.
+  - Rounds 1–6 (to 4.4 km): 7:30–8:09/km, HR 106 → 139. Controlled.
+  - **Round 7 (4.4–5.1 km): surged to 6:58/km, HR 167.** HR never came back down
+    (145–156 for the rest).
+  - **Ran through 2 walk breaks** (walk 5 and walk 13: 8:10 and 8:35/km, cadence 160+).
+  - **Fade at 8.1–8.6 km:** round 12 at 8:59/km, cadence 164 → 147 — matches his
+    "cooked at 8 km".
+  - Lessons for race day: no surges in the first half; every walk break is walked.
+    Race run plan can be built on ~8:15–8:30/km run-walk. Knee report pending.

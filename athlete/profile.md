@@ -227,3 +227,5 @@ give pace or HR guidance in the step note, never as a target.
 **Warm-up is a separate workout** ("Run Warm-up — 12 min walk", Garmin 1742384487:
 6 min walk + 6 min power walk). The run workout has no warm-up or cool-down steps,
 so walking never lowers the run's average pace. Schedule both on run days.
+
+**Longest run (26 Oct 2026): 10.02 km run-walk, 13 × 5/1, 83 min, 8:18/km incl. walks, HR 140.** Replaces 7.2 km (11 Oct).
