@@ -747,3 +747,6 @@ take Tuesday easy if legs are sore.
     "cooked at 8 km".
   - Lessons for race day: no surges in the first half; every walk break is walked.
     Race run plan can be built on ~8:15–8:30/km run-walk. Knee report pending.
+- Deep dive of the first 10 km written: `reviews/2026-10-26_first-10k-deep-dive.md`
+  (HR drift 16.5 % in 32 °C / dew point 24 °C; surge at run 7; cadence collapse at
+  8.1 km; race-day rules). Knee: "feels great" on 27 Oct — green.
