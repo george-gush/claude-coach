@@ -732,3 +732,8 @@ take Tuesday easy if legs are sore.
 - **Run warm-up split into its own workout (his request, 26 Oct).** Reusable Garmin
   workout 1742384487 "Run Warm-up — 12 min walk". Run workouts now contain only the
   run/walk repeats (no warm-up, no cool-down steps). Rule saved in `profile.md`.
+- **26 Oct run result (his report):** finished; "legs cooked" from about 8 km. The
+  warm-up (0.93 km, 12 min) synced; **the run itself has not reached Garmin or
+  intervals.icu** as of 27 Oct — asked him to sync or send distance, time, HR.
+  Fatigue from 8 km fits: first run past 7.2 km, no run for 9 days, first Gym B
+  hinge session ~25 h earlier, short sleep.
