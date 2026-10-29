@@ -67,3 +67,34 @@ Toe curls and band TKE skipped. **Pain in the warm-up lunges despite the bike.**
 
 **Tibialis progression (his request — he wants a strong tibialis):** 2 × 12–15.
 When both sets reach 15, add 2 kg. Next: 2 × 15 @ 8 kg.
+
+## 2026-10-20 Tue — Gym A (new gym) — Garmin 24790097696
+Watch still had the OLD workout (med-ball steps, no core block). Many sets show 0 reps
+(he did not press lap) — treat reps as unconfirmed.
+| Exercise | Sets |
+|---|---|
+| Tibialis | 15 @ 8, 10 @ 8 |
+| KB swing | 8, 9, 8 @ 20 |
+| Pendulum squat (logged as hack squat) | 8 @ 36.5, then 8 @ 46.5 × 3 |
+| Incline DB press | 8 @ 12, then 8 @ 14 × 3 |
+| Bulgarian split squat | 10 @ 9 (sets 2–3 not recorded) |
+| Shoulder press | 3 × 10 @ 10 |
+| Leg curl (new machine) | 12 @ 10, 12 @ 15, 10 @ 15 |
+| Cable fly | 3 × 12 @ 9 |
+| Calf raise | 15, 15 BW, 15 @ 4 |
+| Lateral raise | 15, 12, 12 @ 6 |
+| Triceps (new cable) | 3 × 12 @ 16 |
+
+## 2026-10-25 Sun — Gym B (first hinge session) — Garmin 24855138237
+Watch still had the sled step. **Session stopped after the face pulls** — no curl, calf,
+Copenhagen, KB knee raise, leg-extension hold, dead bug, or core.
+| Exercise | Sets |
+|---|---|
+| Tibialis | 15, 12 @ 8 |
+| KB swing | 8 @ 28, 8 @ 24, 8 @ 24 |
+| Sled push | 3 × 1 @ 40 (he did it) |
+| Hip thrust | 8 @ 23, 29, 36, 43 (4-set ramp) |
+| T-bar row | 8 @ 20, 4 @ 25 (then stopped) |
+| SL RDL | 8 @ 8, 8 @ 6 |
+| Lat pulldown | partly recorded |
+| Band walk | partly recorded |
