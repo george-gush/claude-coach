@@ -159,15 +159,15 @@ KB swing stays as the session's power move.
 | Block | Exercise | Sets × Reps | Notes |
 |---|---|---|---|
 | 1 | Kettlebell swing | 3 × 8 | Hip power. No landing load. |
-| 2 | **Pendulum squat** (was hack squat; his new gym, 20 Oct) | 4 × 6–8 | Cap the depth at ~90° knee bend. Tempo 3-0-3. Straight sets. Leg press if no pendulum. |
-| 3 | Incline dumbbell press | 4 × 6–10 | Straight sets. |
-| 4 | Bulgarian split squat | 3 × 8–10 / side | Straight sets — compound. |
+| 2 | **A1** **Pendulum squat** (was hack squat; his new gym, 20 Oct) | 4 × 6–8 | Cap the depth at ~90° knee bend. Tempo 3-0-3. Straight sets. Leg press if no pendulum. |
+| 2 | **A2** Incline dumbbell press | 4 × 6–10 | His pairing, 29 Oct: squat + press, 120 s rest after the pair. |
+| 4 | **B1** Bulgarian split squat | 3 × 8–10 / side | His pairing, 29 Oct: with triceps, 90 s rest after the pair. |
 | 5 | Seated dumbbell shoulder press | 3 × 8–12 | **Added.** See §4a. Straight sets — compound. |
 | 5 | **A1** Lying leg curl | 3 × 10–12 | **Added.** See §4a. His pairing: lower + upper. |
 | 5 | **A2** Cable fly | 3 × 12–15 | |
 | 5 | **B1** Standing calf raise | 3 × 12 | Gastrocnemius. His own pairing. |
 | 5 | **B2** Lateral raise | 3 × 15 | |
-| 5 | Overhead triceps extension | 3 × 12 | Straight. No lower isolation move left to pair it with. |
+| 4 | **B2** Overhead triceps extension | 3 × 12 | Paired with the split squat (his request). |
 | 6 | Pallof press | 2 × 10 / side | **Added.** Anti-rotation. Stay at the cable. |
 
 The end-of-session Spanish squat hold was **removed on 23 Sep** at his request.

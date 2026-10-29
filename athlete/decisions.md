@@ -754,3 +754,9 @@ take Tuesday easy if legs are sore.
   pendulum 46.5 (→50 if 2+ reps left), incline DB 14, shoulder press 10, leg curl 15
   (→17.5), triceps 16, Bulgarian 9 kg, Pallof 14, tibialis 8. Core block included.
   Gym B planned Mon 2 – Tue 3 Nov = last heavy leg session before the 14 Nov race.
+- **Supersets with compound lifts, on his request (29 Oct)** — a change to his earlier
+  rule (compounds straight): Gym A is now **pendulum squat + incline DB press** (4 sets,
+  120 s rest) and **Bulgarian split squat + triceps extension** (3 sets, 90 s rest).
+  Lower + upper, so the muscles differ. On Garmin as two repeat groups. Backup before:
+  `metrics/garmin_backups/2026-10-29_gymA_before_supersets.json`. Caveat given: if the
+  two stations are far apart, do straight sets instead.
