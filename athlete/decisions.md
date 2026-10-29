@@ -760,3 +760,8 @@ take Tuesday easy if legs are sore.
   Lower + upper, so the muscles differ. On Garmin as two repeat groups. Backup before:
   `metrics/garmin_backups/2026-10-29_gymA_before_supersets.json`. Caveat given: if the
   two stations are far apart, do straight sets instead.
+- **Spanish squat removed for good (his report, 29 Oct):** "destroying my knee". Replaced
+  in Block 0 on both Garmin workouts with his two banded moves: banded knee lift (band
+  at knees, lift one knee diagonally to 90°) and banded leg raise (band at feet). I named
+  the Garmin steps by best guess and put his description in each step note. Updated
+  `strength.md`, `garmin-exercise-map.md`, `injuries.md` (amber until swelling ruled out).

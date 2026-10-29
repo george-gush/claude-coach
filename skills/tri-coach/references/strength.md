@@ -82,18 +82,18 @@ problem, not a damage problem. So:
 
 ### Block 0 — Knee and Foot Prep (about 15 min)
 
-Revised 28 Sep with him: warm-up lunges and Cossack squat removed (they hurt on a
-cold knee and added nothing — the Bulgarian split squat trains the pattern).
-Tibialis stays, as the last part before the working sets. **Toe curls moved to
-home** (same day): they cannot be done in gym shoes. He does them at home.
+Revised 29 Oct: **Spanish squat REMOVED** — it aggravates his knee a lot (his report). Do not
+reintroduce wall sits or Spanish squats. The single-leg leg-extension hold in Gym B stays
+(he tolerates it). Cossack and warm-up lunges were removed on 28 Sep; toe curls are at home.
 
 | # | Movement | Dose | Why |
 |---|---|---|---|
 | 1 | Bike, easy | 10 min: 5 forward, 5 backward | Raises tissue temperature. This is the part that stops the pain. |
 | 2 | Knee-to-wall ankle rock | 10 / side | Ankle range. A stiff ankle sends load to the knee. |
 | 3 | Terminal knee extension, band | 2 × 15 / side | Quad work in the last 30° of extension. |
-| 4 | Spanish squat isometric | 2 × 30 s | Loads the quad with almost no shear at the joint. Dulls pain before loading. |
-| 5 | Tibialis raise | 2 × 12–15, **progressive** | Athlete priority. Shin and ankle strength. Add 2 kg when both sets reach 15. |
+| 4 | **Banded knee lift** (his move) | 2 × 10 / side | Band around the knees; lift one knee diagonally to 90°, hold 1 s, lower. Hip flexor and glute-med. |
+| 5 | **Banded leg raise** (his move) | 2 × 12 / side | Band around the feet; lift, hold 1 s, lower. |
+| 6 | Tibialis raise | 2 × 12–15, **progressive** | Athlete priority. Add 2 kg when both sets reach 15. |
 
 Before a **run**, use items 1, 5, 6 and 7 only — about 6 minutes. Write these as
 real steps in the Garmin workout, not as a note in the description. A step on the

@@ -67,15 +67,16 @@ python3.12 -m venv .venv && .venv/bin/pip install 'garminconnect>=0.3.16'
 display name; `find()` does substring search but returns first match, not best —
 always check the category is sensible before trusting a result.
 
-## Block 0 on the watch (revised 2026-09-28)
+## Block 0 on the watch (revised 2026-10-29)
 
-Every gym workout starts with these five, in this order. Warm-up lunges (split
-squat, Cossack as Side Lunge) were removed on 28 Sep. Toe curls moved to home the same day (not possible in shoes).
+Spanish squat / wall sit removed (aggravates the knee). Order: bike → ankle rock → band
+TKE → banded knee lift → banded leg raise → tibialis.
 
-| Block 0 move | Garmin category | Garmin exercise key | Step |
+| Move | Garmin category | Garmin exercise key | Step |
 |---|---|---|---|
-| Bike 10 min (5 fwd, 5 back) | `INDOOR_BIKE` | `STATIONARY_BIKE` | timed, 600 s |
-| Knee-to-wall ankle rock | `WARM_UP` | `ANKLE_DORSIFLEXION_WITH_BAND` | 10 L + 10 R |
-| Terminal knee extension, band | `BANDED_EXERCISES` | `LEG_EXTENSION` | 2 × (15 L + 15 R) |
-| Spanish squat | `SQUAT` | `BODY_WEIGHT_WALL_SQUAT` | 2 × 30 s timed |
-| Tibialis raise | `CALF_RAISE` | `SEATED_DUMBBELL_TOE_RAISE` | 2 × 15, weight on the step, progressive |
+| Bike 10 min | `INDOOR_BIKE` | `STATIONARY_BIKE` | timed 600 s |
+| Ankle rock | `WARM_UP` | `ANKLE_DORSIFLEXION_WITH_BAND` | 10 L + 10 R |
+| Band TKE | `BANDED_EXERCISES` | `LEG_EXTENSION` | 2 × (15 L + 15 R) |
+| Banded knee lift | `HIP_STABILITY` | `WEIGHTED_EXTERNAL_HIP_RAISE` (substitute; note carries the name) | 2 × (10 L + 10 R) |
+| Banded leg raise | `LEG_RAISE` | `LEG_RAISE` (substitute) | 2 × (12 L + 12 R) |
+| Tibialis | `CALF_RAISE` | `SEATED_DUMBBELL_TOE_RAISE` | 2 × 15, weight on step |

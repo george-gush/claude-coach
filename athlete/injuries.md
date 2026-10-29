@@ -59,6 +59,7 @@ That is why swelling, not pain, is the primary signal.
 | 2026-09-28 | **Calf tightness** during Gym A single-leg calf raises. He clarified: mild, relaxed after a stretch, and **his calves are always tight** — a long-standing pattern, not an acute event. | Green. Chronic tightness: treat with calf *strength* (straight-knee + bent-knee/soleus raises) and the Block 0 ankle rock, not with stretching alone. Tight calves limit ankle bend and push load onto the knee. |
 | 2026-09-28 | **Pain in the warm-up lunges** (shallow split squat / Cossack) at the start of Gym A, **after a 10-min bike** (5 fwd + 5 back). Hack squat 4 × 8 and BSS 3 × 10 later went fine. | Green. The bike did not prevent it, so the deep, cold lunge positions are the trigger. **Warm-up lunges and Cossack removed** (agreed with him). |
 | 2026-10-11 | Long run-walk 8 × 5/1, 7.2 km, 61 min, HR 135. Knee "completely fine" after. **New: hip tightness** (13 Oct). | Green. Hip mobility routine added (week 4 plan). Watch the hips through the brick and long run. |
+| 2026-10-29 | **Spanish squat (wall sit) "aggravates my knee a lot"** — he is stopping it. Pain level and any swelling not yet reported. | Amber until swelling is ruled out. Spanish squat removed everywhere. Replaced with banded knee lift + banded leg raise. Leg-extension hold (Gym B) and band TKE stay. Ask: pain /10, swelling next morning. |
 
 ## Secondary — low arch ("lazy arch")
 
