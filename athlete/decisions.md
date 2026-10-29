@@ -765,3 +765,8 @@ take Tuesday easy if legs are sore.
   at knees, lift one knee diagonally to 90°) and banded leg raise (band at feet). I named
   the Garmin steps by best guess and put his description in each step note. Updated
   `strength.md`, `garmin-exercise-map.md`, `injuries.md` (amber until swelling ruled out).
+- **29 Oct: PT summary written** (he starts with a gym PT): a private Claude doc,
+  https://claude.ai/artifact/9JAn7siJphntW4PYAeG7cK — snapshot, knee history, gym lifts
+  by session, runs/rides/swims, readiness, flags and questions, unknowns. Built only from
+  Garmin/intervals.icu records and his reports. Gym A on 29 Oct was recorded in part (old
+  watch version still loaded), so that column is marked partial.
