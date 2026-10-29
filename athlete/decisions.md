@@ -750,3 +750,7 @@ take Tuesday easy if legs are sore.
 - Deep dive of the first 10 km written: `reviews/2026-10-26_first-10k-deep-dive.md`
   (HR drift 16.5 % in 32 °C / dew point 24 °C; surge at run 7; cadence collapse at
   8.1 km; race-day rules). Knee: "feels great" on 27 Oct — green.
+- **29 Oct: Gym A today (his call).** Loads set on Garmin from his 20 Oct numbers:
+  pendulum 46.5 (→50 if 2+ reps left), incline DB 14, shoulder press 10, leg curl 15
+  (→17.5), triceps 16, Bulgarian 9 kg, Pallof 14, tibialis 8. Core block included.
+  Gym B planned Mon 2 – Tue 3 Nov = last heavy leg session before the 14 Nov race.
