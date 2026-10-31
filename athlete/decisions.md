@@ -770,3 +770,10 @@ take Tuesday easy if legs are sore.
   by session, runs/rides/swims, readiness, flags and questions, unknowns. Built only from
   Garmin/intervals.icu records and his reports. Gym A on 29 Oct was recorded in part (old
   watch version still loaded), so that column is marked partial.
+
+## 2026-10-31 Sat — run rehearsal (14 days to race)
+Recovery green: HRV 33.6, RHR 48, sleep 7.3 h, readiness 82. Last run 26 Oct (10 km).
+Plan given: 8 × (5 min run / 1 min walk), no pace target, HR ≤ 150, gel after round 4,
+technical shirt, early or late. Garmin: "Run Warm-up — 12 min walk" (1742384487) + new
+"Run — 8 x 5/1 (race rehearsal)". Taper starts 2 Nov. Knee after the wall sit (29 Oct) not
+yet reported — told him to skip if swelling.
