@@ -777,3 +777,19 @@ Plan given: 8 × (5 min run / 1 min walk), no pace target, HR ≤ 150, gel after
 technical shirt, early or late. Garmin: "Run Warm-up — 12 min walk" (1742384487) + new
 "Run — 8 x 5/1 (race rehearsal)". Taper starts 2 Nov. Knee after the wall sit (29 Oct) not
 yet reported — told him to skip if swelling.
+
+## 2026-11-15 Sun — race happened (14 Nov); knee flare; training on hold
+**Race (Garmin multisport 25076060888, 276.5 min total):** swim 1.58 km 39.6 min (2:30/100 m, HR 137);
+T1 8.3 min; bike 40.5 km 93.8 min (25.9 km/h, HR 134, **no power recorded**); T2 0.9 min; run:
+first 9.92 km in 92.9 min (9:21/km incl. walks, HR 144, cadence fell from 163 to ~129 around run-km
+3-8 while HR fell 154 to 132), then the next 1 km took 34.7 min (37 steps/min) and the next ~1 km
+6:03 with almost no steps (vehicle or standing — to ask).
+**His report:** extreme left-knee pain in the race, could barely bear weight, swollen; next morning
+pain and swelling reduced; lower-back pain by the end of the bike; left-foot cramp (midsole) at the
+start of the run.
+**Coach view:** treat as a flare of the degenerated meniscus until examined (RED). Likely contributors
+(hypotheses, not a diagnosis): first brick ever, 94 min in the bike position then a cold-knee start to
+the run, heat, bike fit never checked. Told him the red flags (locking, giving way, cannot straighten,
+returning swelling, calf pain or swelling, hot red knee, fever) and to see the PT/doctor this week.
+**Plan:** no run, no heavy leg work, no deep knee bends, no wall sit. Easy walking if pain 3/10 or less.
+No training plan written until the PT has examined him. Race era (8-week block) is over.
