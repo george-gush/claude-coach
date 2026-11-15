@@ -75,3 +75,10 @@ honestly if asked.
 ## History
 
 **(ask)** — no prior injury history recorded yet.
+
+## Foot mechanics (reported 16 Nov 2026)
+Low arches; **left foot over-pronates more than the right** (his observation, not measured).
+Left is also the injured knee side. Coach view: the link to the meniscus is plausible but not
+proven. Plan: PT/podiatrist gait and foot check; foot, calf and hip strength; compare left and
+right on single-leg tests; decide on insoles with a professional (he mentioned cycling insoles).
+Knee 16 Nov: "better today". Still no running until the PT has examined it.

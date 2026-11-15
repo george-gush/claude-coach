@@ -793,3 +793,7 @@ the run, heat, bike fit never checked. Told him the red flags (locking, giving w
 returning swelling, calf pain or swelling, hot red knee, fever) and to see the PT/doctor this week.
 **Plan:** no run, no heavy leg work, no deep knee bends, no wall sit. Easy walking if pain 3/10 or less.
 No training plan written until the PT has examined him. Race era (8-week block) is over.
+- **16 Nov:** knee better. He asked if he can recover (told: likely yes, exercise-based rehab is the
+  evidence-based route for degenerative meniscus; no promise before an exam) and how to balance low
+  arches and a left foot that over-pronates more. Answer: foot/calf/hip strength, left-right tests,
+  footwear and insole decision with a professional. Plan stays paused until the PT visit.
