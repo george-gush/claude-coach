@@ -229,3 +229,8 @@ give pace or HR guidance in the step note, never as a target.
 so walking never lowers the run's average pace. Schedule both on run days.
 
 **Longest run (26 Oct 2026): 10.02 km run-walk, 13 × 5/1, 83 min, 8:18/km incl. walks, HR 140.** Replaces 7.2 km (11 Oct).
+
+## Presentation preference (18 Nov 2026)
+**Exercise lists: one exercise per line, as bullets, grouped under a day heading.** Never pack
+several exercises into one table cell or one line. He has complained about presentation more
+than once — check the layout before sending any routine.
