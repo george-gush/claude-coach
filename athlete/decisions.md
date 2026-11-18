@@ -814,3 +814,11 @@ muscles around the knee, 4 x weekly, now the race is over. PT exam status still 
 **Garmin:** he wants to factory-reset the Forerunner 970. Gave the manual path (hold middle-left
 button > Watch Settings > System > Restore & Reset > Reset) and told him to sync first; workouts
 live in Garmin Connect and sync back.
+- **Plan audited and restructured (same day, his request to see the reasoning):** weekly sets per
+  muscle counted. Found and fixed: (1) upper body was trained once a week per muscle → now Upper A /
+  Upper B, each muscle twice a week; (2) pull volume was below push (13 vs 16 sets) → added a second
+  row, now 17 pull vs 16 push; (3) no side-core work → side plank added; (4) adductors only 3 sets →
+  6; (5) hamstrings 6 → 9 sets; (6) arch work once a week → daily short-foot at home.
+  Known, deliberate gap: no heavy quad loading until the PT clears it (quad sets, straight-leg
+  raises and the open-chain hold only). Rule: single-leg work starts on the LEFT, right matches it.
+  Split: D1 Upper A, D2 Hips A, D3 Upper B, D4 Hips B, knee block at the start of all four.
