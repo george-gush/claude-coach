@@ -827,3 +827,7 @@ live in Garmin Connect and sync back.
   Tue 24 (D4), Thu 26 (D1), Fri 27 (D2) — a Mon/Tue/Thu/Fri rhythm. Leg-extension hold carries an
   "only if the PT agrees" note. Old Gym A/B renamed "OLD ... (do not use)". Plan saved in `strength.md`.
 - He starts today: schedule moved to Wed 18 (D1), Thu 19 (D2); Mon 23 (D3), Tue 24 (D4), Thu 26, Fri 27 unchanged.
+- **Rule from him (18 Nov): delete old workouts always.** Deleted from Garmin: OLD Gym A, OLD Gym B,
+  "Run — 8 x 5/1 (race rehearsal)", "Run — 10 km run-walk attempt". JSON backups in
+  `metrics/garmin_backups/2026-11-18_deleted_*.json`. Kept: 4 knee-safe workouts, "25m.50x20",
+  "Run Warm-up — 12 min walk". Rule saved in `profile.md`.

@@ -234,3 +234,9 @@ so walking never lowers the run's average pace. Schedule both on run days.
 **Routines: one table per day, ONE exercise per row** (columns: exercise, sets x reps, weight,
 muscle, why in a few words). Never pack several exercises into one cell or one line. Short cells. He has complained about presentation more
 than once — check the layout before sending any routine.
+
+## Garmin housekeeping rule (18 Nov 2026)
+**Always delete old workouts from Garmin** when a new plan replaces them. Do not rename them or
+leave them in the list. Standing approval from him. Save a JSON backup in
+`athlete/metrics/garmin_backups/` first. Keep only: the current plan's workouts, his own swim
+workout "25m.50x20", and the reusable "Run Warm-up — 12 min walk".
