@@ -797,3 +797,20 @@ No training plan written until the PT has examined him. Race era (8-week block) 
   evidence-based route for degenerative meniscus; no promise before an exam) and how to balance low
   arches and a left foot that over-pronates more. Answer: foot/calf/hip strength, left-right tests,
   footwear and insole decision with a professional. Plan stays paused until the PT visit.
+
+## 2026-11-18 Wed — knee-unloaded gym plan proposed (4 days/week); Garmin reset
+He asked for a gym routine with "absolutely no meniscus or knee loading", strengthening the
+muscles around the knee, 4 x weekly, now the race is over. PT exam status still unknown.
+**Proposed (not yet on the watch — waiting for his OK and the PT's view):**
+- Rules: no squat, lunge, split squat, leg press, pendulum, step-up, jump, KB swing, sled; no
+  kneeling; no deep or loaded knee bend; no twist on a planted foot. Leg work lying, seated or
+  straight-knee. Told him honestly that zero meniscus load is impossible (walking loads it).
+- Knee block every session: quad set, straight-leg raise, side-lying hip abduction, glute bridge,
+  tibialis raise.
+- Day 1 upper push + core. Day 2 hips/hamstrings (hip thrust, back extension, half-range light
+  leg curl), calves, adduction. Day 3 upper pull + core. Day 4 hips, open-chain quad hold
+  (PT to agree), hip abduction/adduction machines, calves, feet.
+- Warm-up: easy walk, not the bike, for now.
+**Garmin:** he wants to factory-reset the Forerunner 970. Gave the manual path (hold middle-left
+button > Watch Settings > System > Restore & Reset > Reset) and told him to sync first; workouts
+live in Garmin Connect and sync back.
