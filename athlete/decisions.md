@@ -822,3 +822,7 @@ live in Garmin Connect and sync back.
   Known, deliberate gap: no heavy quad loading until the PT clears it (quad sets, straight-leg
   raises and the open-chain hold only). Rule: single-leg work starts on the LEFT, right matches it.
   Split: D1 Upper A, D2 Hips A, D3 Upper B, D4 Hips B, knee block at the start of all four.
+- **Knee-safe plan loaded on Garmin (his go-ahead, 18 Nov; PT exam still not confirmed):** workouts
+  1766385249 / 1766385262 / 1766385269 / 1766385278. Scheduled Thu 19 (D1), Fri 20 (D2), Mon 23 (D3),
+  Tue 24 (D4), Thu 26 (D1), Fri 27 (D2) — a Mon/Tue/Thu/Fri rhythm. Leg-extension hold carries an
+  "only if the PT agrees" note. Old Gym A/B renamed "OLD ... (do not use)". Plan saved in `strength.md`.

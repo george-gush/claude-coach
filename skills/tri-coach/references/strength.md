@@ -415,3 +415,28 @@ strength workouts directly in Garmin Connect via
 
 **Fallback:** Hevy Pro is set up and has a clean API. If Garmin's library or its
 on-watch experience proves too limited, switch. Do not switch without him asking.
+
+---
+
+## POST-RACE KNEE-SAFE PLAN (from 18 Nov 2026) — replaces Sessions A and B until the PT clears loaded knee work
+
+After the 14 Nov race flare (extreme left-knee pain, swelling). His request: no loaded knee bending.
+Rules: no squat, lunge, split squat, leg press, pendulum, step-up, jump, KB swing, sled; no kneeling;
+no deep knee bend; leg work lying, seated or straight-knee. Warm-up = 5-min walk (not the bike).
+Left leg first on single-leg work; right matches the left. Stop above 2/10 knee pain.
+
+**Knee block (start of all 4):** quad set 3 x 10 (5 s) · straight-leg raise 3 x 12/leg · side-lying leg
+lift 3 x 15/leg · glute bridge 3 x 12 · tibialis raise 2 x 15 @ 8.
+
+| Day | Garmin | Main work |
+|---|---|---|
+| 1 Upper A | `1766385249` | Incline DB press 4x8 @14 · T-bar row 4x8 @25 · lateral raise 3x15 @6 · face pull 3x15 @23 · triceps 3x12 @16 · hanging knee raise 3x10 · side plank 2x30 s/side |
+| 2 Hips A | `1766385262` | Hip thrust 4x8 @40 · back extension 3x12 · leg curl TOP HALF 3x12 @10 · hip abduction machine 3x15 · side-lying inner-thigh lift 3x12/side · seated calf 3x15 · standing calf 3x15 · plank 3x30 s |
+| 3 Upper B | `1766385269` | Lat pulldown 4x10-12 @36 · shoulder press 3x10 @10 · seated cable row 3x10 · cable fly 3x12 @9 · DB curl 3x12 @6 · dead bug 2x8/side · standing Pallof 2x10/side @14 |
+| 4 Hips B | `1766385278` | Single-leg glute bridge 3x10/side · one-leg leg-extension hold 3x30 s @9 (PT must agree) · leg curl TOP HALF 3x12 @10 · hip adduction machine 3x15 · seated calf 3x15 · standing calf 3x15 |
+
+Home, daily: short-foot 2 x 10/side. Weekly sets: glutes 10 loaded + 12 light, side hip 15, hamstrings 9,
+inner thigh 6, calves 12, shin 8, quads 24 light + 3 loaded (the deliberate weak point), push 16 vs pull 17.
+Garmin name substitutes: quad set = WARM_UP (note), hip ab/adduction machines and side-lying inner-thigh
+lift = BANDED_EXERCISES LEG_ABDUCTION / LEG_ADDUCTION, standing Pallof = CHOP/CHOP, walk = RUN/WALK.
+Old Gym A/B renamed "OLD ... (do not use)" on Garmin.
