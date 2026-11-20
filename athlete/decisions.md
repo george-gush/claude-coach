@@ -831,3 +831,10 @@ live in Garmin Connect and sync back.
   "Run — 8 x 5/1 (race rehearsal)", "Run — 10 km run-walk attempt". JSON backups in
   `metrics/garmin_backups/2026-11-18_deleted_*.json`. Kept: 4 knee-safe workouts, "25m.50x20",
   "Run Warm-up — 12 min walk". Rule saved in `profile.md`.
+
+## 2026-11-20 Fri — Hips A shortened by him (one-off)
+His call: no warm-up walk, no knee block (he warms up on the machines), no hip thrust this time.
+Keeps back extension, leg curl, hip abduction, seated calf raise; **adds the leg-extension machine**
+(dynamic, two legs). PT exam still not confirmed, so: light (about 15 kg), slow, stop above 2/10, and
+watch for swelling tonight and tomorrow morning. One-off Garmin workout "Hips A — short (20 Nov)" —
+delete it after the session (old-workout rule). Estimated 35-40 min.
