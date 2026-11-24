@@ -864,3 +864,8 @@ Hips A Fri 27, then Mon/Tue/Thu/Fri from 30 Nov.
   raise 10 kg DB, hip adduction machine 30 kg, hip abduction 41 kg, back extension 5 kg plate.
   Rule: every loaded exercise gets a starting weight and a progression rule; "none" only for
   true bodyweight moves.
+- **Standing calf raise removed (his report, 24 Nov): it presses on the knee** (straight leg, body
+  weight + load through the joint). Replaced on Hips B with a banded ankle push (sitting, leg straight
+  and unloaded, band around the ball of the foot), 3 x 20 per leg. Seated calf raise stays at 20 kg
+  with a note: pad above the knee; any knee pressure -> switch to the banded push. Asked whether the
+  seated version bothers it too.
