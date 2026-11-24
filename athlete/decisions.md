@@ -856,3 +856,6 @@ Hips A Fri 27, then Mon/Tue/Thu/Fri from 30 Nov.
 - One-off "Hips A — short (20 Nov)" deleted. Each session target under 60 min.
 - Schedule fixed so the rotation continues: Tue 24 Hips B, Thu 26 Upper A, Fri 27 Hips A,
   Mon 30 Upper B, Tue 1 Dec Hips B, Thu 3 Dec Upper A, Fri 4 Dec Hips A.
+- **Dead bug kept (his call, 24 Nov)** after I explained its purpose (trunk control for the bike
+  and late-run form; knee-safe). Made harder: 3 s out, 3 s back; light dumbbell once easy. Note
+  updated on Upper B (1766385269).
