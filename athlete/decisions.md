@@ -873,3 +873,11 @@ Hips A Fri 27, then Mon/Tue/Thu/Fri from 30 Nov.
   Banded ankle push removed from Hips B (too light to build strength; one variant is simpler). Calf
   work = seated raise on both hip days, 6 sets/week. Known gap: the upper calf (gastrocnemius) is only
   trained with a straight knee; bring a straight-knee calf raise back when the knee tolerates standing load.
+- **Hips B now has 22 sets (his OK, 24 Nov):** added back extension 3 x 12 @ 5 kg plate and hip
+  abduction machine 3 x 15 @ 41 kg. Order: SL bridge, leg extension, leg curl, back extension,
+  adduction, abduction, seated calf.
+- **Balance audit v2 (weekly sets):** push 16 / pull 17; chest 7; back 11 + face pull 3; shoulders 6;
+  biceps 3, triceps 3; glutes 13 loaded; hamstrings 12; side hip 13; inner thigh 6; seated calf 6;
+  shin 6; core 12 + back extension 6. **Gaps:** quads (4 loaded sets vs 12 hamstring sets); upper calf
+  (no straight-knee work); arms low (3 sets each). Next: load the leg extension once pain-free, then
+  ask the PT about short-range leg press.
