@@ -869,3 +869,7 @@ Hips A Fri 27, then Mon/Tue/Thu/Fri from 30 Nov.
   and unloaded, band around the ball of the foot), 3 x 20 per leg. Seated calf raise stays at 20 kg
   with a note: pad above the knee; any knee pressure -> switch to the banded push. Asked whether the
   seated version bothers it too.
+- **One calf variant only (his question, 24 Nov):** seated calf raise "is great" — no knee pressure.
+  Banded ankle push removed from Hips B (too light to build strength; one variant is simpler). Calf
+  work = seated raise on both hip days, 6 sets/week. Known gap: the upper calf (gastrocnemius) is only
+  trained with a straight knee; bring a straight-knee calf raise back when the knee tolerates standing load.
