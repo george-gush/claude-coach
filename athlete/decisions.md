@@ -854,3 +854,5 @@ Hips A Fri 27, then Mon/Tue/Thu/Fri from 30 Nov.
   triceps 16 until 3 x 12, curl 6 → try 8. Leg extension 9 kg, hold until pain-free.
 - Hips A starts with glute bridge (warm-up) then hip thrust 4 x 8 @ 40.
 - One-off "Hips A — short (20 Nov)" deleted. Each session target under 60 min.
+- Schedule fixed so the rotation continues: Tue 24 Hips B, Thu 26 Upper A, Fri 27 Hips A,
+  Mon 30 Upper B, Tue 1 Dec Hips B, Thu 3 Dec Upper A, Fri 4 Dec Hips A.
