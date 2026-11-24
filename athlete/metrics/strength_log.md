@@ -98,3 +98,15 @@ Copenhagen, KB knee raise, leg-extension hold, dead bug, or core.
 | SL RDL | 8 @ 8, 8 @ 6 |
 | Lat pulldown | partly recorded |
 | Band walk | partly recorded |
+
+## Knee-safe plan, week 1 (18-24 Nov 2026) — from Garmin
+**Wed 18 Nov — Upper A (71 min, 25120267659).** Walk 3.4 min. Knee block: quad set done, glute bridge 2 sets;
+straight-leg raise, side-lying lift and tibialis SKIPPED. Incline DB press 4 x 8 @ 14 · T-bar row 11 @ 20,
+8 @ 40, 8 @ 50, 8 @ 60 (to confirm — plan was 25) · lateral raise 15, 14, 8 @ 6 · face pull 15, 15, 9 @ 18 ·
+triceps 12 @ 16, 11 @ 18, 8 @ 18 · hanging knee raise 1 x 5 · side plank not recorded.
+**Fri 20 Nov — Hips A short (45 min, 25140569672).** Back extension 3 x 12 BW · leg extension 12 @ 9,
+10 @ 11, 12 @ 9, 12 @ 9 · leg curl 12 @ 14, 12 @ 16, 12 @ 16 · hip abduction 15 @ 32, 36, 41 · seated calf SKIPPED.
+**Sun 22 Nov — Upper B (48 min, 25159831148).** Knee block SKIPPED entirely. Lat pulldown 12 @ 41, 12 @ 43,
+12 @ 45, 8 @ 50 · shoulder press 12, 10, 10 @ 10 · seated cable row SKIPPED · cable fly 12, 11, 7 @ 9 ·
+DB curl 3 x 12 @ 6 · dead bug and Pallof SKIPPED.
+**Pattern:** the knee block and the core work at the ends of sessions get skipped; main lifts get done.
