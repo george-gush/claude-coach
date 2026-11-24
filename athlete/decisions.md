@@ -838,3 +838,19 @@ Keeps back extension, leg curl, hip abduction, seated calf raise; **adds the leg
 (dynamic, two legs). PT exam still not confirmed, so: light (about 15 kg), slow, stop above 2/10, and
 watch for swelling tonight and tomorrow morning. One-off Garmin workout "Hips A — short (20 Nov)" —
 delete it after the session (old-workout rule). Estimated 35-40 min.
+
+## 2026-11-24 Tue — week 1 review, plan v2
+His answers: leg extension hurt a little (did not push, thinks it will ease); T-bar row 60 kg = total
+plates (30 a side); seated cable row skipped because leg bracing aggravates the knee; PT has examined
+the knee — "not to worry, slowly get back to strength". Days: Hips B today (Tue 24), Upper A Thu 26,
+Hips A Fri 27, then Mon/Tue/Thu/Fri from 30 Nov.
+**v2 changes (Garmin workouts edited in place, backups 2026-11-24_kneesafe_v1_*):**
+- Knee block removed as a separate block: straight-leg raise and side-lying lift are supersetted with
+  the first two upper-body lifts; tibialis raise paired with lateral raise / cable fly. Core moved into
+  supersets (hanging knee raise with face pull, side plank with triceps, dead bug with DB row, Pallof
+  with curl, plank with back extension). Nothing important left at the end of a session.
+- Seated cable row → chest-supported DB row 3 x 10 @ 12 kg.
+- Loads: pulldown 45 (set 1 at 36), leg curl 16, hip abduction 41, T-bar 60 total, face pull 18,
+  triceps 16 until 3 x 12, curl 6 → try 8. Leg extension 9 kg, hold until pain-free.
+- Hips A starts with glute bridge (warm-up) then hip thrust 4 x 8 @ 40.
+- One-off "Hips A — short (20 Nov)" deleted. Each session target under 60 min.
