@@ -859,3 +859,8 @@ Hips A Fri 27, then Mon/Tue/Thu/Fri from 30 Nov.
 - **Dead bug kept (his call, 24 Nov)** after I explained its purpose (trunk control for the bike
   and late-run form; knee-safe). Made harder: 3 s out, 3 s back; light dumbbell once easy. Note
   updated on Upper B (1766385269).
+- **Weights for every loaded exercise (his complaint, 24 Nov: "why didn't you specify the weights").**
+  Replaced "light" with numbers on Garmin: seated calf raise 20 kg (+5 when 3 x 15), standing calf
+  raise 10 kg DB, hip adduction machine 30 kg, hip abduction 41 kg, back extension 5 kg plate.
+  Rule: every loaded exercise gets a starting weight and a progression rule; "none" only for
+  true bodyweight moves.

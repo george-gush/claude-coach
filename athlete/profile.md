@@ -232,7 +232,8 @@ so walking never lowers the run's average pace. Schedule both on run days.
 
 ## Presentation preference (18 Nov 2026)
 **Routines: one table per day, ONE exercise per row** (columns: exercise, sets x reps, weight,
-muscle, why in a few words). Never pack several exercises into one cell or one line. Short cells. He has complained about presentation more
+muscle, why in a few words). Never pack several exercises into one cell or one line. Short cells.
+**Every loaded exercise gets a number in kg** and a progression rule. Never write "light". He has complained about presentation more
 than once — check the layout before sending any routine.
 
 ## Garmin housekeeping rule (18 Nov 2026)
