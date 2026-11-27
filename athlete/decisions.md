@@ -881,3 +881,11 @@ Hips A Fri 27, then Mon/Tue/Thu/Fri from 30 Nov.
   shin 6; core 12 + back extension 6. **Gaps:** quads (4 loaded sets vs 12 hamstring sets); upper calf
   (no straight-knee work); arms low (3 sets each). Next: load the leg extension once pain-free, then
   ask the PT about short-range leg press.
+- **Hips A and B reordered (27 Nov, his request):** glute bridges must not start a session, because
+  they load a cold knee. **Rule: start every Hips session with hip-only work (abduction, adduction,
+  back extension). Put bridges, hip thrust, leg curl and leg extension later, when the knee is warm.**
+  - Hips A: abduction 41 → inner-thigh lift → back extension + plank → glute bridge → hip thrust 40 →
+    leg curl 16 → seated calf 20.
+  - Hips B: abduction 41 → adduction 30 → back extension 5 → SL glute bridge → leg curl 16 →
+    leg extension 9 → seated calf 20.
+  - Backups: garmin_backups/2026-11-27_hips{A,B}_before_reorder.json.
